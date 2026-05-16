@@ -53,7 +53,7 @@ export function Header() {
       children: [
         { labelKey: 'header.nav.about', descKey: 'about.titleHighlight', href: '#about' },
         { labelKey: 'header.nav.financing', descKey: 'header.nav.financing', href: '#appointment' },
-        { labelKey: 'header.nav.resources', descKey: 'header.nav.resources', href: '#testimonials' },
+        { labelKey: 'header.nav.resources', descKey: 'header.nav.resources', href: '#blog' },
       ]
     },
     {
