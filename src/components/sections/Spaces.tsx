@@ -1,3 +1,7 @@
+'use client'
+
+import { FadeUp } from '@/components/animations/FadeUp'
+import { useLanguage } from '@/context/LanguageContext'
 import { ArrowRight, Home, PartyPopper, Utensils, Hotel } from 'lucide-react'
 
 const ICON_MAP = {

@@ -10,18 +10,18 @@ const CONTENT = {
     steps: [
       {
         number: '01',
-        title: 'Evaluación Gratuita',
-        desc: 'Un técnico visita tu propiedad, evalúa el área afectada y entrega una propuesta sin costo ni compromiso.',
+        title: 'Habla con un Profesional',
+        desc: 'No te preocupes si no sabes qué plaga tienes. Nuestros expertos te ayudarán a identificarla y te darán una cotización exacta.',
       },
       {
         number: '02',
-        title: 'Instalación y Calibración',
-        desc: 'Instalamos el sistema en pocas horas, calibramos los ciclos de nebulización y te entregamos el control remoto.',
+        title: 'Eliminamos las Plagas',
+        desc: 'Si decides que somos la opción correcta, iniciaremos de inmediato. Te mantendremos informado en cada paso.',
       },
       {
         number: '03',
-        title: 'Protección Continua',
-        desc: 'El sistema trabaja solo. Tú disfrutas tu espacio. Nosotros monitoreamos y mantenemos.',
+        title: 'Disfruta de un Espacio Sano',
+        desc: 'Nos encargamos de tu problema. Aseguramos tu tranquilidad manteniendo tu hogar o negocio libre de plagas hoy y en el futuro.',
       },
     ],
   },
@@ -31,18 +31,18 @@ const CONTENT = {
     steps: [
       {
         number: '01',
-        title: 'Free Evaluation',
-        desc: 'A technician visits your property, assesses the affected area, and delivers a proposal at no cost or commitment.',
+        title: 'Speak With a Pest Pro',
+        desc: 'Don’t worry if you don’t know what pest you have. Our experts will help you identify it and provide an exact quote.',
       },
       {
         number: '02',
-        title: 'Installation & Setup',
-        desc: 'We install the system in a few hours, calibrate the misting cycles, and hand over the remote control.',
+        title: 'We’ll Get Rid of Pests',
+        desc: 'If you choose us, we will start right away. We will keep you informed and updated every step of the way.',
       },
       {
         number: '03',
-        title: 'Continuous Protection',
-        desc: 'The system works on its own. You enjoy your space. We monitor and maintain everything.',
+        title: 'Enjoy a Healthy Space',
+        desc: 'We take complete care of your issue. Rest assured, we will keep your home or business pest-free today and in the future.',
       },
     ],
   },
