@@ -26,8 +26,8 @@ export default function Home() {
       <About />
       <Logos />
       <Testimonials />
-      <Blog />
       <Appointment />
+      <Blog />
     </>
   )
 }
