@@ -10,8 +10,7 @@ const PESTS = [
   { emoji: '🕷️', labels: { es: 'Arañas',             en: 'Spiders'      } },
   { emoji: '🪰', labels: { es: 'Moscas',             en: 'Flies'        } },
   { emoji: '🐀', labels: { es: 'Ratas y Ratones',    en: 'Rats & Mice'  } },
-  { emoji: '🐜', labels: { es: 'Hormigas',           en: 'Ants'         } },
-  { emoji: '🪲', labels: { es: 'Termitas',           en: 'Termites'     } },
+  { emoji: '🐜', labels: { es: 'Hormigas y Termitas', en: 'Ants & Termites' } },
   { emoji: '🐝', labels: { es: 'Abejas y Avispas',   en: 'Bees & Wasps' } },
 ]
 
