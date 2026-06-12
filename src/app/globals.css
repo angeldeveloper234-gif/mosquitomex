@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: monospace;
-  --font-heading: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -87,6 +87,30 @@
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
   --radius: 0.75rem; /* 12px default */
+
+  /* ── Design System v2 Tokens (MosquitoMex — paleta roja) ── */
+  --ds-900: #04111c;
+  --ds-800: #082135;
+  --ds-700: #e82536;
+  --ds-600: #c91e2d;
+  --ds-500: #f04454;
+  --ds-100: #fdeaec;
+  --ds-50:  #fff5f6;
+  --ds-amber:    #F5A623;
+  --ds-amber-dk: #C8861B;
+  --ds-off:    #F8F8F8;
+  --ds-text:   #082135;
+  --ds-muted:  #5A6070;
+  --ds-border: #E5E8EC;
+  /* Fluid type scale */
+  --fs-xs:  clamp(0.75rem,   1.5vw, 0.8125rem);
+  --fs-sm:  clamp(0.875rem,  1.8vw, 0.9375rem);
+  --fs-md:  clamp(1rem,      2vw,   1.0625rem);
+  --fs-lg:  clamp(1.125rem,  2.5vw, 1.25rem);
+  --fs-xl:  clamp(1.375rem,  3vw,   1.625rem);
+  --fs-2xl: clamp(1.75rem,   4vw,   2.25rem);
+  --fs-3xl: clamp(2.25rem,   5vw,   3rem);
+  --fs-4xl: clamp(2.75rem,   6vw,   4rem);
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: #082135;
   --sidebar-primary: #e82536;
