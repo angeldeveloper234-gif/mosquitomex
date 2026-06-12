@@ -22,6 +22,16 @@ export function Header() {
     setMobileAccordions((prev) => ({ ...prev, [index]: !prev[index] }))
   }
 
+  const PESTS_DROPDOWN = [
+    { emoji: '🦟', label: language === 'es' ? 'Mosquitos'          : 'Mosquitoes',     href: '#plagas' },
+    { emoji: '🪳', label: language === 'es' ? 'Cucarachas'         : 'Cockroaches',    href: '#plagas' },
+    { emoji: '🕷️', label: language === 'es' ? 'Arañas'             : 'Spiders',        href: '#plagas' },
+    { emoji: '🪰', label: language === 'es' ? 'Moscas'             : 'Flies',          href: '#plagas' },
+    { emoji: '🐀', label: language === 'es' ? 'Ratas y Ratones'    : 'Rats & Mice',    href: '#plagas' },
+    { emoji: '🐜', label: language === 'es' ? 'Hormigas y Termitas': 'Ants & Termites',href: '#plagas' },
+    { emoji: '🐝', label: language === 'es' ? 'Abejas y Avispas'   : 'Bees & Wasps',   href: '#plagas' },
+  ]
+
   const navItems = [
     {
       labelKey: 'header.nav.solutions',
@@ -45,6 +55,7 @@ export function Header() {
     { labelKey: 'header.nav.blog',      href: '#blog' },
     { labelKey: 'header.nav.contactUs', href: '#appointment' },
   ]
+
 
   return (
     <>
@@ -86,6 +97,42 @@ export function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6 text-[0.8125rem] font-bold uppercase tracking-wider text-[#082135]">
+            {/* ── PLAGAS DROPDOWN ── */}
+            <div
+              className="relative py-2"
+              onMouseEnter={() => setActiveDropdown(99)}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <button className="flex items-center gap-1 cursor-pointer hover:text-[#e82536] transition-colors leading-[1.2]">
+                {language === 'es' ? 'Plagas' : 'Pests'}
+                <ChevronDown className={`size-3.5 transition-transform duration-200 ${activeDropdown === 99 ? 'rotate-180' : ''}`} />
+              </button>
+              <AnimatePresence>
+                {activeDropdown === 99 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute left-0 mt-2 w-52 bg-white border border-gray-200 shadow-xl z-50 py-2 flex flex-col"
+                  >
+                    {PESTS_DROPDOWN.map((pest, i) => (
+                      <Link
+                        key={i}
+                        href={pest.href}
+                        onClick={() => setActiveDropdown(null)}
+                        className="group flex items-center gap-3 px-4 py-2.5 hover:bg-[#fdeaec] transition-colors"
+                      >
+                        <span className="text-xl leading-none select-none">{pest.emoji}</span>
+                        <span className="text-[0.8125rem] font-bold text-[#082135] group-hover:text-[#e82536] transition-colors normal-case tracking-normal">
+                          {pest.label}
+                        </span>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             {navItems.map((item, index) => (
               <div
                 key={index}
@@ -198,6 +245,40 @@ export function Header() {
               </div>
 
               <div className="flex flex-col gap-4 flex-1">
+                {/* ── PLAGAS accordion en mobile ── */}
+                <div className="border-b border-gray-100 pb-3">
+                  <button
+                    onClick={() => toggleAccordion(99)}
+                    className="flex items-center justify-between w-full text-left font-black uppercase text-sm text-[#082135] py-3 hover:text-[#e82536] transition-colors"
+                  >
+                    <span>{language === 'es' ? 'Plagas' : 'Pests'}</span>
+                    <ChevronDown className={`size-4 transition-transform duration-200 ${mobileAccordions[99] ? 'rotate-180' : ''}`} />
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {mobileAccordions[99] && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden pl-3 mt-2 flex flex-col gap-1 border-l-2 border-gray-100"
+                      >
+                        {PESTS_DROPDOWN.map((pest, i) => (
+                          <Link
+                            key={i}
+                            href={pest.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="group flex items-center gap-3 py-2.5 text-[0.8125rem] font-bold text-[#082135] hover:text-[#e82536] transition-colors"
+                          >
+                            <span className="text-lg leading-none select-none">{pest.emoji}</span>
+                            <span>{pest.label}</span>
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
                 {navItems.map((item, index) => (
                   <div key={index} className="border-b border-gray-100 pb-3">
                     {item.children ? (
