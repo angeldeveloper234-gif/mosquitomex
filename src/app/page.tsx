@@ -11,6 +11,7 @@ import { Blog }         from '@/components/sections/Blog'
 import { Appointment }  from '@/components/sections/Appointment'
 import { ProcessVideo } from '@/components/sections/ProcessVideo'
 import { PestGrid }     from '@/components/sections/PestGrid'
+import { Locations }    from '@/components/sections/Locations'
 
 export default function Home() {
   return (
@@ -26,8 +27,10 @@ export default function Home() {
       <About />
       <Logos />
       <Testimonials />
+      <Locations />
       <Appointment />
       <Blog />
     </>
   )
 }
+
