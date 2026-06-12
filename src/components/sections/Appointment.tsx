@@ -186,7 +186,16 @@ export function Appointment() {
           </div>
 
           {/* Form Panel */}
-          <div className="md:col-span-8 p-8 md:p-12 flex flex-col justify-center bg-white dark:bg-black relative">
+          <div className="md:col-span-8 p-8 md:p-12 flex flex-col justify-center bg-white dark:bg-black relative pt-12 md:pt-16">
+            
+            {/* Progress Bar */}
+            <div className="absolute top-0 left-0 w-full h-1 bg-gray-100 dark:bg-slate-800">
+              <div 
+                className="h-full bg-[#e82536] transition-all duration-300"
+                style={{ width: `${isSuccess ? 100 : (step / 3) * 100}%` }}
+              />
+            </div>
+
             {isSuccess ? (
               <FadeUp>
                 <div className="text-center py-12 flex flex-col items-center justify-center gap-4">
