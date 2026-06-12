@@ -80,7 +80,7 @@ export function HowItWorks() {
             <FadeUp key={i} delay={i * 0.15}>
               <div className="relative z-10 flex flex-col items-center text-center gap-4">
                 {/* Number badge */}
-                <div className="size-20 rounded-md bg-[#082135] flex items-center justify-center shadow-lg flex-shrink-0 border-4 border-white">
+                <div className="size-20 rounded-full bg-[#082135] flex items-center justify-center shadow-lg flex-shrink-0 border-4 border-white">
                   <span className="text-[#e82536] font-black text-xl leading-none">{step.number}</span>
                 </div>
                 <h3 className="font-black text-[#082135] uppercase tracking-tight text-base">
