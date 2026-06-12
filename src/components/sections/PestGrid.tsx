@@ -2,26 +2,16 @@
 
 import { FadeUp } from '@/components/animations/FadeUp'
 import { useLanguage } from '@/context/LanguageContext'
-import { ArrowRight, Bug, Trash2, Network, Wind, Skull, Home, ShieldAlert } from 'lucide-react'
-
-const ICON_MAP = {
-  Bug: Bug,
-  Trash2: Trash2,
-  Network: Network,
-  Wind: Wind,
-  Skull: Skull,
-  Home: Home,
-  ShieldAlert: ShieldAlert,
-}
+import { ArrowRight } from 'lucide-react'
 
 const PESTS = [
-  { icon: 'Bug', labels: { es: 'Mosquitos',         en: 'Mosquitoes'   } },
-  { icon: 'Trash2', labels: { es: 'Cucarachas',         en: 'Cockroaches'  } },
-  { icon: 'Network', labels: { es: 'Arañas',             en: 'Spiders'      } },
-  { icon: 'Wind', labels: { es: 'Moscas',             en: 'Flies'        } },
-  { icon: 'Skull', labels: { es: 'Ratas y Ratones',    en: 'Rats & Mice'  } },
-  { icon: 'Home', labels: { es: 'Hormigas y Termitas', en: 'Ants & Termites' } },
-  { icon: 'ShieldAlert', labels: { es: 'Abejas y Avispas',   en: 'Bees & Wasps' } },
+  { emoji: '🦟', labels: { es: 'Mosquitos',          en: 'Mosquitoes'    } },
+  { emoji: '🪳', labels: { es: 'Cucarachas',          en: 'Cockroaches'   } },
+  { emoji: '🕷️', labels: { es: 'Arañas',              en: 'Spiders'       } },
+  { emoji: '🪰', labels: { es: 'Moscas',              en: 'Flies'         } },
+  { emoji: '🐀', labels: { es: 'Ratas y Ratones',     en: 'Rats & Mice'   } },
+  { emoji: '🐜', labels: { es: 'Hormigas y Termitas', en: 'Ants & Termites' } },
+  { emoji: '🐝', labels: { es: 'Abejas y Avispas',    en: 'Bees & Wasps'  } },
 ]
 
 export function PestGrid() {
@@ -56,25 +46,22 @@ export function PestGrid() {
         </FadeUp>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {PESTS.map((pest, i) => {
-            const IconComponent = ICON_MAP[pest.icon as keyof typeof ICON_MAP]
-            return (
-              <FadeUp key={pest.labels.es} delay={i * 0.06}>
-                <button
-                  onClick={scrollToContact}
-                  className="group w-full flex flex-col items-center gap-3 p-6 bg-[#F8F8F8] border border-[#E5E8EC] rounded hover:bg-[#e82536] hover:border-transparent hover:-translate-y-1 transition-all duration-200 cursor-pointer text-center"
-                >
-                  <div className="text-[#e82536] bg-[#fdeaec] p-3 rounded group-hover:bg-white/20 group-hover:text-white transition-colors duration-200">
-                    {IconComponent && <IconComponent className="size-6" />}
-                  </div>
-                  <span className="text-sm font-bold uppercase tracking-wide text-[#082135] group-hover:text-white transition-colors">
-                    {pest.labels[lang]}
-                  </span>
-                  <ArrowRight className="size-3.5 text-[#e82536] group-hover:text-white/70 transition-colors" />
-                </button>
-              </FadeUp>
-            )
-          })}
+          {PESTS.map((pest, i) => (
+            <FadeUp key={pest.labels.es} delay={i * 0.06}>
+              <button
+                onClick={scrollToContact}
+                className="group w-full flex flex-col items-center gap-3 p-6 bg-[#F8F8F8] border border-[#E5E8EC] rounded hover:bg-[#e82536] hover:border-transparent hover:-translate-y-1 transition-all duration-200 cursor-pointer text-center"
+              >
+                <div className="text-4xl leading-none bg-[#fdeaec] p-3 rounded group-hover:bg-white/20 transition-colors duration-200 select-none">
+                  {pest.emoji}
+                </div>
+                <span className="text-sm font-bold uppercase tracking-wide text-[#082135] group-hover:text-white transition-colors">
+                  {pest.labels[lang]}
+                </span>
+                <ArrowRight className="size-3.5 text-[#e82536] group-hover:text-white/70 transition-colors" />
+              </button>
+            </FadeUp>
+          ))}
         </div>
 
         <FadeUp delay={0.55}>
