@@ -43,8 +43,8 @@ export function Blog() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-[3rem]">
           <FadeUp>
-            <h2 className="text-h2 font-black tracking-tighter uppercase leading-[1.15] text-[#082135] dark:text-slate-100">
-              {t('blog.titlePre')}<span className="text-[#e82536]">{t('blog.titleHighlight')}</span>
+            <h2 className="text-h2 font-black tracking-tighter uppercase leading-[1.15] text-[#111111] dark:text-slate-100">
+              {t('blog.titlePre')}<span className="text-[#ce1126]">{t('blog.titleHighlight')}</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.1}>
@@ -72,14 +72,14 @@ export function Blog() {
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   {/* Category Tag Overlay */}
-                  <span className="absolute top-[0.75rem] left-[0.75rem] bg-[#e82536] text-white text-[0.625rem] md:text-[0.6875rem] font-black uppercase tracking-widest px-[0.625rem] py-[0.25rem] select-none rounded-none">
+                  <span className="absolute top-[0.75rem] left-[0.75rem] bg-[#ce1126] text-white text-[0.625rem] md:text-[0.6875rem] font-black uppercase tracking-widest px-[0.625rem] py-[0.25rem] select-none rounded-none">
                     {article.category}
                   </span>
                 </div>
 
                 {/* Card Info Section */}
                 <div className="flex flex-col flex-grow p-[1.25rem] space-y-[0.75rem]">
-                  <h3 className="text-[1.125rem] font-black text-[#082135] dark:text-slate-100 uppercase tracking-tight group-hover:text-[#e82536] transition-colors leading-[1.25] line-clamp-2">
+                  <h3 className="text-[1.125rem] font-black text-[#111111] dark:text-slate-100 uppercase tracking-tight group-hover:text-[#ce1126] transition-colors leading-[1.25] line-clamp-2">
                     {article.title}
                   </h3>
                   <p className="text-[0.875rem] text-gray-500 dark:text-slate-400 font-medium normal-case tracking-normal leading-relaxed line-clamp-3 flex-grow">
@@ -87,7 +87,7 @@ export function Blog() {
                   </p>
                   
                   {/* Read More Trigger Link */}
-                  <div className="pt-[0.5rem] flex items-center gap-[0.5rem] text-[0.75rem] font-bold text-[#e82536] uppercase tracking-wider group/link">
+                  <div className="pt-[0.5rem] flex items-center gap-[0.5rem] text-[0.75rem] font-bold text-[#ce1126] uppercase tracking-wider group/link">
                     <span>{t('blog.readMore')}</span>
                     <ArrowRight className="size-[0.875rem] transition-transform duration-200 group-hover/link:translate-x-1" />
                   </div>
@@ -108,7 +108,7 @@ export function Blog() {
               animate={{ opacity: 0.7 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveArticle(null)}
-              className="absolute inset-0 bg-[#082135]/80 backdrop-blur-md"
+              className="absolute inset-0 bg-[#111111]/80 backdrop-blur-md"
             />
 
             {/* Modal Dialog Container */}
@@ -122,7 +122,7 @@ export function Blog() {
               {/* Close Button - Meets 44x44px mobile touch targets perfectly */}
               <button
                 onClick={() => setActiveArticle(null)}
-                className="absolute top-[1rem] right-[1rem] z-20 flex items-center justify-center w-[2.75rem] h-[2.75rem] text-white bg-black/40 hover:bg-[#e82536] transition-colors border border-white/20 hover:border-transparent rounded-none focus:outline-none"
+                className="absolute top-[1rem] right-[1rem] z-20 flex items-center justify-center w-[2.75rem] h-[2.75rem] text-white bg-black/40 hover:bg-[#ce1126] transition-colors border border-white/20 hover:border-transparent rounded-none focus:outline-none"
                 aria-label={t('blog.close')}
               >
                 <X className="size-[1.25rem]" />
@@ -144,14 +144,14 @@ export function Blog() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                   
                   {/* Category overlay */}
-                  <span className="absolute bottom-[1.25rem] left-[1.5rem] bg-[#e82536] text-white text-[0.6875rem] md:text-[0.75rem] font-black uppercase tracking-widest px-[0.75rem] py-[0.375rem] rounded-none">
+                  <span className="absolute bottom-[1.25rem] left-[1.5rem] bg-[#ce1126] text-white text-[0.6875rem] md:text-[0.75rem] font-black uppercase tracking-widest px-[0.75rem] py-[0.375rem] rounded-none">
                     {activeArticle.category}
                   </span>
                 </div>
 
                 {/* Article Copy Elements */}
                 <div className="p-[1.5rem] md:p-[2.5rem] space-y-[1.5rem]">
-                  <h2 className="text-[1.75rem] md:text-[2.25rem] font-black tracking-tighter text-[#082135] dark:text-slate-100 uppercase leading-[1.1] border-b border-gray-100 dark:border-slate-800 pb-[1rem]">
+                  <h2 className="text-[1.75rem] md:text-[2.25rem] font-black tracking-tighter text-[#111111] dark:text-slate-100 uppercase leading-[1.1] border-b border-gray-100 dark:border-slate-800 pb-[1rem]">
                     {activeArticle.title}
                   </h2>
                   

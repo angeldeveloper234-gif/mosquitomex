@@ -9,30 +9,30 @@ export function Footer() {
   const { t } = useLanguage()
 
   return (
-    <footer className="w-full border-t border-[#082135]/10 bg-[#082135] text-white">
+    <footer className="w-full border-t border-[#111111]/10 bg-[#111111] text-white">
       <div className="container py-[3rem] md:py-[4rem]">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-[2rem]">
           <div className="space-y-[1rem]">
             <h3 className="text-[1.5rem] font-black italic tracking-tighter uppercase">
-              <span className="text-[#e82536]">Mosquito</span>mex
+              <span className="text-[#ce1126]">Mosquito</span>mex
             </h3>
             <p className="text-[1rem] text-slate-300 font-medium leading-relaxed max-w-[65ch]">
               {t('footer.tagline')}
             </p>
             <div className="flex space-x-[1rem]">
-              <Link href="#" className="text-white hover:text-[#e82536] transition-colors">
+              <Link href="#" className="text-white hover:text-[#ce1126] transition-colors">
                 <Facebook className="size-5" />
               </Link>
-              <Link href="#" className="text-white hover:text-[#e82536] transition-colors">
+              <Link href="#" className="text-white hover:text-[#ce1126] transition-colors">
                 <Instagram className="size-5" />
               </Link>
-              <Link href="#" className="text-white hover:text-[#e82536] transition-colors">
+              <Link href="#" className="text-white hover:text-[#ce1126] transition-colors">
                 <Twitter className="size-5" />
               </Link>
             </div>
           </div>
           <div className="space-y-[1rem]">
-            <h4 className="text-[0.75rem] font-black uppercase tracking-[0.2em] text-[#e82536]">
+            <h4 className="text-[0.75rem] font-black uppercase tracking-[0.2em] text-[#ce1126]">
               {t('footer.quickLinks')}
             </h4>
             <ul className="space-y-[0.5rem] text-[0.875rem] font-bold uppercase">
@@ -43,7 +43,7 @@ export function Footer() {
             </ul>
           </div>
           <div className="space-y-[1rem]">
-            <h4 className="text-[0.75rem] font-black uppercase tracking-[0.2em] text-[#e82536]">
+            <h4 className="text-[0.75rem] font-black uppercase tracking-[0.2em] text-[#ce1126]">
               {t('footer.ourServices')}
             </h4>
             <ul className="space-y-[0.5rem] text-[0.875rem] font-bold uppercase">
@@ -54,18 +54,18 @@ export function Footer() {
             </ul>
           </div>
           <div className="space-y-[1rem]">
-            <h4 className="text-[0.75rem] font-black uppercase tracking-[0.2em] text-[#e82536]">
+            <h4 className="text-[0.75rem] font-black uppercase tracking-[0.2em] text-[#ce1126]">
               {t('footer.contact')}
             </h4>
             <ul className="space-y-[0.75rem] text-[0.875rem] font-bold">
               <li className="flex items-center gap-[0.5rem] text-slate-300">
-                <Phone className="size-4 text-[#e82536]" /> <span>+52 55 1234 5678</span>
+                <Phone className="size-4 text-[#ce1126]" /> <span>+52 55 1234 5678</span>
               </li>
               <li className="flex items-center gap-[0.5rem] text-slate-300">
-                <Mail className="size-4 text-[#e82536]" /> <span>contacto@mosquitomex.com</span>
+                <Mail className="size-4 text-[#ce1126]" /> <span>contacto@mosquitomex.com</span>
               </li>
               <li className="flex items-start gap-[0.5rem] text-slate-300">
-                <MapPin className="size-4 text-[#e82536] mt-[0.25rem] flex-shrink-0" />
+                <MapPin className="size-4 text-[#ce1126] mt-[0.25rem] flex-shrink-0" />
                 <span className="leading-relaxed">{t('footer.contactInfo.address')}</span>
               </li>
             </ul>

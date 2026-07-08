@@ -50,7 +50,7 @@ export function Technology() {
   const c = CONTENT[language as 'es' | 'en'] ?? CONTENT.es
 
   return (
-    <section id="tecnologia" className="section-padding bg-[#082135] text-white overflow-hidden">
+    <section id="tecnologia" className="section-padding bg-[#111111] text-white overflow-hidden">
       {/* Subtle background texture */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(232,37,54,0.12),transparent_60%)] pointer-events-none" />
 
@@ -61,20 +61,20 @@ export function Technology() {
           <FadeUp>
             <div className="flex flex-col gap-6">
 
-              <div className="inline-flex items-center gap-2 text-[#e82536] text-[0.7rem] font-bold uppercase tracking-[0.18em]">
-                <span className="w-5 h-px bg-[#e82536]" />
+              <div className="inline-flex items-center gap-2 text-[#ce1126] text-[0.7rem] font-bold uppercase tracking-[0.18em]">
+                <span className="w-5 h-px bg-[#ce1126]" />
                 {c.eyebrow}
               </div>
 
               <div>
                 <h2 className="text-h2 font-black tracking-tighter uppercase leading-[1.05] text-white">
                   {c.title}{' '}
-                  <span className="text-[#e82536]">{c.titleHighlight}</span>
+                  <span className="text-[#ce1126]">{c.titleHighlight}</span>
                 </h2>
                 <p className="text-white/55 text-base mt-2 italic">{c.subtitle}</p>
               </div>
 
-              <div className="inline-flex items-center gap-2 bg-[#e82536]/15 border border-[#e82536]/30 text-[#e82536] text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-md self-start">
+              <div className="inline-flex items-center gap-2 bg-[#ce1126]/15 border border-[#ce1126]/30 text-[#ce1126] text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-md self-start">
                 <Award className="size-3.5" />
                 {c.badge}
               </div>
@@ -85,7 +85,7 @@ export function Technology() {
 
               <button
                 onClick={() => document.getElementById('appointment')?.scrollIntoView({ behavior: 'smooth' })}
-                className="self-start inline-flex items-center gap-2 bg-[#e82536] hover:bg-[#c91e2d] text-white font-black text-sm px-6 py-3 rounded-md transition-all duration-200 hover:-translate-y-0.5 uppercase tracking-wide"
+                className="self-start inline-flex items-center gap-2 bg-[#ce1126] hover:bg-[#a60d1e] text-white font-black text-sm px-6 py-3 rounded-md transition-all duration-200 hover:-translate-y-0.5 uppercase tracking-wide"
               >
                 {c.cta}
                 <ArrowRight className="size-4" />
@@ -102,7 +102,7 @@ export function Technology() {
               <div className="flex flex-col gap-4">
                 {c.features.map((feat, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="size-4 text-[#e82536] flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-4 text-[#ce1126] flex-shrink-0 mt-0.5" />
                     <span className="text-white/75 text-sm leading-relaxed">{feat}</span>
                   </div>
                 ))}

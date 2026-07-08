@@ -84,14 +84,14 @@ export function Spaces() {
 
         <FadeUp>
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 text-[#e82536] text-[0.7rem] font-bold uppercase tracking-[0.18em] mb-4">
-              <span className="w-5 h-px bg-[#e82536]" />
+            <div className="inline-flex items-center gap-2 text-[#ce1126] text-[0.7rem] font-bold uppercase tracking-[0.18em] mb-4">
+              <span className="w-5 h-px bg-[#ce1126]" />
               {c.eyebrow}
-              <span className="w-5 h-px bg-[#e82536]" />
+              <span className="w-5 h-px bg-[#ce1126]" />
             </div>
-            <h2 className="text-h2 font-black tracking-tighter uppercase text-[#082135] leading-[1.1]">
+            <h2 className="text-h2 font-black tracking-tighter uppercase text-[#111111] leading-[1.1]">
               {c.title}{' '}
-              <span className="text-[#e82536]">{c.titleHighlight}</span>
+              <span className="text-[#ce1126]">{c.titleHighlight}</span>
             </h2>
           </div>
         </FadeUp>
@@ -103,18 +103,18 @@ export function Spaces() {
               <FadeUp key={i} delay={i * 0.1}>
                 <button
                   onClick={scrollToContact}
-                  className="group w-full text-left flex flex-col gap-4 p-6 bg-white rounded border border-[#E5E8EC] shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-[#e82536] transition-all duration-200 cursor-pointer h-full"
+                  className="group w-full text-left flex flex-col gap-4 p-6 bg-white rounded border border-[#E5E8EC] shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-[#ce1126] transition-all duration-200 cursor-pointer h-full"
                 >
-                  <div className="text-[#e82536] bg-[#fdeaec] p-3 rounded self-start group-hover:bg-[#e82536] group-hover:text-white transition-colors duration-200">
+                  <div className="text-[#ce1126] bg-[#fdeaea] p-3 rounded self-start group-hover:bg-[#ce1126] group-hover:text-white transition-colors duration-200">
                     {IconComponent && <IconComponent className="size-6" />}
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-black text-[#082135] uppercase tracking-tight text-base mb-1.5">
+                    <h3 className="font-black text-[#111111] uppercase tracking-tight text-base mb-1.5">
                       {space.label}
                     </h3>
                     <p className="text-[#5A6070] text-sm leading-relaxed">{space.desc}</p>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[#e82536] text-xs font-bold uppercase tracking-wide mt-auto">
+                  <div className="flex items-center gap-1.5 text-[#ce1126] text-xs font-bold uppercase tracking-wide mt-auto">
                     {c.cta}
                     <ArrowRight className="size-3" />
                   </div>

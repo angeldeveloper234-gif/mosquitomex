@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: monospace;
-  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -63,24 +63,24 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: #082135;
-  --card: oklch(1 0 0);
-  --card-foreground: #082135;
-  --popover: oklch(1 0 0);
-  --popover-foreground: #082135;
-  --primary: #e82536;
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: #082135;
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: #e82536;
-  --accent-foreground: oklch(0.985 0 0);
+  --background: #ffffff;
+  --foreground: #111111;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  --primary: #ce1126;
+  --primary-foreground: #ffffff;
+  --secondary: #006847;
+  --secondary-foreground: #ffffff;
+  --muted: #f5f5f5;
+  --muted-foreground: #5a6070;
+  --accent: #ce1126;
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: #e82536;
+  --border: #e5e8ec;
+  --input: #e5e8ec;
+  --ring: #ce1126;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -88,18 +88,24 @@
   --chart-5: oklch(0.269 0 0);
   --radius: 0.75rem; /* 12px default */
 
-  /* ── Design System v2 Tokens (MosquitoMex — paleta roja) ── */
-  --ds-900: #04111c;
-  --ds-800: #082135;
-  --ds-700: #e82536;
-  --ds-600: #c91e2d;
+  /* ── Design System v2 Tokens (MosquitoMex) ── */
+  --ds-brand-green: #006847;
+  --ds-brand-red: #ce1126;
+  --ds-text-main: #111111;
+  --ds-bg-main: #ffffff;
+  --ds-900: #111111;
+  --ds-800: #1a1a1a;
+  --ds-700: #ce1126;
+  --ds-600: #a60d1e;
   --ds-500: #f04454;
-  --ds-100: #fdeaec;
+  --ds-100: #fdeaea;
   --ds-50:  #fff5f6;
-  --ds-amber:    #F5A623;
-  --ds-amber-dk: #C8861B;
+  /* Verde institucional (confianza / contacto) — reemplaza al ámbar fuera de marca */
+  --ds-green:    #006847;
+  --ds-green-dk: #00543a;
+  --ds-green-50: #e6f0ed;
   --ds-off:    #F8F8F8;
-  --ds-text:   #082135;
+  --ds-text:   #111111;
   --ds-muted:  #5A6070;
   --ds-border: #E5E8EC;
   /* Fluid type scale */
@@ -112,13 +118,13 @@
   --fs-3xl: clamp(2.25rem,   5vw,   3rem);
   --fs-4xl: clamp(2.75rem,   6vw,   4rem);
   --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: #082135;
-  --sidebar-primary: #e82536;
+  --sidebar-foreground: #111111;
+  --sidebar-primary: #ce1126;
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: #e82536;
+  --sidebar-accent-foreground: #ce1126;
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: #e82536;
+  --sidebar-ring: #ce1126;
 }
 
 .dark {
@@ -184,8 +190,9 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-black tracking-tighter uppercase;
-    line-height: 1.15; /* Headings: 1.1-1.2 */
+    @apply font-heading font-bold uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.1; /* Headings: 1.1 */
   }
 
   h1 { font-size: var(--text-h1); }
@@ -196,6 +203,13 @@
     line-height: 1.6; /* Body: 1.5-1.65 */
     max-width: 65ch;
   }
+  
+  button {
+    transition: background-color 150ms ease, transform 100ms ease, opacity 150ms ease;
+  }
+  button:hover { filter: brightness(1.08); }
+  button:active { transform: scale(0.97); }
+  button:disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
 }
 
 @layer utilities {

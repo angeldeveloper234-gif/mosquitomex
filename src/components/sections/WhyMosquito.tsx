@@ -75,14 +75,14 @@ export function WhyMosquito() {
 
         <div className="max-w-3xl mx-auto text-center mb-14">
           <FadeUp>
-            <div className="inline-flex items-center gap-2 text-[#e82536] text-[0.7rem] font-bold uppercase tracking-[0.18em] mb-4">
-              <span className="w-5 h-px bg-[#e82536]" />
+            <div className="inline-flex items-center gap-2 text-[#ce1126] text-[0.7rem] font-bold uppercase tracking-[0.18em] mb-4">
+              <span className="w-5 h-px bg-[#ce1126]" />
               {c.eyebrow}
-              <span className="w-5 h-px bg-[#e82536]" />
+              <span className="w-5 h-px bg-[#ce1126]" />
             </div>
-            <h2 className="text-h2 font-black tracking-tighter uppercase text-[#082135] leading-[1.1]">
+            <h2 className="text-h2 font-black tracking-tighter uppercase text-[#111111] leading-[1.1]">
               {c.title}{' '}
-              <span className="text-[#e82536]">{c.titleHighlight}</span>
+              <span className="text-[#ce1126]">{c.titleHighlight}</span>
             </h2>
             <p className="text-[#5A6070] mt-4 text-base leading-relaxed max-w-[60ch] mx-auto">
               {c.description}
@@ -98,7 +98,7 @@ export function WhyMosquito() {
                 key={i}
                 className="text-center p-6 bg-white rounded border border-[#E5E8EC] shadow-sm"
               >
-                <p className="font-black text-[#e82536] leading-none text-[clamp(1.75rem,4vw,2.75rem)]">
+                <p className="font-black text-[#ce1126] leading-none text-[clamp(1.75rem,4vw,2.75rem)]">
                   {s.value}
                 </p>
                 <p className="text-[#5A6070] text-xs font-medium mt-2 uppercase tracking-wide leading-tight">
@@ -114,10 +114,10 @@ export function WhyMosquito() {
           {c.problems.map((p, i) => (
             <FadeUp key={i} delay={0.15 + i * 0.1}>
               <div className="bg-white rounded p-6 border border-[#E5E8EC] shadow-sm flex flex-col gap-3 h-full">
-                <div className="size-10 rounded bg-[#fdeaec] flex items-center justify-center flex-shrink-0">
-                  <p.Icon className="size-5 text-[#e82536]" />
+                <div className="size-10 rounded bg-[#fdeaea] flex items-center justify-center flex-shrink-0">
+                  <p.Icon className="size-5 text-[#ce1126]" />
                 </div>
-                <h3 className="font-black text-[#082135] uppercase tracking-tight text-sm">
+                <h3 className="font-black text-[#111111] uppercase tracking-tight text-sm">
                   {p.title}
                 </h3>
                 <p className="text-[#5A6070] text-sm leading-relaxed">{p.desc}</p>

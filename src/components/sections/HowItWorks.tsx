@@ -58,12 +58,12 @@ export function HowItWorks() {
 
         <FadeUp>
           <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 text-[#e82536] text-[0.7rem] font-bold uppercase tracking-[0.18em] mb-4">
-              <span className="w-5 h-px bg-[#e82536]" />
+            <div className="inline-flex items-center gap-2 text-[#ce1126] text-[0.7rem] font-bold uppercase tracking-[0.18em] mb-4">
+              <span className="w-5 h-px bg-[#ce1126]" />
               {c.eyebrow}
-              <span className="w-5 h-px bg-[#e82536]" />
+              <span className="w-5 h-px bg-[#ce1126]" />
             </div>
-            <h2 className="text-h2 font-black tracking-tighter uppercase text-[#082135] leading-[1.1]">
+            <h2 className="text-h2 font-black tracking-tighter uppercase text-[#111111] leading-[1.1]">
               {c.title}
             </h2>
           </div>
@@ -80,10 +80,10 @@ export function HowItWorks() {
             <FadeUp key={i} delay={i * 0.15}>
               <div className="relative z-10 flex flex-col items-center text-center gap-4">
                 {/* Number badge */}
-                <div className="size-20 rounded-full bg-[#082135] flex items-center justify-center shadow-lg flex-shrink-0 border-4 border-white">
-                  <span className="text-[#e82536] font-black text-xl leading-none">{step.number}</span>
+                <div className="size-20 rounded-full bg-[#111111] flex items-center justify-center shadow-lg flex-shrink-0 border-4 border-white">
+                  <span className="text-[#ce1126] font-black text-xl leading-none">{step.number}</span>
                 </div>
-                <h3 className="font-black text-[#082135] uppercase tracking-tight text-base">
+                <h3 className="font-black text-[#111111] uppercase tracking-tight text-base">
                   {step.title}
                 </h3>
                 <p className="text-[#5A6070] text-sm leading-relaxed max-w-[28ch]">

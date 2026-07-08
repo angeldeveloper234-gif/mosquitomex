@@ -78,7 +78,7 @@ export function Hero() {
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url('${img}')`,
-              backgroundColor: '#082135',
+              backgroundColor: '#111111',
               opacity: i === currentBg ? 1 : 0,
               transition: 'opacity 1200ms ease-in-out',
             }}
@@ -87,7 +87,7 @@ export function Hero() {
         ))}
 
         {/* Overlay oscuro */}
-        <div className="absolute inset-0 bg-[#082135]/72 z-10" />
+        <div className="absolute inset-0 bg-[#111111]/72 z-10" />
 
         {/* Contenido centrado */}
         <div className="relative z-20 w-full max-w-[50rem] mx-auto px-4 text-center flex flex-col items-center gap-5 py-16">
@@ -108,7 +108,7 @@ export function Hero() {
           {/* Headline principal */}
           <FadeUp delay={0.1}>
             <h1 className="font-black leading-[1.05] tracking-tighter text-[clamp(2rem,5.5vw,3.75rem)]">
-              <span className="text-[#e82536]">
+              <span className="text-[#ce1126]">
                 {isES ? 'Profesionales • Rápidos' : 'Friendly • Responsive'}
               </span>
               <br />
@@ -123,14 +123,14 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-2">
               <a
                 href={PHONE_HREF}
-                className="inline-flex items-center gap-2.5 bg-[#e82536] hover:bg-[#c91e2d] text-white font-black text-[0.9rem] px-7 py-3.5 rounded shadow-lg transition-all duration-200 hover:-translate-y-0.5 uppercase tracking-wide min-w-[210px] justify-center"
+                className="inline-flex items-center gap-2.5 bg-[#006847] hover:bg-[#00543a] text-white font-black text-[0.9rem] px-7 py-3.5 rounded shadow-lg transition-all duration-200 hover:-translate-y-0.5 uppercase tracking-wide min-w-[210px] justify-center"
               >
                 <Phone className="size-4" />
                 {isES ? `Llamar ${PHONE}` : `Call ${PHONE}`}
               </a>
               <button
                 onClick={() => document.getElementById('appointment')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center gap-2.5 bg-[#F5A623] hover:bg-[#C8861B] text-[#082135] font-black text-[0.9rem] px-7 py-3.5 rounded shadow-lg transition-all duration-200 hover:-translate-y-0.5 uppercase tracking-wide min-w-[210px] justify-center"
+                className="inline-flex items-center gap-2.5 bg-[#ce1126] hover:bg-[#a60d1e] text-white font-black text-[0.9rem] px-7 py-3.5 rounded shadow-lg transition-all duration-200 hover:-translate-y-0.5 uppercase tracking-wide min-w-[210px] justify-center"
               >
                 <FileText className="size-4" />
                 {isES ? 'Solicitar Cotización' : 'Start A Quote'}
@@ -148,11 +148,11 @@ export function Hero() {
             {cards.map((card, i) => (
               <FadeUp key={i} delay={0.3 + i * 0.1}>
                 <div className="bg-white border border-dashed border-gray-200 shadow-lg rounded p-6 flex flex-col items-center text-center gap-3 h-full">
-                  <div className="size-12 rounded bg-[#fdeaec] flex items-center justify-center flex-shrink-0">
-                    <card.Icon className="size-5 text-[#e82536]" />
+                  <div className="size-12 rounded bg-[#e6f0ed] flex items-center justify-center flex-shrink-0">
+                    <card.Icon className="size-5 text-[#006847]" />
                   </div>
                   <div className="w-10 border-t border-dashed border-gray-200" />
-                  <h3 className="font-black text-[#082135] uppercase tracking-tight text-[0.9rem]">
+                  <h3 className="font-black text-[#111111] uppercase tracking-tight text-[0.9rem]">
                     {card.title}
                   </h3>
                   <p className="text-[#5A6070] text-sm leading-relaxed">

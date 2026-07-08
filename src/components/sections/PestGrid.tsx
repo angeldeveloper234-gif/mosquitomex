@@ -29,12 +29,12 @@ export function PestGrid() {
 
         <FadeUp>
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 text-[#e82536] text-[0.7rem] font-bold uppercase tracking-[0.18em] mb-4">
-              <span className="block w-5 h-px bg-[#e82536]" />
+            <div className="inline-flex items-center gap-2 text-[#ce1126] text-[0.7rem] font-bold uppercase tracking-[0.18em] mb-4">
+              <span className="block w-5 h-px bg-[#ce1126]" />
               {isES ? 'Control de Plagas' : 'Pest Control'}
-              <span className="block w-5 h-px bg-[#e82536]" />
+              <span className="block w-5 h-px bg-[#ce1126]" />
             </div>
-            <h2 className="text-h2 font-black tracking-tighter uppercase text-[#082135] leading-[1.15]">
+            <h2 className="text-h2 font-black tracking-tighter uppercase text-[#111111] leading-[1.15]">
               {isES ? '¿Qué plaga te está afectando?' : 'What pest is bothering you?'}
             </h2>
             <p className="text-[#5A6070] mt-3 text-base max-w-[50ch] mx-auto">
@@ -50,15 +50,15 @@ export function PestGrid() {
             <FadeUp key={pest.labels.es} delay={i * 0.06}>
               <button
                 onClick={scrollToContact}
-                className="group w-full flex flex-col items-center gap-3 p-6 bg-[#F8F8F8] border border-[#E5E8EC] rounded hover:bg-[#e82536] hover:border-transparent hover:-translate-y-1 transition-all duration-200 cursor-pointer text-center"
+                className="group w-full flex flex-col items-center gap-3 p-6 bg-[#F8F8F8] border border-[#E5E8EC] rounded hover:bg-[#ce1126] hover:border-transparent hover:-translate-y-1 transition-all duration-200 cursor-pointer text-center"
               >
-                <div className="text-4xl leading-none bg-[#fdeaec] p-3 rounded group-hover:bg-white/20 transition-colors duration-200 select-none">
+                <div className="text-4xl leading-none bg-[#fdeaea] p-3 rounded group-hover:bg-white/20 transition-colors duration-200 select-none">
                   {pest.emoji}
                 </div>
-                <span className="text-sm font-bold uppercase tracking-wide text-[#082135] group-hover:text-white transition-colors">
+                <span className="text-sm font-bold uppercase tracking-wide text-[#111111] group-hover:text-white transition-colors">
                   {pest.labels[lang]}
                 </span>
-                <ArrowRight className="size-3.5 text-[#e82536] group-hover:text-white/70 transition-colors" />
+                <ArrowRight className="size-3.5 text-[#ce1126] group-hover:text-white/70 transition-colors" />
               </button>
             </FadeUp>
           ))}

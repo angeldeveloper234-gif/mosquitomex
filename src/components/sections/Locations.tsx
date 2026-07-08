@@ -29,11 +29,11 @@ export function Locations() {
         
         <FadeUp>
           <div className="text-center mb-10">
-            <h2 className="text-[#082135] text-4xl md:text-5xl font-black tracking-tighter uppercase mb-4 leading-tight">
+            <h2 className="text-[#111111] text-4xl md:text-5xl font-black tracking-tighter uppercase mb-4 leading-tight">
               {isES ? 'Zonas de Servicio' : 'Pest Control Service Locations'}
             </h2>
-            <div className="w-48 h-0.5 bg-[#e82536] mx-auto mb-6" />
-            <p className="text-[#e82536] italic font-medium text-sm md:text-base max-w-[70ch] mx-auto leading-relaxed">
+            <div className="w-48 h-0.5 bg-[#ce1126] mx-auto mb-6" />
+            <p className="text-[#ce1126] italic font-medium text-sm md:text-base max-w-[70ch] mx-auto leading-relaxed">
               {isES 
                 ? 'Ofrecemos cobertura en numerosas delegaciones, municipios y zonas aledañas de la CDMX, Estado de México, Querétaro, Puebla y Cuernavaca.'
                 : 'We service numerous locations and surrounding areas in CDMX, State of Mexico, Querétaro, Puebla, and Cuernavaca.'}
@@ -46,7 +46,7 @@ export function Locations() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8 gap-y-3 mb-10 max-w-3xl mx-auto pl-4 md:pl-0">
             {AREAS.map((area, index) => (
               <div key={index} className="flex items-center gap-2 text-sm text-[#5A6070]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#e82536] shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ce1126] shrink-0" />
                 <span className="font-semibold">{area}</span>
               </div>
             ))}
@@ -58,7 +58,7 @@ export function Locations() {
           <div className="text-center">
             <button
               onClick={scrollToContact}
-              className="inline-flex items-center gap-2.5 bg-[#e82536] hover:bg-[#c91e2d] text-white font-black text-sm px-8 py-4 rounded shadow-lg transition-all duration-200 uppercase tracking-wider group cursor-pointer"
+              className="inline-flex items-center gap-2.5 bg-[#ce1126] hover:bg-[#a60d1e] text-white font-black text-sm px-8 py-4 rounded shadow-lg transition-all duration-200 uppercase tracking-wider group cursor-pointer"
             >
               <span>{isES ? 'Iniciar mi Cotización' : 'Start a Quote'}</span>
               <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />

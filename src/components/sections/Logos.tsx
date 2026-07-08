@@ -23,7 +23,7 @@ export function Logos() {
     <section className="py-[clamp(3rem,8vw,6rem)] border-y border-slate-200/60 dark:border-slate-800/60 bg-slate-50/40 dark:bg-[#04111c] overflow-hidden relative">
       <div className="container relative z-10">
         <FadeUp>
-          <p className="text-center text-[1rem] font-bold text-[#082135]/60 dark:text-slate-400 uppercase tracking-[0.25em] mb-[2rem]">
+          <p className="text-center text-[1rem] font-bold text-[#111111]/60 dark:text-slate-400 uppercase tracking-[0.25em] mb-[2rem]">
             {t('logos.title')}
           </p>
         </FadeUp>
@@ -39,7 +39,7 @@ export function Logos() {
             {MARQUEE_LOGOS.map((logo, index) => (
               <div
                 key={`${logo.name}-${index}`}
-                className="flex items-center justify-center px-[2rem] py-[1rem] bg-white/70 dark:bg-slate-900/40 backdrop-blur-md border border-slate-100/50 dark:border-slate-800/30 w-[10rem] md:w-[12.5rem] h-[5.625rem] md:h-[6.875rem] transition-all duration-300 group hover:border-[#e82536]/30 dark:hover:border-[#e82536]/30 hover:shadow-sm hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
+                className="flex items-center justify-center px-[2rem] py-[1rem] bg-white/70 dark:bg-slate-900/40 backdrop-blur-md border border-slate-100/50 dark:border-slate-800/30 w-[10rem] md:w-[12.5rem] h-[5.625rem] md:h-[6.875rem] transition-all duration-300 group hover:border-[#ce1126]/30 dark:hover:border-[#ce1126]/30 hover:shadow-sm hover:scale-[1.03] active:scale-[0.98] cursor-pointer"
               >
                 <div className="relative w-full h-full opacity-60 dark:opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
                   <Image
