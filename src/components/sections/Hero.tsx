@@ -5,8 +5,11 @@ import { Phone, FileText, Leaf, Heart, Zap } from 'lucide-react'
 import { FadeUp } from '@/components/animations/FadeUp'
 import { useLanguage } from '@/context/LanguageContext'
 
-const PHONE = '+52 55 1234-5678'
-const PHONE_HREF = 'tel:+525512345678'
+import { SITE } from '@/lib/site'
+
+const PHONE = SITE.phone
+const PHONE_HREF = SITE.phoneHref
+const WA_HREF = SITE.whatsappHref
 
 const HERO_IMAGES = [
   '/hero/1.jpg',

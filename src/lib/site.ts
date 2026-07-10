@@ -19,8 +19,9 @@ export const SITE = {
   slogan: 'Nosotros llegamos, y las plagas se van',
   logo: '/mosquitos-mx.png',
   ogImage: '/og-default.jpg',
-  phone: '+52 55 1234 5678', // TODO: teléfono real
-  phoneHref: 'tel:+525512345678',
+  phone: '+52 81 1115 0958',
+  phoneHref: 'tel:+528111150958',
+  whatsappHref: 'https://wa.me/528111150958',
   email: 'contacto@bigcat.com.mx',
   areaServed: 'México',
   // Redes sociales oficiales (rellenar con URLs reales):
