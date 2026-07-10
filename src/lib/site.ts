@@ -22,12 +22,17 @@ export const SITE = {
   phone: '+52 81 1115 0958',
   phoneHref: 'tel:+528111150958',
   whatsappHref: 'https://wa.me/528111150958',
-  email: 'contacto@bigcat.com.mx',
+  // Correo general de la empresa (footer, JSON-LD, formulario de cotización)
+  email: 'contacto@mosquitomex.com',
+  // Correo dedicado a solicitudes de franquicia
+  franchiseEmail: 'contacto@bigcat.com.mx',
   areaServed: 'México',
-  // Web3Forms: entrega los formularios al correo asociado a esta access key
-  // (configurada con contacto@bigcat.com.mx). Es pública/segura en el cliente.
-  // Obtén la key gratis en https://web3forms.com y ponla en NEXT_PUBLIC_WEB3FORMS_KEY.
+  // Web3Forms: cada key entrega al correo con el que se registró.
+  //  - NEXT_PUBLIC_WEB3FORMS_KEY           → contacto@mosquitomex.com (cotización)
+  //  - NEXT_PUBLIC_WEB3FORMS_KEY_FRANCHISE → contacto@bigcat.com.mx   (franquicias)
+  // Las access keys son públicas/seguras en el cliente. Obténlas gratis en https://web3forms.com
   formAccessKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || '',
+  franchiseAccessKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY_FRANCHISE || '',
   // Redes sociales oficiales (rellenar con URLs reales):
   socials: [] as string[],
   keywords: [

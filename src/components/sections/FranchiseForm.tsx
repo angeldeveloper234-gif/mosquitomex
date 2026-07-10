@@ -94,7 +94,12 @@ export function FranchiseForm() {
     setSubmitError(false)
     setIsSubmitting(true)
     try {
-      const { ok } = await submitLead(fields, { subject, replyTo: form.email })
+      const { ok } = await submitLead(fields, {
+        subject,
+        replyTo: form.email,
+        accessKey: SITE.franchiseAccessKey,
+        toEmail: SITE.franchiseEmail,
+      })
       if (ok) setIsSuccess(true)
       else setSubmitError(true)
     } catch {
@@ -123,7 +128,7 @@ export function FranchiseForm() {
               <p className="text-[#5A6070] dark:text-slate-400 max-w-md leading-relaxed">
                 {t('Se abrió tu correo con la solicitud lista para enviar. Si no se abrió, escríbenos directamente a ',
                   'Your email opened with the application ready to send. If it didn’t open, write to us directly at ')}
-                <a href={`mailto:${SITE.email}`} className="text-[#006847] font-bold underline underline-offset-2">{SITE.email}</a>.
+                <a href={`mailto:${SITE.franchiseEmail}`} className="text-[#006847] font-bold underline underline-offset-2">{SITE.franchiseEmail}</a>.
               </p>
               <p className="text-[#5A6070] dark:text-slate-400 text-sm">
                 {t('Nuestro equipo de expansión te contactará a la brevedad.',
@@ -268,7 +273,7 @@ export function FranchiseForm() {
             {submitError && (
               <p className="text-center text-[0.8125rem] text-[#ce1126] font-bold">
                 {t('No se pudo enviar. Inténtalo de nuevo o escríbenos a ', 'Could not send. Please try again or write to us at ')}
-                <a href={`mailto:${SITE.email}`} className="underline">{SITE.email}</a>.
+                <a href={`mailto:${SITE.franchiseEmail}`} className="underline">{SITE.franchiseEmail}</a>.
               </p>
             )}
             <p className="text-center text-[0.6875rem] text-[#5A6070] dark:text-slate-500">

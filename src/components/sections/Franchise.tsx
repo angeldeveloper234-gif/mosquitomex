@@ -41,7 +41,7 @@ export function Franchise({ mode = 'teaser' }: { mode?: 'teaser' | 'page' }) {
     },
   ]
 
-  const franchiseMailto = `mailto:${SITE.email}?subject=${encodeURIComponent(
+  const franchiseMailto = `mailto:${SITE.franchiseEmail}?subject=${encodeURIComponent(
     isES ? 'Quiero información sobre franquicias MosquitoMEX' : 'MosquitoMEX Franchise Inquiry'
   )}`
 
@@ -113,7 +113,7 @@ export function Franchise({ mode = 'teaser' }: { mode?: 'teaser' | 'page' }) {
                 className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium transition-colors"
               >
                 <Mail className="size-4" />
-                <span>{SITE.email}</span>
+                <span>{SITE.franchiseEmail}</span>
               </a>
             </div>
           </FadeUp>

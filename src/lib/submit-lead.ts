@@ -11,16 +11,26 @@ type SubmitResult = { ok: boolean; fallback?: boolean }
  */
 export async function submitLead(
   fields: Record<string, string>,
-  opts: { subject: string; replyTo?: string }
+  opts: {
+    subject: string
+    replyTo?: string
+    /** Web3Forms access key (según el formulario). Default: key de la empresa. */
+    accessKey?: string
+    /** Correo destino para el fallback mailto. Default: correo de la empresa. */
+    toEmail?: string
+  }
 ): Promise<SubmitResult> {
+  const accessKey = opts.accessKey ?? SITE.formAccessKey
+  const toEmail = opts.toEmail ?? SITE.email
+
   // Fallback: sin key configurada → abrir cliente de correo
-  if (!SITE.formAccessKey) {
+  if (!accessKey) {
     const body = Object.entries(fields)
       .map(([k, v]) => `${k}: ${v}`)
       .join('\n')
     if (typeof window !== 'undefined') {
       window.location.href =
-        `mailto:${SITE.email}?subject=${encodeURIComponent(opts.subject)}&body=${encodeURIComponent(body)}`
+        `mailto:${toEmail}?subject=${encodeURIComponent(opts.subject)}&body=${encodeURIComponent(body)}`
     }
     return { ok: true, fallback: true }
   }
@@ -29,7 +39,7 @@ export async function submitLead(
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify({
-      access_key: SITE.formAccessKey,
+      access_key: accessKey,
       subject: opts.subject,
       from_name: 'MosquitoMEX Web',
       ...(opts.replyTo ? { replyto: opts.replyTo } : {}),
