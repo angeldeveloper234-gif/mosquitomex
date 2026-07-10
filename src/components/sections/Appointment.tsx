@@ -6,6 +6,8 @@ import { FadeUp } from '@/components/animations/FadeUp'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { useLanguage } from '@/context/LanguageContext'
+import { submitLead } from '@/lib/submit-lead'
+import { SITE } from '@/lib/site'
 import { CheckCircle2, Building2, Home as HomeIcon, Check, ArrowRight, ArrowLeft } from 'lucide-react'
 
 const PEST_OPTIONS = {
@@ -39,6 +41,7 @@ export function Appointment() {
   const [step, setStep] = useState(1)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
 
   // Form State
   const [propertyType, setPropertyType] = useState<'residencial' | 'comercial' | null>(null)
@@ -125,15 +128,43 @@ export function Appointment() {
     setStep(prev => prev - 1)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (validateStep()) {
-      setIsSubmitting(true)
-      // Simulate API Submission
-      setTimeout(() => {
-        setIsSubmitting(false)
-        setIsSuccess(true)
-      }, 1500)
+    if (!validateStep()) return
+
+    const L = (es: string, en: string) => (isES ? es : en)
+    const pestLabels = selectedPests
+      .map(id => pestList.find(p => p.id === id)?.label ?? id)
+      .join(', ')
+    const fields: Record<string, string> = {
+      [L('Nombre', 'Name')]: contact.name,
+      [L('Teléfono', 'Phone')]: contact.phone,
+      [L('Correo', 'Email')]: contact.email,
+      [L('Tipo de propiedad', 'Property type')]:
+        propertyType === 'comercial' ? L('Comercial', 'Commercial') : L('Residencial', 'Residential'),
+      [L('Plagas', 'Pests')]: pestLabels || '—',
+      [L('Dirección', 'Address')]: address.street,
+      [L('Colonia', 'Neighborhood')]: address.colonia,
+      [L('Ciudad', 'City')]: address.city,
+      [L('Estado', 'State')]: address.state,
+      [L('C.P.', 'ZIP')]: address.zipCode,
+      [L('Mensaje', 'Message')]: contact.message || '—',
+    }
+    const subject = L(
+      `Nueva cotización MosquitoMEX – ${contact.name}`,
+      `New MosquitoMEX quote – ${contact.name}`
+    )
+
+    setSubmitError(false)
+    setIsSubmitting(true)
+    try {
+      const { ok } = await submitLead(fields, { subject, replyTo: contact.email })
+      if (ok) setIsSuccess(true)
+      else setSubmitError(true)
+    } catch {
+      setSubmitError(true)
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -509,6 +540,13 @@ export function Appointment() {
                     </Button>
                   )}
                 </div>
+
+                {submitError && (
+                  <p className="text-center text-[0.8125rem] text-[#ce1126] font-bold">
+                    {isES ? 'No se pudo enviar. Inténtalo de nuevo o escríbenos a ' : 'Could not send. Please try again or write to us at '}
+                    <a href={`mailto:${SITE.email}`} className="underline">{SITE.email}</a>.
+                  </p>
+                )}
 
               </form>
             )}

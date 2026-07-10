@@ -6,7 +6,8 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { useLanguage } from '@/context/LanguageContext'
 import { SITE } from '@/lib/site'
-import { CheckCircle2, Send } from 'lucide-react'
+import { submitLead } from '@/lib/submit-lead'
+import { CheckCircle2, Send, Loader2 } from 'lucide-react'
 
 type FormState = {
   name: string
@@ -36,6 +37,8 @@ export function FranchiseForm() {
   const [form, setForm] = useState<FormState>(EMPTY)
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, boolean>>>({})
   const [isSuccess, setIsSuccess] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
 
   const set = (key: keyof FormState, value: string) => {
     setForm(prev => ({ ...prev, [key]: value }))
@@ -64,35 +67,41 @@ export function FranchiseForm() {
     return Object.keys(next).length === 0
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!validate()) return
 
     const L = (es: string, en: string) => (isES ? es : en)
-    const body = [
-      `${L('Nombre', 'Name')}: ${form.name}`,
-      `${L('Correo', 'Email')}: ${form.email}`,
-      `${L('Teléfono/WhatsApp', 'Phone/WhatsApp')}: ${form.phone}`,
-      '',
-      `${L('Ciudad de interés', 'City of interest')}: ${form.city}`,
-      `${L('Estado', 'State')}: ${form.state}`,
-      '',
-      `${L('Capital de inversión', 'Investment capital')}: ${form.capital}`,
-      `${L('Cuándo desea iniciar', 'Desired start')}: ${form.timeline}`,
-      `${L('Dedicación', 'Dedication')}: ${form.dedication}`,
-      `${L('¿Experiencia empresarial?', 'Business experience?')}: ${form.bizExperience || '—'}`,
-      `${L('¿Experiencia en control de plagas?', 'Pest control experience?')}: ${form.pestExperience || '—'}`,
-      `${L('¿Cuenta con local u oficina?', 'Has a location/office?')}: ${form.hasLocation || '—'}`,
-      '',
-      `${L('Mensaje', 'Message')}: ${form.message || '—'}`,
-    ].join('\n')
-
-    const subject = encodeURIComponent(
-      L(`Solicitud de Franquicia MosquitoMEX – ${form.city}, ${form.state}`,
-        `MosquitoMEX Franchise Application – ${form.city}, ${form.state}`)
+    const fields: Record<string, string> = {
+      [L('Nombre', 'Name')]: form.name,
+      [L('Correo', 'Email')]: form.email,
+      [L('Teléfono/WhatsApp', 'Phone/WhatsApp')]: form.phone,
+      [L('Ciudad de interés', 'City of interest')]: form.city,
+      [L('Estado', 'State')]: form.state,
+      [L('Capital de inversión', 'Investment capital')]: form.capital,
+      [L('Cuándo desea iniciar', 'Desired start')]: form.timeline,
+      [L('Dedicación', 'Dedication')]: form.dedication,
+      [L('¿Experiencia empresarial?', 'Business experience?')]: form.bizExperience || '—',
+      [L('¿Experiencia en control de plagas?', 'Pest control experience?')]: form.pestExperience || '—',
+      [L('¿Cuenta con local u oficina?', 'Has a location/office?')]: form.hasLocation || '—',
+      [L('Mensaje', 'Message')]: form.message || '—',
+    }
+    const subject = L(
+      `Solicitud de Franquicia MosquitoMEX – ${form.city}, ${form.state}`,
+      `MosquitoMEX Franchise Application – ${form.city}, ${form.state}`
     )
-    window.location.href = `mailto:${SITE.email}?subject=${subject}&body=${encodeURIComponent(body)}`
-    setIsSuccess(true)
+
+    setSubmitError(false)
+    setIsSubmitting(true)
+    try {
+      const { ok } = await submitLead(fields, { subject, replyTo: form.email })
+      if (ok) setIsSuccess(true)
+      else setSubmitError(true)
+    } catch {
+      setSubmitError(true)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const labelCls = 'text-[0.6875rem] font-black uppercase tracking-wide text-[#111111] dark:text-slate-300 block mb-1.5'
@@ -247,11 +256,21 @@ export function FranchiseForm() {
 
             <button
               type="submit"
-              className="w-full inline-flex items-center justify-center gap-2.5 bg-[#006847] hover:bg-[#00543a] text-white font-black text-sm px-8 py-4 rounded shadow-lg transition-all duration-200 uppercase tracking-wider group"
+              disabled={isSubmitting}
+              className="w-full inline-flex items-center justify-center gap-2.5 bg-[#006847] hover:bg-[#00543a] disabled:opacity-70 disabled:cursor-not-allowed text-white font-black text-sm px-8 py-4 rounded shadow-lg transition-all duration-200 uppercase tracking-wider group"
             >
-              <Send className="size-4" />
-              <span>{t('Enviar Solicitud', 'Submit Application')}</span>
+              {isSubmitting ? (
+                <><Loader2 className="size-4 animate-spin" /><span>{t('Enviando…', 'Sending…')}</span></>
+              ) : (
+                <><Send className="size-4" /><span>{t('Enviar Solicitud', 'Submit Application')}</span></>
+              )}
             </button>
+            {submitError && (
+              <p className="text-center text-[0.8125rem] text-[#ce1126] font-bold">
+                {t('No se pudo enviar. Inténtalo de nuevo o escríbenos a ', 'Could not send. Please try again or write to us at ')}
+                <a href={`mailto:${SITE.email}`} className="underline">{SITE.email}</a>.
+              </p>
+            )}
             <p className="text-center text-[0.6875rem] text-[#5A6070] dark:text-slate-500">
               {t('Tus datos se envían directamente a nuestro equipo de expansión.', 'Your details are sent directly to our expansion team.')}
             </p>

@@ -24,6 +24,10 @@ export const SITE = {
   whatsappHref: 'https://wa.me/528111150958',
   email: 'contacto@bigcat.com.mx',
   areaServed: 'México',
+  // Web3Forms: entrega los formularios al correo asociado a esta access key
+  // (configurada con contacto@bigcat.com.mx). Es pública/segura en el cliente.
+  // Obtén la key gratis en https://web3forms.com y ponla en NEXT_PUBLIC_WEB3FORMS_KEY.
+  formAccessKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || '',
   // Redes sociales oficiales (rellenar con URLs reales):
   socials: [] as string[],
   keywords: [
