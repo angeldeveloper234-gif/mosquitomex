@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import { SITE } from '@/lib/site'
-import { Facebook, Instagram, Twitter } from '@/components/ui/icons'
 import { useLanguage } from '@/context/LanguageContext'
 
 export function Footer() {
@@ -20,17 +19,6 @@ export function Footer() {
             <p className="text-[1rem] text-slate-300 font-medium leading-relaxed max-w-[65ch]">
               {t('footer.tagline')}
             </p>
-            <div className="flex space-x-[1rem]">
-              <Link href="#" className="text-white hover:text-[#ce1126] transition-colors">
-                <Facebook className="size-5" />
-              </Link>
-              <Link href="#" className="text-white hover:text-[#ce1126] transition-colors">
-                <Instagram className="size-5" />
-              </Link>
-              <Link href="#" className="text-white hover:text-[#ce1126] transition-colors">
-                <Twitter className="size-5" />
-              </Link>
-            </div>
           </div>
           <div className="space-y-[1rem]">
             <h4 className="text-[0.75rem] font-black uppercase tracking-[0.2em] text-[#ce1126]">
