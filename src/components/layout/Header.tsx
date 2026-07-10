@@ -24,37 +24,38 @@ export function Header() {
   }
 
   const PESTS_DROPDOWN = [
-    { emoji: '🦟', label: language === 'es' ? 'Mosquitos'          : 'Mosquitoes',     href: '#plagas' },
-    { emoji: '🪳', label: language === 'es' ? 'Cucarachas'         : 'Cockroaches',    href: '#plagas' },
-    { emoji: '🕷️', label: language === 'es' ? 'Arañas'             : 'Spiders',        href: '#plagas' },
-    { emoji: '🪰', label: language === 'es' ? 'Moscas'             : 'Flies',          href: '#plagas' },
-    { emoji: '🐀', label: language === 'es' ? 'Ratas y Ratones'    : 'Rats & Mice',    href: '#plagas' },
-    { emoji: '🐜', label: language === 'es' ? 'Hormigas y Termitas': 'Ants & Termites',href: '#plagas' },
-    { emoji: '🐝', label: language === 'es' ? 'Abejas y Avispas'   : 'Bees & Wasps',   href: '#plagas' },
+    { emoji: '🦟', label: language === 'es' ? 'Mosquitos'          : 'Mosquitoes',     href: '/#plagas' },
+    { emoji: '🪳', label: language === 'es' ? 'Cucarachas'         : 'Cockroaches',    href: '/#plagas' },
+    { emoji: '🕷️', label: language === 'es' ? 'Arañas'             : 'Spiders',        href: '/#plagas' },
+    { emoji: '🪰', label: language === 'es' ? 'Moscas'             : 'Flies',          href: '/#plagas' },
+    { emoji: '🐀', label: language === 'es' ? 'Ratas y Ratones'    : 'Rats & Mice',    href: '/#plagas' },
+    { emoji: '🐜', label: language === 'es' ? 'Hormigas y Termitas': 'Ants & Termites',href: '/#plagas' },
+    { emoji: '🐝', label: language === 'es' ? 'Abejas y Avispas'   : 'Bees & Wasps',   href: '/#plagas' },
   ]
 
   const navItems = [
     {
       labelKey: 'header.nav.solutions',
       children: [
-        { labelKey: 'header.nav.autoSystem',  descKey: 'header.nav.autoSystemDesc',  href: '#soluciones' },
-        { labelKey: 'header.nav.treatment',   descKey: 'header.nav.treatmentDesc',   href: '#soluciones' },
-        { labelKey: 'header.nav.maintenance', descKey: 'header.nav.maintenanceDesc', href: '#soluciones' },
-        { labelKey: 'header.nav.commercial',  descKey: 'header.nav.commercialDesc',  href: '#soluciones' },
+        { labelKey: 'header.nav.autoSystem',  descKey: 'header.nav.autoSystemDesc',  href: '/#soluciones' },
+        { labelKey: 'header.nav.treatment',   descKey: 'header.nav.treatmentDesc',   href: '/#soluciones' },
+        { labelKey: 'header.nav.maintenance', descKey: 'header.nav.maintenanceDesc', href: '/#soluciones' },
+        { labelKey: 'header.nav.commercial',  descKey: 'header.nav.commercialDesc',  href: '/#soluciones' },
       ],
     },
-    { labelKey: 'header.nav.mcsSystem', href: '#tecnologia' },
+    { labelKey: 'header.nav.mcsSystem', href: '/#tecnologia' },
     {
       labelKey: 'header.nav.forYourSpace',
       children: [
-        { labelKey: 'header.nav.residential', descKey: 'header.nav.residentialDesc', href: '#espacios' },
-        { labelKey: 'header.nav.events',      descKey: 'header.nav.eventsDesc',      href: '#espacios' },
-        { labelKey: 'header.nav.restaurants', descKey: 'header.nav.restaurantsDesc', href: '#espacios' },
-        { labelKey: 'header.nav.hotels',      descKey: 'header.nav.hotelsDesc',      href: '#espacios' },
+        { labelKey: 'header.nav.residential', descKey: 'header.nav.residentialDesc', href: '/#espacios' },
+        { labelKey: 'header.nav.events',      descKey: 'header.nav.eventsDesc',      href: '/#espacios' },
+        { labelKey: 'header.nav.restaurants', descKey: 'header.nav.restaurantsDesc', href: '/#espacios' },
+        { labelKey: 'header.nav.hotels',      descKey: 'header.nav.hotelsDesc',      href: '/#espacios' },
       ],
     },
-    { labelKey: 'header.nav.blog',      href: '#blog' },
-    { labelKey: 'header.nav.contactUs', href: '#appointment' },
+    { labelKey: 'header.nav.blog',      href: '/blog' },
+    { labelKey: 'header.nav.franchise', href: '/#franquicias' },
+    { labelKey: 'header.nav.contactUs', href: '/#appointment' },
   ]
 
 

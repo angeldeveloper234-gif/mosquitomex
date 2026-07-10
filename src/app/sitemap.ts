@@ -1,15 +1,31 @@
 import { MetadataRoute } from 'next'
-
-const BASE_URL = 'https://clientedomain.com'
+import { SITE } from '@/lib/site'
+import { getAllPosts } from '@/lib/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const now = new Date()
+
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: BASE_URL,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+      url: SITE.url,
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 1,
     },
-    // Añadir más páginas estáticas o dinámicas aquí
+    {
+      url: `${SITE.url}/blog`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
   ]
+
+  const blogRoutes: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
+    url: `${SITE.url}/blog/${post.slug}`,
+    lastModified: new Date(post.dateModified),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
+  return [...staticRoutes, ...blogRoutes]
 }

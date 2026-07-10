@@ -98,8 +98,8 @@ export function Hero() {
               <div className="w-32 border-t border-dashed border-white/50" />
               <span className="font-medium tracking-wide">
                 {isES
-                  ? 'Control de Mosquitos #1 · Ciudad de México y área metropolitana'
-                  : "Mexico's #1 Mosquito Control · Mexico City & Metro Area"}
+                  ? 'Control de Mosquitos #1 · Cobertura en todo México'
+                  : "Mexico's #1 Mosquito Control · Nationwide Coverage"}
               </span>
               <div className="w-32 border-t border-dashed border-white/50" />
             </div>

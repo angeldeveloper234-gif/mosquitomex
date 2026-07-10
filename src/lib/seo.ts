@@ -1,35 +1,61 @@
 import { Metadata } from 'next'
-
-const BASE_URL = 'https://clientedomain.com'
+import { SITE, absoluteUrl } from './site'
 
 export function generatePageMetadata({
   title,
   description,
   path = '',
-  image = '/og-default.jpg',
+  image = SITE.ogImage,
+  keywords,
+  type = 'website',
+  publishedTime,
+  noIndex = false,
 }: {
   title: string
   description: string
   path?: string
   image?: string
+  keywords?: string[]
+  type?: 'website' | 'article'
+  publishedTime?: string
+  noIndex?: boolean
 }): Metadata {
-  const url = `${BASE_URL}${path}`
+  const url = absoluteUrl(path)
+  const ogImage = image.startsWith('http') ? image : absoluteUrl(image)
+
   return {
     title,
     description,
+    keywords: keywords ?? [...SITE.keywords],
     alternates: { canonical: url },
+    robots: noIndex
+      ? { index: false, follow: false }
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+            'max-video-preview': -1,
+          },
+        },
     openGraph: {
       title,
       description,
       url,
-      images: [{ url: `${BASE_URL}${image}`, width: 1200, height: 630 }],
-      type: 'website',
+      siteName: SITE.name,
+      locale: SITE.locale,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
+      type,
+      ...(publishedTime ? { publishedTime } : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [`${BASE_URL}${image}`],
+      images: [ogImage],
     },
   }
 }

@@ -36,6 +36,7 @@ export const translations = {
         hotels: "Hoteles",
         hotelsDesc: "Áreas comunes, albercas y jardines.",
         blog: "Blog",
+        franchise: "Franquicias",
         contactUs: "Contacto",
         about: "Nosotros",
       }
@@ -153,7 +154,7 @@ export const translations = {
         patioDesign: "Diseño de Patios"
       },
       contactInfo: {
-        address: "Ciudad de México, México"
+        address: "Cobertura en todo México"
       },
       copyright: "Todos los derechos reservados.",
       madeBy: "Hecho por"
@@ -163,6 +164,7 @@ export const translations = {
       titleHighlight: "Blog",
       description: "Consejos, guías y novedades para mantener tus espacios exteriores perfectos durante todo el año.",
       readMore: "Leer Artículo",
+      viewAll: "Ver todos los artículos",
       close: "Cerrar",
       articles: [
         {
@@ -237,6 +239,7 @@ export const translations = {
         hotels: "Hotels",
         hotelsDesc: "Common areas, pools, and gardens.",
         blog: "Blog",
+        franchise: "Franchises",
         contactUs: "Contact Us",
         about: "About",
       }
@@ -354,7 +357,7 @@ export const translations = {
         patioDesign: "Patio Design"
       },
       contactInfo: {
-        address: "Mexico City, Mexico"
+        address: "Nationwide coverage across Mexico"
       },
       copyright: "All rights reserved.",
       madeBy: "Made by"
@@ -364,6 +367,7 @@ export const translations = {
       titleHighlight: "Blog",
       description: "Tips, guides, and news to keep your outdoor spaces perfect all year round.",
       readMore: "Read Article",
+      viewAll: "View all articles",
       close: "Close",
       articles: [
         {

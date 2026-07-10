@@ -4,15 +4,12 @@ import { FadeUp } from '@/components/animations/FadeUp'
 import { useLanguage } from '@/context/LanguageContext'
 import { ArrowRight } from 'lucide-react'
 
+// Principales ciudades donde operamos — ejemplos de nuestra cobertura nacional
 const AREAS = [
-  // CDMX
-  'Coyoacán', 'Polanco', 'Del Valle', 'Santa Fe', 'Condesa', 'Tlalpan', 'Naucalpan', 'Interlomas',
-  // Edomex
-  'Toluca', 'Metepec', 'Huixquilucan', 'Satélite', 'Atizapán', 'Tlalnepantla', 'Ecatepec',
-  // Querétaro
-  'Juriquilla', 'El Campanario', 'Centro Histórico', 'Milenio III', 'Corregidora',
-  // Puebla & Cuernavaca
-  'Angelópolis', 'Cholula', 'Lomas de Angelópolis', 'Las Ánimas', 'Vista Hermosa', 'Jiutepec', 'Temixco'
+  'Ciudad de México', 'Estado de México', 'Guadalajara', 'Monterrey',
+  'Puebla', 'Querétaro', 'Cuernavaca', 'León',
+  'Mérida', 'Cancún', 'Tijuana', 'Toluca',
+  'Aguascalientes', 'San Luis Potosí', 'Veracruz', 'Y todo el país'
 ]
 
 export function Locations() {
@@ -24,19 +21,19 @@ export function Locations() {
   }
 
   return (
-    <section className="section-padding bg-[#F8F9FA] border-t border-[#E5E8EC]" id="sucursales">
+    <section className="section-padding bg-[#F8F9FA] border-t border-[#E5E8EC]" id="cobertura">
       <div className="container max-w-4xl">
         
         <FadeUp>
           <div className="text-center mb-10">
             <h2 className="text-[#111111] text-4xl md:text-5xl font-black tracking-tighter uppercase mb-4 leading-tight">
-              {isES ? 'Zonas de Servicio' : 'Pest Control Service Locations'}
+              {isES ? 'Cobertura Nacional' : 'Nationwide Coverage'}
             </h2>
             <div className="w-48 h-0.5 bg-[#ce1126] mx-auto mb-6" />
             <p className="text-[#ce1126] italic font-medium text-sm md:text-base max-w-[70ch] mx-auto leading-relaxed">
-              {isES 
-                ? 'Ofrecemos cobertura en numerosas delegaciones, municipios y zonas aledañas de la CDMX, Estado de México, Querétaro, Puebla y Cuernavaca.'
-                : 'We service numerous locations and surrounding areas in CDMX, State of Mexico, Querétaro, Puebla, and Cuernavaca.'}
+              {isES
+                ? 'Atendemos hogares y empresas en todo México. Sin importar dónde te encuentres, llevamos nuestro servicio profesional de control de plagas hasta tu puerta.'
+                : 'We serve homes and businesses across all of Mexico. Wherever you are, we bring our professional pest control service right to your door.'}
             </p>
           </div>
         </FadeUp>
