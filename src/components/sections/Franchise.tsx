@@ -1,11 +1,12 @@
 'use client'
 
+import Link from 'next/link'
 import { FadeUp } from '@/components/animations/FadeUp'
 import { useLanguage } from '@/context/LanguageContext'
 import { SITE } from '@/lib/site'
 import { BadgeCheck, TrendingUp, GraduationCap, Users, ArrowRight, Phone, Mail } from 'lucide-react'
 
-export function Franchise() {
+export function Franchise({ mode = 'teaser' }: { mode?: 'teaser' | 'page' }) {
   const { language } = useLanguage()
   const isES = language === 'es'
 
@@ -81,13 +82,23 @@ export function Franchise() {
 
               {/* CTA + contacto */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-                <a
-                  href={franchiseMailto}
-                  className="inline-flex items-center justify-center gap-2.5 bg-[#ce1126] hover:bg-[#a60d1e] text-white font-black text-sm px-8 py-4 rounded shadow-lg transition-all duration-200 uppercase tracking-wider group"
-                >
-                  <span>{isES ? 'Quiero mi Franquicia' : 'Request Information'}</span>
-                  <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                {mode === 'page' ? (
+                  <a
+                    href="#franchise-form"
+                    className="inline-flex items-center justify-center gap-2.5 bg-[#ce1126] hover:bg-[#a60d1e] text-white font-black text-sm px-8 py-4 rounded shadow-lg transition-all duration-200 uppercase tracking-wider group"
+                  >
+                    <span>{isES ? 'Solicitar Información' : 'Request Information'}</span>
+                    <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                ) : (
+                  <Link
+                    href="/franquicias"
+                    className="inline-flex items-center justify-center gap-2.5 bg-[#ce1126] hover:bg-[#a60d1e] text-white font-black text-sm px-8 py-4 rounded shadow-lg transition-all duration-200 uppercase tracking-wider group"
+                  >
+                    <span>{isES ? 'Quiero mi Franquicia' : 'Own a Franchise'}</span>
+                    <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                )}
                 <a
                   href={SITE.phoneHref}
                   className="inline-flex items-center justify-center gap-2 border border-white/30 hover:bg-white/10 text-white font-bold text-sm px-6 py-4 rounded transition-all duration-200"

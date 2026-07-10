@@ -57,7 +57,7 @@ export function Header() {
       ],
     },
     { labelKey: 'header.nav.blog',      href: '/blog' },
-    { labelKey: 'header.nav.franchise', href: '/#franquicias' },
+    { labelKey: 'header.nav.franchise', href: '/franquicias' },
     { labelKey: 'header.nav.contactUs', href: '/#appointment' },
   ]
 
