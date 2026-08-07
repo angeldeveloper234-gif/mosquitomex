@@ -34,6 +34,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: LAST_CONTENT_UPDATE,
       changeFrequency: 'monthly',
       priority: 0.8,
+      alternates: {
+        languages: {
+          'es-MX': `${SITE.url}/franquicias`,
+          en: `${SITE.url}/franchise`,
+        },
+      },
+    },
+    {
+      // Landing de franquicias en inglés: capta inversionistas de habla inglesa.
+      url: `${SITE.url}/franchise`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+      alternates: {
+        languages: {
+          'es-MX': `${SITE.url}/franquicias`,
+          en: `${SITE.url}/franchise`,
+        },
+      },
     },
     {
       url: `${SITE.url}/blog`,

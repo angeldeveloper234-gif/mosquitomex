@@ -15,6 +15,12 @@ export const metadata = generatePageMetadata({
     'oportunidad de negocio fumigación',
     'abrir franquicia México',
   ],
+  // Versión en inglés en /franchise, para inversionistas de habla inglesa.
+  languages: {
+    'es-MX': '/franquicias',
+    en: '/franchise',
+    'x-default': '/franquicias',
+  },
 })
 
 export default function FranquiciasPage() {
