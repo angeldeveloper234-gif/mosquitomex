@@ -67,10 +67,19 @@ export function Franchise({ mode = 'teaser' }: { mode?: 'teaser' | 'page' }) {
                 {isES ? 'Oportunidad de Negocio' : 'Business Opportunity'}
               </span>
 
-              <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[1.1]">
-                {isES ? 'Abre tu Franquicia ' : 'Own a '}
-                <span className="text-[#ffd7db]">MosquitoMEX</span>
-              </h2>
+              {/* En /franquicias esta es la cabecera de la página, así que debe
+                  ser h1. Embebida en el home va como h2, para no duplicar el h1. */}
+              {mode === 'page' ? (
+                <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[1.1]">
+                  {isES ? 'Abre tu Franquicia ' : 'Own a '}
+                  <span className="text-[#ffd7db]">MosquitoMEX</span>
+                </h1>
+              ) : (
+                <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[1.1]">
+                  {isES ? 'Abre tu Franquicia ' : 'Own a '}
+                  <span className="text-[#ffd7db]">MosquitoMEX</span>
+                </h2>
+              )}
 
               <div className="w-24 h-1 bg-[#ce1126]" />
 

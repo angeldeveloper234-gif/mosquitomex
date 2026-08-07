@@ -1,3 +1,32 @@
+/* =============================================================================
+ * ⚠️  NO BORRAR ESTE ARCHIVO  ⚠️
+ * =============================================================================
+ *
+ * Componente COMENTADO a propósito (agosto 2026), no eliminado.
+ *
+ * Motivo:
+ *   - Es código muerto: no se importa desde ninguna parte del proyecto, así que
+ *     nunca llegó a renderizarse en el sitio.
+ *   - Lista servicios heredados de la plantilla original que NO son control de
+ *     plagas: "heating" (Calefacción Exterior), "lighting" (Iluminación
+ *     Decorativa), "turf" (Pasto Sintético) y "kitchens" (Cocinas Exteriores).
+ *     Mezclar esos servicios con control de plagas diluye la relevancia
+ *     temática del sitio frente a Google.
+ *
+ * Estado: PENDIENTE DE CONFIRMAR CON EL CLIENTE si alguno de esos servicios se
+ * ofrece realmente. Por eso se conserva el código íntegro: basta con quitar
+ * este bloque de comentario para reactivarlo.
+ *
+ * Las traducciones asociadas (`features.*`) siguen intactas en
+ * src/lib/translations.ts. Los textos del footer relacionados
+ * (`footer.servicesList.heating` y `.patioDesign`) también quedaron comentados
+ * allí con la misma advertencia.
+ *
+ * Para reactivarlo:
+ *   1. Quitar la apertura y el cierre de este comentario de bloque.
+ *   2. Importar y renderizar <Features /> en src/app/page.tsx.
+ * =============================================================================
+
 'use client'
 
 import { FadeUp } from '@/components/animations/FadeUp'
@@ -77,4 +106,6 @@ export function Features() {
   )
 }
 
+ * ========================================================================== */
 
+export {}

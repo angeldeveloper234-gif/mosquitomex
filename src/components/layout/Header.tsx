@@ -46,7 +46,9 @@ export function Header() {
         { labelKey: 'header.nav.commercial',  descKey: 'header.nav.commercialDesc',  href: '/#soluciones' },
       ],
     },
-    { labelKey: 'header.nav.mcsSystem', href: '/#tecnologia' },
+    // Antes apuntaba a '/#tecnologia', pero la sección <Technology /> no se
+    // renderiza. Ahora lleva al hub de servicios, que sí existe y posiciona.
+    { labelKey: 'header.nav.services', href: '/servicios' },
     {
       labelKey: 'header.nav.forYourSpace',
       children: [

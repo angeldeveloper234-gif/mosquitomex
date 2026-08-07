@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/site";
@@ -33,6 +33,11 @@ export const metadata: Metadata = {
   creator: SITE.name,
   publisher: SITE.name,
   alternates: { canonical: "/" },
+  // Verificación de Google Search Console (método alternativo al DNS).
+  // Poner el código en NEXT_PUBLIC_GSC_VERIFICATION (Netlify → Environment variables).
+  ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } }
+    : {}),
   robots: {
     index: true,
     follow: true,
@@ -60,6 +65,10 @@ export const metadata: Metadata = {
     images: [SITE.ogImage],
   },
   category: "Pest Control",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#006847",
 };
 
 export default function RootLayout({

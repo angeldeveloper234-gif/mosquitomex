@@ -26,6 +26,7 @@ export const translations = {
         commercial: "Comercial",
         commercialDesc: "Hoteles, restaurantes y empresas.",
         mcsSystem: "Sistemas MCS®",
+        services: "Servicios",
         forYourSpace: "Para tu espacio",
         residential: "Residencial",
         residentialDesc: "Jardines, patios y albercas.",
@@ -150,8 +151,12 @@ export const translations = {
       servicesList: {
         misting: "Nebulización de Mosquitos",
         spiderFly: "Control de Arañas y Moscas",
-        heating: "Calefacción Exterior",
-        patioDesign: "Diseño de Patios"
+        // ⚠️ NO BORRAR — servicios heredados de la plantilla original, sin
+        // confirmar con el cliente. Se retiraron del footer por no ser control
+        // de plagas (restaban relevancia temática en SEO). Si el cliente
+        // confirma que sí se ofrecen, reactivarlos en FOOTER_SERVICES.
+        // heating: "Calefacción Exterior",
+        // patioDesign: "Diseño de Patios"
       },
       contactInfo: {
         address: "Cobertura en todo México"
@@ -183,21 +188,28 @@ export const translations = {
           image: "/images/blog-organic.png",
           category: "Ecológico"
         },
+        // ⚠️ NO BORRAR — los dos artículos que ocupaban este lugar ("Sistemas de
+        // niebla: Climatiza tu patio este verano" y "Terrazas todo el año:
+        // Calefacción y confort exterior") venían de la plantilla original y
+        // trataban de confort exterior, no de control de plagas. Se sustituyeron
+        // por contenido de plagas para no diluir la relevancia temática del sitio.
+        // El texto original está guardado en docs/blog-articulos-originales.md
+        // por si el cliente decide recuperarlo.
         {
-          id: "mist-cooling",
-          title: "Sistemas de niebla: Climatiza tu patio este verano",
-          summary: "Descubre la tecnología de nebulización de alta presión que reduce la temperatura exterior hasta 12°C.",
-          content: "El verano es la época perfecta para disfrutar de comidas al aire libre, carnes asadas y tardes junto a la piscina. Sin embargo, el calor extremo puede hacer que permanecer en el patio sea insoportable durante las horas centrales del día. Afortunadamente, existe una solución innovadora: los sistemas de enfriamiento por niebla de alta presión.\n\nEstos sistemas funcionan atomizando agua purificada a través de boquillas de precisión a presiones extremadamente altas. Esto crea una micro-niebla ultrafina cuyas gotas son tan pequeñas que se evaporan instantáneamente al entrar en contacto con el aire caliente. Este proceso físico, conocido como enfriamiento por evaporación térmica, absorbe el calor del ambiente y reduce la temperatura del aire circundante hasta en 12°C, todo esto sin mojar a las personas ni las superficies.\n\nEs la misma tecnología de lujo que se utiliza en los resorts más exclusivos del mundo y en restaurantes premium con terrazas. Además de refrescar el ambiente, la cortina de niebla actúa como un filtro natural que precipita el polvo, polen y alérgenos suspendidos en el aire, e incluso mantiene alejados a los insectos voladores. Convierte tu patio en un oasis fresco y habitable durante todo el año.",
+          id: "como-eliminar-cucarachas",
+          title: "Cómo eliminar cucarachas de tu casa y evitar que regresen",
+          summary: "Por qué el insecticida de supermercado no funciona y qué hace realmente la diferencia contra una plaga de cucarachas.",
+          content: "Casi todo el mundo empieza igual: compra un insecticida en aerosol, rocía las cucarachas que ve y, durante unos días, parece que el problema se resolvió. Semanas después vuelven, a veces en mayor número. La razón es sencilla: lo que se ve caminando por la cocina es una fracción pequeña de la población real. El resto está oculto en grietas, detrás de electrodomésticos y dentro de muebles, y ahí es donde se reproduce.\n\nLa cucaracha se refugia en espacios estrechos, cálidos y cercanos a comida y humedad: el motor del refrigerador, las juntas de los azulejos, el hueco bajo el fregadero, las bisagras de las alacenas. Además, las hembras cargan cápsulas de huevos llamadas ootecas, que resisten la mayoría de los insecticidas de contacto. Aunque el tratamiento elimine a los adultos, si no se contempla ese ciclo, en pocos días nacerá una nueva generación. Por eso un control serio siempre incluye una segunda visita.\n\nHay tres medidas que marcan una diferencia real y están en tus manos: eliminar el acceso al agua (reparar fugas y secar el fregadero por la noche), guardar los alimentos en recipientes cerrados y no dejar restos ni trastes sucios, y sellar las grietas y rendijas que sirven de refugio y de paso entre departamentos. Combinadas con un tratamiento profesional dirigido a los refugios y no solo a los ejemplares visibles, son la forma de que el problema no regrese. Si ya intentaste resolverlo por tu cuenta sin éxito, es señal de que la población está establecida y conviene una inspección.",
           image: "/images/blog-mist.png",
-          category: "Climatización"
+          category: "Plagas"
         },
         {
-          id: "outdoor-heating",
-          title: "Terrazas todo el año: Calefacción y confort exterior",
-          summary: "No abandones tu patio durante el invierno. Las mejores soluciones de calefacción exterior con estilo.",
-          content: "Cuando bajan las temperaturas, la tendencia natural es refugiarse dentro de la casa y dejar el patio o la terraza en el olvido hasta la próxima primavera. Sin embargo, con el diseño y el equipamiento adecuados, el invierno puede convertirse en una de las temporadas más acogedoras para disfrutar del aire libre.\n\nLa calefacción exterior ha evolucionado enormemente en los últimos años, pasando de los ruidosos y poco estéticos calentadores de gas a sistemas infrarrojos radiantes de alta tecnología. Estos calentadores transmiten calor directamente a las personas y objetos a través de ondas electromagnéticas seguras, en lugar de calentar el aire que puede ser dispersado fácilmente por el viento. Esto asegura un confort térmico inmediato y un consumo energético altamente eficiente.\n\nPara crear una atmósfera verdaderamente premium, combina estos sistemas de calefacción con iluminación decorativa cálida en tonos ámbar y muebles de exterior confortables con mantas texturizadas. Una terraza bien iluminada y calefaccionada se convierte en el lugar ideal para disfrutar de una copa de vino por la noche o una taza de café por la mañana, expandiendo los metros cuadrados habitables de tu hogar sin importar el clima.",
+          id: "senales-de-roedores-en-casa",
+          title: "Siete señales de que hay roedores en tu casa o negocio",
+          summary: "Los roedores se detectan por sus rastros mucho antes de verlos. Aprende a reconocerlos a tiempo.",
+          content: "Ver una rata o un ratón cruzar una habitación suele ser el último aviso, no el primero. Los roedores son animales nocturnos y evitan a las personas, así que cuando aparecen a plena vista normalmente significa que la población ya creció lo suficiente como para competir por espacio y comida. La buena noticia es que dejan rastros claros mucho antes.\n\nLas señales más frecuentes son: excremento pequeño y oscuro en alacenas, cajones o cerca de la basura; ruidos de carreras y rasguños en techos y muros durante la noche; marcas de roedura en empaques, cables, tuberías o muebles; rastros de grasa a lo largo de los zócalos por donde transitan siempre por la misma ruta; nidos de papel, cartón o tela triturados en zonas poco usadas; un olor a amoniaco persistente en espacios cerrados; y mascotas que se quedan fijas oliendo un punto concreto de la pared o del mueble.\n\nConviene actuar rápido por dos motivos. El primero es sanitario: los roedores pueden transmitir enfermedades como leptospirosis, salmonelosis y hantavirus a través de su orina y su excremento, y contaminan cualquier alimento con el que tienen contacto. El segundo es material: sus dientes crecen de forma continua, así que roen de manera permanente, y el cableado eléctrico es uno de sus objetivos habituales, lo que los convierte en una causa documentada de cortos circuitos. A esto se suma su velocidad de reproducción, que hace que unos pocos ejemplares se conviertan en un problema serio en cuestión de semanas. Poner trampas suele ser insuficiente si no se cierran los puntos de entrada: mientras el acceso siga abierto, llegarán nuevos roedores desde el exterior.",
           image: "/images/blog-heating.png",
-          category: "Confort"
+          category: "Plagas"
         }
       ]
     }
@@ -229,6 +241,7 @@ export const translations = {
         commercial: "Commercial",
         commercialDesc: "Hotels, restaurants and businesses.",
         mcsSystem: "MCS® Systems",
+        services: "Services",
         forYourSpace: "For Your Space",
         residential: "Residential",
         residentialDesc: "Gardens, patios, and pools.",
@@ -353,8 +366,9 @@ export const translations = {
       servicesList: {
         misting: "Mosquito Misting",
         spiderFly: "Spider & Fly Control",
-        heating: "Outdoor Heating",
-        patioDesign: "Patio Design"
+        // ⚠️ NO BORRAR — ver nota en la versión ES (línea ~154).
+        // heating: "Outdoor Heating",
+        // patioDesign: "Patio Design"
       },
       contactInfo: {
         address: "Nationwide coverage across Mexico"
@@ -386,21 +400,24 @@ export const translations = {
           image: "/images/blog-organic.png",
           category: "Eco-Friendly"
         },
+        // ⚠️ NO BORRAR — ver nota en la versión ES. Los artículos de confort
+        // exterior que ocupaban este lugar están respaldados en
+        // docs/blog-articulos-originales.md
         {
-          id: "mist-cooling",
-          title: "Mist Systems: Cool Your Outdoor Living Space",
-          summary: "Explore the high-pressure mist cooling technology that lowers outdoor temperature by up to 12°C.",
-          content: "Summer is the perfect time for outdoor dining, barbecues, and poolside afternoons. However, extreme heat can make staying on the patio unbearable during peak daylight hours. Fortunately, there is an innovative solution: high-pressure mist cooling systems.\n\nThese systems work by atomizing purified water through precision nozzles at extremely high pressures. This creates an ultra-fine micro-mist whose droplets are so small that they flash-evaporate upon contact with hot air. This thermal process absorbs heat from the environment and reduces ambient temperature by up to 12°C—all without wetting people or surfaces.\n\nIt is the same luxury technology used in the world's most exclusive resorts and high-end restaurant terraces. In addition to cooling, the mist curtain acts as a natural filter that precipitates dust, pollen, and airborne allergens, and even deters flying insects. Turn your patio into a cool, livable oasis all year round.",
+          id: "como-eliminar-cucarachas",
+          title: "How to Get Rid of Cockroaches for Good",
+          summary: "Why store-bought sprays fall short, and what actually makes the difference against a cockroach infestation.",
+          content: "Most people start the same way: buy an aerosol insecticide, spray the cockroaches they can see and, for a few days, the problem seems solved. Weeks later they are back, sometimes in greater numbers. The reason is simple: what you see walking across the kitchen is a small fraction of the actual population. The rest is hidden in cracks, behind appliances and inside furniture, and that is where it breeds.\n\nCockroaches shelter in narrow, warm spaces close to food and moisture: the refrigerator motor, tile joints, the gap under the sink, cabinet hinges. Females also carry egg cases called oothecae, which resist most contact insecticides. Even if a treatment kills the adults, a new generation will hatch within days unless that cycle is accounted for. That is why proper control always includes a follow-up visit.\n\nThree measures make a real difference and are in your hands: remove access to water by fixing leaks and drying the sink at night, store food in sealed containers and leave no crumbs or dirty dishes out, and seal the cracks and gaps that serve as shelter and as passageways between units. Combined with professional treatment aimed at the harborages rather than just the visible insects, that is how you keep the problem from coming back. If you have already tried to solve it on your own without success, the population is likely established and an inspection is the sensible next step.",
           image: "/images/blog-mist.png",
-          category: "Mist Cooling"
+          category: "Pests"
         },
         {
-          id: "outdoor-heating",
-          title: "Year-Round Terraces: Outdoor Heating and Comfort",
-          summary: "Don't abandon your patio in winter. The best stylish outdoor heating solutions for cozy living.",
-          content: "When temperatures drop, the natural tendency is to retreat indoors and leave the patio or terrace forgotten until next spring. However, with the right design and equipment, winter can become one of the coziest seasons to enjoy the outdoors.\n\nOutdoor heating has evolved significantly in recent years, moving from noisy and unsightly propane heaters to high-tech radiant infrared systems. These heaters transmit warmth directly to people and objects through safe electromagnetic waves, rather than heating the air, which can easily be blown away by the wind. This ensures instant thermal comfort and highly efficient energy consumption.\n\nTo create a truly premium atmosphere, pair these heating systems with warm, amber decorative lighting and comfortable outdoor furniture adorned with textured blankets. A well-lit and heated terrace becomes the perfect spot to enjoy a glass of wine in the evening or a morning coffee, expanding your home's livable square footage regardless of the weather.",
+          id: "senales-de-roedores-en-casa",
+          title: "Seven Signs You Have Rodents at Home or Work",
+          summary: "Rodents leave clear traces long before you ever see one. Learn to spot them early.",
+          content: "Seeing a rat or a mouse cross a room is usually the last warning, not the first. Rodents are nocturnal and avoid people, so when they show up in plain sight it normally means the population has grown enough to compete for space and food. The good news is that they leave clear traces well before that.\n\nThe most common signs are: small dark droppings in cupboards, drawers or near the trash; scurrying and scratching sounds in ceilings and walls at night; gnaw marks on packaging, cables, pipes or furniture; grease trails along baseboards where they travel the same route every time; nests of shredded paper, cardboard or fabric in rarely used spaces; a persistent ammonia smell in enclosed areas; and pets that fixate on one specific spot on a wall or piece of furniture.\n\nActing quickly matters for two reasons. The first is health: rodents can transmit diseases such as leptospirosis, salmonellosis and hantavirus through their urine and droppings, and they contaminate any food they come into contact with. The second is property damage: their teeth grow continuously, so they gnaw constantly, and electrical wiring is a frequent target, which makes them a documented cause of short circuits. Add their breeding speed, and a handful of rodents becomes a serious problem within weeks. Traps alone are usually not enough if entry points stay open: as long as the access remains, new rodents will keep arriving from outside.",
           image: "/images/blog-heating.png",
-          category: "Comfort"
+          category: "Pests"
         }
       ]
     }

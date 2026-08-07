@@ -110,15 +110,22 @@ export function Hero() {
 
           {/* Headline principal */}
           <FadeUp delay={0.1}>
+            {/* El H1 lleva la keyword principal: es la señal on-page de más peso
+                para posicionar. El mensaje de marca va debajo, como apoyo. */}
             <h1 className="font-black leading-[1.05] tracking-tighter text-[clamp(2rem,5.5vw,3.75rem)]">
               <span className="text-[#ce1126]">
-                {isES ? 'Profesionales • Rápidos' : 'Friendly • Responsive'}
+                {isES ? 'Control de Plagas' : 'Pest Control'}
               </span>
               <br />
               <span className="text-white">
-                {isES ? 'Fácil de Contratar' : 'Easy To Work With'}
+                {isES ? 'y Fumigación en México' : '& Fumigation in Mexico'}
               </span>
             </h1>
+            <p className="mt-5 text-white/85 font-medium text-[1rem] md:text-[1.125rem] leading-relaxed max-w-[52ch] mx-auto">
+              {isES
+                ? 'Nosotros llegamos, y las plagas se van. Técnicos profesionales para hogares y empresas, con cotización sin costo.'
+                : 'We show up, and the pests are gone. Professional technicians for homes and businesses, with a free quote.'}
+            </p>
           </FadeUp>
 
           {/* Botones duales */}

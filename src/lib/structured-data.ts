@@ -1,7 +1,16 @@
 import { SITE, absoluteUrl } from './site'
 import type { BlogPost } from './blog'
+import { SERVICES, type FaqItem, type Service } from './services'
 
-/** Negocio local de control de plagas — para la home. */
+/**
+ * Negocio de control de plagas — para la home.
+ *
+ * Nota: no se declara `address` ni `geo` a propósito. El negocio opera sin
+ * dirección pública, así que se describe como prestador con área de servicio
+ * nacional (`areaServed`). Declarar una dirección inventada sería incorrecto
+ * y motivo de penalización. Si el cliente publica una dirección real, añadirla
+ * aquí como `address: { '@type': 'PostalAddress', ... }`.
+ */
 export function localBusinessSchema() {
   return {
     '@context': 'https://schema.org',
@@ -13,15 +22,80 @@ export function localBusinessSchema() {
     image: absoluteUrl(SITE.logo),
     logo: absoluteUrl(SITE.logo),
     description: SITE.description,
+    slogan: SITE.slogan,
     telephone: SITE.phone,
     email: SITE.email,
     areaServed: { '@type': 'Country', name: SITE.areaServed },
     priceRange: '$$',
+    knowsLanguage: ['es-MX', 'en'],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: SITE.phone,
+        email: SITE.email,
+        contactType: 'customer service',
+        areaServed: 'MX',
+        availableLanguage: ['Spanish', 'English'],
+      },
+    ],
+    // Catálogo de servicios: ayuda a Google y a los motores de IA a entender
+    // exactamente qué ofrece el negocio.
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Servicios de control de plagas',
+      itemListElement: SERVICES.map((s) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: s.name,
+          url: absoluteUrl(`/servicios/${s.slug}`),
+        },
+      })),
+    },
     ...(SITE.socials.length ? { sameAs: SITE.socials } : {}),
   }
 }
 
-/** Sitio web con acción de búsqueda potencial. */
+/** Servicio individual — para cada página /servicios/[slug]. */
+export function serviceSchema(service: Service) {
+  const url = absoluteUrl(`/servicios/${service.slug}`)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${url}#service`,
+    name: service.name,
+    serviceType: service.name,
+    description: service.metaDescription,
+    url,
+    provider: { '@id': `${SITE.url}/#business` },
+    areaServed: { '@type': 'Country', name: SITE.areaServed },
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      serviceUrl: url,
+      servicePhone: SITE.phone,
+    },
+  }
+}
+
+/** Preguntas frecuentes — rich results en Google y material citable por IA. */
+export function faqSchema(items: FaqItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  }
+}
+
+/**
+ * Sitio web.
+ * No se declara `potentialAction` (SearchAction) porque el sitio no tiene
+ * buscador propio: Google exige una página de resultados real para el
+ * cuadro de búsqueda de sitelinks. Añadirlo si algún día se implementa.
+ */
 export function websiteSchema() {
   return {
     '@context': 'https://schema.org',

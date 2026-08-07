@@ -21,25 +21,32 @@ interface RawArticle {
 }
 
 // Fechas de publicación (editorial). Actualizar al publicar contenido nuevo.
-const DATES: Record<string, string> = {
-  'mosquito-guide': '2025-03-12',
-  'organic-misting': '2025-04-09',
-  'mist-cooling': '2025-05-21',
-  'outdoor-heating': '2025-06-18',
+const DATES: Record<string, { published: string; modified: string }> = {
+  'mosquito-guide': { published: '2025-03-12', modified: '2026-08-07' },
+  'organic-misting': { published: '2025-04-09', modified: '2026-08-07' },
+  // Artículos reescritos con contenido de control de plagas (agosto 2026).
+  // Los originales, sobre confort exterior, están en docs/blog-articulos-originales.md
+  'como-eliminar-cucarachas': { published: '2026-08-07', modified: '2026-08-07' },
+  'senales-de-roedores-en-casa': { published: '2026-08-07', modified: '2026-08-07' },
 }
+
+const FALLBACK_DATE = { published: '2026-01-01', modified: '2026-01-01' }
 
 export function getAllPosts(): BlogPost[] {
   const articles = (translations.es.blog.articles as RawArticle[]) ?? []
-  return articles.map((a) => ({
-    slug: a.id,
-    title: a.title,
-    summary: a.summary,
-    content: a.content,
-    image: a.image,
-    category: a.category,
-    datePublished: DATES[a.id] ?? '2025-01-01',
-    dateModified: DATES[a.id] ?? '2025-01-01',
-  }))
+  return articles.map((a) => {
+    const dates = DATES[a.id] ?? FALLBACK_DATE
+    return {
+      slug: a.id,
+      title: a.title,
+      summary: a.summary,
+      content: a.content,
+      image: a.image,
+      category: a.category,
+      datePublished: dates.published,
+      dateModified: dates.modified,
+    }
+  })
 }
 
 export function getPostBySlug(slug: string): BlogPost | null {

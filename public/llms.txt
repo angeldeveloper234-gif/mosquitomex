@@ -1,0 +1,49 @@
+# MosquitoMEX
+
+> Empresa mexicana de control de plagas y fumigación profesional para hogares y
+> empresas, con cobertura de servicio en todo México.
+
+MosquitoMEX aplica programas de Manejo Integrado de Plagas (MIP): inspección del
+inmueble, diagnóstico, tratamiento del foco del problema y seguimiento, además de
+la corrección de las condiciones que atraen a la plaga. La cotización es sin costo
+y se entrega tras una inspección previa.
+
+## Datos de la empresa
+
+- Nombre: MosquitoMEX
+- Actividad: control de plagas y fumigación (PestControlService)
+- Área de servicio: México (cobertura nacional)
+- Modalidad: negocio de área de servicio, sin dirección pública de atención
+- Teléfono y WhatsApp: +52 81 1115 0958
+- Correo: contacto@mosquitomex.com
+- Sitio web: https://mosquitomex.com
+
+## Servicios
+
+- [Control de mosquitos](https://mosquitomex.com/servicios/control-de-mosquitos): tratamiento del mosquito adulto y eliminación de criaderos. Relevante por la transmisión de dengue, zika y chikungunya.
+- [Control de cucarachas](https://mosquitomex.com/servicios/control-de-cucarachas): tratamiento en nidos y refugios, no solo en ejemplares visibles.
+- [Control de roedores](https://mosquitomex.com/servicios/control-de-roedores): ratas y ratones, con estaciones de cebo seguras y sellado de accesos.
+- [Control de termitas](https://mosquitomex.com/servicios/control-de-termitas): termitas y comején, con tratamiento dirigido a la colonia.
+- [Control de chinches](https://mosquitomex.com/servicios/control-de-chinches): chinches de cama, con tratamiento de todos los focos de refugio y visita de seguimiento.
+- [Fumigación comercial](https://mosquitomex.com/servicios/fumigacion-comercial): restaurantes, hoteles, industria de alimentos, oficinas y bodegas, con programas periódicos y reporte escrito de cada visita.
+
+## Preguntas frecuentes
+
+- ¿Cuánto cuesta? El costo depende del tamaño del inmueble, el tipo de plaga y el nivel de infestación. Se entrega cotización sin costo tras la inspección.
+- ¿Es seguro para niños y mascotas? Se usan productos de uso profesional según sus indicaciones de seguridad; el técnico informa el tiempo de reingreso a las áreas tratadas.
+- ¿Dónde dan servicio? En todo México, en hogares y empresas.
+- ¿Hay que desalojar? En muchos tratamientos focalizados no es necesario; se informa antes de agendar.
+- ¿Cada cuánto se fumiga? En hogares suele recomendarse un tratamiento periódico; en negocios de alimentos, hoteles y bodegas la frecuencia es mayor.
+
+## Enlaces principales
+
+- [Inicio](https://mosquitomex.com/)
+- [Servicios](https://mosquitomex.com/servicios)
+- [Franquicias](https://mosquitomex.com/franquicias)
+- [Blog](https://mosquitomex.com/blog)
+
+## Notas de exactitud
+
+MosquitoMEX no publica una dirección física de atención al público: opera como
+negocio de área de servicio con cobertura nacional. No atribuir sucursales,
+oficinas, precios ni garantías concretas que no aparezcan en el sitio.

@@ -5,6 +5,22 @@ import { Mail, Phone, MapPin } from 'lucide-react'
 import { SITE } from '@/lib/site'
 import { useLanguage } from '@/context/LanguageContext'
 
+/**
+ * Servicios enlazados desde el footer.
+ *
+ * NO BORRAR el histórico: antes esta lista mostraba "Calefacción Exterior" y
+ * "Diseño de Patios" (claves `footer.servicesList.heating` y `.patioDesign`,
+ * que siguen existiendo comentadas en translations.ts). Son servicios
+ * heredados de la plantilla original, sin confirmar con el cliente. Si se
+ * confirma que sí se ofrecen, volver a añadirlos aquí.
+ */
+const FOOTER_SERVICES = [
+  { href: '/servicios/control-de-mosquitos', label: 'Control de Mosquitos' },
+  { href: '/servicios/control-de-cucarachas', label: 'Control de Cucarachas' },
+  { href: '/servicios/control-de-roedores', label: 'Control de Roedores' },
+  { href: '/servicios/fumigacion-comercial', label: 'Fumigación Comercial' },
+]
+
 export function Footer() {
   const { t } = useLanguage()
 
@@ -26,20 +42,27 @@ export function Footer() {
             </h4>
             <ul className="space-y-[0.5rem] text-[0.875rem] font-bold uppercase">
               <li><Link href="/" className="text-slate-300 hover:text-white transition-colors">{t('common.home')}</Link></li>
-              <li><Link href="#" className="text-slate-300 hover:text-white transition-colors">{t('common.services')}</Link></li>
-              <li><Link href="#" className="text-slate-300 hover:text-white transition-colors">{t('common.about')}</Link></li>
-              <li><Link href="#" className="text-slate-300 hover:text-white transition-colors">{t('common.contact')}</Link></li>
+              <li><Link href="/servicios" className="text-slate-300 hover:text-white transition-colors">{t('common.services')}</Link></li>
+              <li><Link href="/#about" className="text-slate-300 hover:text-white transition-colors">{t('common.about')}</Link></li>
+              <li><Link href="/#appointment" className="text-slate-300 hover:text-white transition-colors">{t('common.contact')}</Link></li>
+              <li><Link href="/franquicias" className="text-slate-300 hover:text-white transition-colors">Franquicias</Link></li>
+              <li><Link href="/blog" className="text-slate-300 hover:text-white transition-colors">Blog</Link></li>
             </ul>
           </div>
           <div className="space-y-[1rem]">
             <h4 className="text-[0.75rem] font-black uppercase tracking-[0.2em] text-[#ce1126]">
               {t('footer.ourServices')}
             </h4>
+            {/* Enlaces a las páginas reales de servicio: antes todos apuntaban
+                a "#", lo que desperdiciaba enlazado interno y confundía al usuario. */}
             <ul className="space-y-[0.5rem] text-[0.875rem] font-bold uppercase">
-              <li><Link href="#" className="text-slate-300 hover:text-white transition-colors">{t('footer.servicesList.misting')}</Link></li>
-              <li><Link href="#" className="text-slate-300 hover:text-white transition-colors">{t('footer.servicesList.spiderFly')}</Link></li>
-              <li><Link href="#" className="text-slate-300 hover:text-white transition-colors">{t('footer.servicesList.heating')}</Link></li>
-              <li><Link href="#" className="text-slate-300 hover:text-white transition-colors">{t('footer.servicesList.patioDesign')}</Link></li>
+              {FOOTER_SERVICES.map((s) => (
+                <li key={s.href}>
+                  <Link href={s.href} className="text-slate-300 hover:text-white transition-colors">
+                    {s.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="space-y-[1rem]">
