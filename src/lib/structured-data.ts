@@ -23,7 +23,7 @@ export function localBusinessSchema() {
     logo: absoluteUrl(SITE.logo),
     description: SITE.description,
     slogan: SITE.slogan,
-    telephone: SITE.phone,
+    telephone: SITE.phoneE164,
     email: SITE.email,
     areaServed: { '@type': 'Country', name: SITE.areaServed },
     priceRange: '$$',
@@ -31,7 +31,7 @@ export function localBusinessSchema() {
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: SITE.phone,
+        telephone: SITE.phoneE164,
         email: SITE.email,
         contactType: 'customer service',
         areaServed: 'MX',
@@ -72,7 +72,7 @@ export function serviceSchema(service: Service) {
     availableChannel: {
       '@type': 'ServiceChannel',
       serviceUrl: url,
-      servicePhone: SITE.phone,
+      servicePhone: SITE.phoneE164,
     },
   }
 }

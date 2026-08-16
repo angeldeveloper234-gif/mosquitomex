@@ -2,7 +2,6 @@
  * Configuración central del sitio (SEO / branding).
  * ⚠️ El cliente debe confirmar/actualizar estos valores reales antes del deploy final:
  *   - url (dominio definitivo)
- *   - phone / whatsapp
  *   - address / geo
  *   - redes sociales (sameAs)
  */
@@ -19,22 +18,21 @@ export const SITE = {
   slogan: 'Nosotros llegamos, y las plagas se van',
   logo: '/mosquitos-mx.png',
   ogImage: '/og-default.jpg',
-  phone: '+52 81 1115 0958',
-  phoneHref: 'tel:+528111150958',
-  whatsappHref: 'https://wa.me/528111150958',
-  // ⚠️ contacto@mosquitomex.com NO existe todavía (confirmado por el cliente).
-  // Hasta que se cree esa cuenta, TODO el correo del sitio va a Big Cat.
-  // Cuando exista, cambiar solo `email` y dejar `franchiseEmail` como está.
-  email: 'contacto@bigcat.com.mx',
+  phone: '+52 81 1475 3426',
+  // Formato E.164 — usar en el "telephone" de JSON-LD, no el visible con espacios.
+  phoneE164: '+528114753426',
+  phoneHref: 'tel:+528114753426',
+  whatsappHref: 'https://wa.me/528114753426',
+  // Correo único del negocio: cotizaciones y franquicias entran al mismo buzón.
+  email: 'bigcatmexico@gmail.com',
   // Correo dedicado a solicitudes de franquicia
-  franchiseEmail: 'contacto@bigcat.com.mx',
+  franchiseEmail: 'bigcatmexico@gmail.com',
   areaServed: 'México',
   // Web3Forms: cada key entrega al correo con el que se registró.
-  // Hoy AMBAS deben registrarse con contacto@bigcat.com.mx, porque el correo
-  // de mosquitomex.com aún no existe. Basta con generar una sola key y usarla
-  // en las dos variables, hasta que haya un correo propio para cotizaciones.
-  //  - NEXT_PUBLIC_WEB3FORMS_KEY           → cotizaciones  (contacto@bigcat.com.mx)
-  //  - NEXT_PUBLIC_WEB3FORMS_KEY_FRANCHISE → franquicias   (contacto@bigcat.com.mx)
+  // AMBAS deben estar registradas con bigcatmexico@gmail.com. Basta con generar
+  // una sola key y usarla en las dos variables mientras el buzón sea el mismo.
+  //  - NEXT_PUBLIC_WEB3FORMS_KEY           → cotizaciones  (bigcatmexico@gmail.com)
+  //  - NEXT_PUBLIC_WEB3FORMS_KEY_FRANCHISE → franquicias   (bigcatmexico@gmail.com)
   // Las access keys son públicas/seguras en el cliente. Obténlas gratis en https://web3forms.com
   formAccessKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY || '',
   franchiseAccessKey: process.env.NEXT_PUBLIC_WEB3FORMS_KEY_FRANCHISE || '',

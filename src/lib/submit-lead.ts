@@ -3,7 +3,7 @@ import { SITE } from './site'
 type SubmitResult = { ok: boolean; fallback?: boolean }
 
 /**
- * Envía un lead de formulario al correo del negocio (contacto@bigcat.com.mx)
+ * Envía un lead de formulario al correo del negocio (bigcatmexico@gmail.com)
  * a través de Web3Forms — sin backend propio.
  *
  * Si aún no se ha configurado la access key (SITE.formAccessKey vacío),
