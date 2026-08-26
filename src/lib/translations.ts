@@ -4,6 +4,7 @@ export const translations = {
       bookConsultation: "Agendar Consulta",
       bookConsultationLong: "Agendar Mi Presupuesto",
       ourServices: "Nuestros Servicios",
+      coverage: "Cobertura",
       about: "Nosotros",
       contact: "Contacto",
       home: "Inicio",
@@ -147,6 +148,7 @@ export const translations = {
       tagline: "Especialistas en control de plagas y vida exterior. Protegiendo tu hogar con sistemas de nebulización desde 2003.",
       quickLinks: "Enlaces Rápidos",
       ourServices: "Nuestros Servicios",
+      coverage: "Cobertura",
       contact: "Contacto",
       servicesList: {
         misting: "Nebulización de Mosquitos",
@@ -219,6 +221,7 @@ export const translations = {
       bookConsultation: "Book Consultation",
       bookConsultationLong: "Get My Free Quote",
       ourServices: "Our Services",
+      coverage: "Coverage",
       about: "About Us",
       contact: "Contact",
       home: "Home",
@@ -362,6 +365,7 @@ export const translations = {
       tagline: "Pest control and outdoor living specialists. Protecting your home with misting systems since 2003.",
       quickLinks: "Quick Links",
       ourServices: "Our Services",
+      coverage: "Coverage",
       contact: "Contact",
       servicesList: {
         misting: "Mosquito Misting",

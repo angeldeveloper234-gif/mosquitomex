@@ -2,14 +2,22 @@
 
 import { FadeUp } from '@/components/animations/FadeUp'
 import { useLanguage } from '@/context/LanguageContext'
+import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { CIUDADES, rutaCiudad } from '@/lib/cities'
 
-// Principales ciudades donde operamos — ejemplos de nuestra cobertura nacional
-const AREAS = [
-  'Ciudad de México', 'Estado de México', 'Guadalajara', 'Monterrey',
-  'Puebla', 'Querétaro', 'Cuernavaca', 'León',
-  'Mérida', 'Cancún', 'Tijuana', 'Toluca',
-  'Aguascalientes', 'San Luis Potosí', 'Veracruz', 'Y todo el país'
+/**
+ * Ciudades sin página propia. Las cuatro prioritarias salen de CIUDADES y se
+ * muestran arriba, como enlaces: una ciudad con página propia tiene que ser
+ * clicable desde acá o la página queda huérfana.
+ *
+ * Saltillo salió de esta lista porque ahora tiene página. Antes ni siquiera
+ * estaba, aunque el negocio sí da servicio ahí.
+ */
+const OTRAS_AREAS = [
+  'Estado de México', 'Puebla', 'Querétaro', 'Cuernavaca',
+  'León', 'Mérida', 'Cancún', 'Tijuana',
+  'Toluca', 'Aguascalientes', 'San Luis Potosí', 'Veracruz',
 ]
 
 export function Locations() {
@@ -38,15 +46,45 @@ export function Locations() {
           </div>
         </FadeUp>
 
-        {/* Areas List Grid */}
+        {/* Ciudades con página propia, en orden de prioridad */}
+        <FadeUp delay={0.05}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 max-w-3xl mx-auto">
+            {CIUDADES.map((c) => (
+              <Link
+                key={c.slug}
+                href={rutaCiudad(c.slug)}
+                className="flex items-center justify-between gap-3 rounded-xl border border-[#E5E8EC] bg-white px-4 py-3 transition-colors hover:border-[#ce1126]"
+              >
+                <span className="text-left">
+                  <span className="block text-sm font-bold text-[#111111]">
+                    {isES ? 'Control de plagas en ' : 'Pest control in '}
+                    {c.nombre}
+                  </span>
+                  {c.estado !== c.nombre && (
+                    <span className="block text-xs text-[#5A6070]">{c.estado}</span>
+                  )}
+                </span>
+                <ArrowRight className="size-4 shrink-0 text-[#ce1126]" />
+              </Link>
+            ))}
+          </div>
+        </FadeUp>
+
+        {/* Resto de la cobertura, sin página propia */}
         <FadeUp delay={0.1}>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8 gap-y-3 mb-10 max-w-3xl mx-auto pl-4 md:pl-0">
-            {AREAS.map((area, index) => (
+            {OTRAS_AREAS.map((area, index) => (
               <div key={index} className="flex items-center gap-2 text-sm text-[#5A6070]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#ce1126] shrink-0" />
                 <span className="font-semibold">{area}</span>
               </div>
             ))}
+            <div className="flex items-center gap-2 text-sm text-[#5A6070]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ce1126] shrink-0" />
+              <span className="font-semibold">
+                {isES ? 'Y todo el país' : 'And nationwide'}
+              </span>
+            </div>
           </div>
         </FadeUp>
 

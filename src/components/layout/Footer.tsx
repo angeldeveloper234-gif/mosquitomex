@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import { SITE } from '@/lib/site'
 import { useLanguage } from '@/context/LanguageContext'
+import { CIUDADES, rutaCiudad } from '@/lib/cities'
 
 /**
  * Servicios enlazados desde el footer.
@@ -60,6 +61,37 @@ export function Footer() {
                 <li key={s.href}>
                   <Link href={s.href} className="text-slate-300 hover:text-white transition-colors">
                     {s.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/*
+              Cobertura por ciudad. Va DENTRO de esta columna y no en una quinta
+              propia: la grilla es de cuatro y agregar otra rompería el diseño.
+
+              El orden es el de CIUDADES, que sale del origen real de las
+              consultas: Ciudad de México primero. Enlazar las cuatro desde el
+              pie las conecta con todas las páginas del sitio, que es lo que
+              Google necesita para descubrirlas y darles peso.
+            */}
+            <h4 className="pt-[1.5rem] text-[0.75rem] font-black uppercase tracking-[0.2em] text-[#ce1126]">
+              {t('footer.coverage')}
+            </h4>
+            <ul className="space-y-[0.5rem] text-[0.875rem] font-bold uppercase">
+              {CIUDADES.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    href={rutaCiudad(c.slug)}
+                    className="text-slate-300 hover:text-white transition-colors"
+                  >
+                    {c.nombre}
+                    {c.estado !== c.nombre && (
+                      <span className="font-normal normal-case text-slate-500">
+                        {' '}
+                        · {c.estado}
+                      </span>
+                    )}
                   </Link>
                 </li>
               ))}

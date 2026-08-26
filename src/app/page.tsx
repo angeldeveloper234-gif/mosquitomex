@@ -21,11 +21,27 @@ import { generatePageMetadata } from '@/lib/seo'
 // Nota: <Technology /> está fuera del render (sección pendiente de contenido).
 // El enlace del menú que apuntaba a #tecnologia se corrigió en Header.tsx.
 
+/**
+ * CDMX va al frente del title porque es de donde entra hoy la mayoría de las
+ * consultas. El norte no desaparece: Monterrey queda en el mismo title y las
+ * cuatro ciudades tienen página propia enlazada desde el pie.
+ *
+ * La description nombra las cuatro. Es el límite: agregar más ciudades acá
+ * sería relleno de palabras clave, no información, y Google recorta la
+ * description alrededor de los 155 caracteres de todos modos.
+ */
 export const metadata = generatePageMetadata({
-  title: 'Control de Plagas en México | Fumigación Profesional',
+  title: 'Control de Plagas en CDMX, Monterrey y todo México | Fumigación',
   description:
-    'Eliminamos mosquitos, cucarachas, roedores, termitas y chinches en hogares y empresas. Técnicos profesionales, cobertura en todo México y cotización sin costo.',
+    'Control de plagas y fumigación profesional en Ciudad de México, Monterrey, Saltillo y Guadalajara. Mosquitos, cucarachas, roedores, termitas y chinches. Cotización sin costo.',
   path: '/',
+  keywords: [
+    'control de plagas Ciudad de México',
+    'fumigación CDMX',
+    'control de plagas Monterrey',
+    'control de plagas Saltillo',
+    'control de plagas Guadalajara',
+  ],
 })
 
 export default function Home() {

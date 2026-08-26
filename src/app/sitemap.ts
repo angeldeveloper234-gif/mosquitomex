@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import { SITE } from '@/lib/site'
 import { getAllPosts } from '@/lib/blog'
 import { SERVICES } from '@/lib/services'
+import { CIUDADES, rutaCiudad } from '@/lib/cities'
 
 /**
  * Fecha de última revisión editorial del sitio.
@@ -10,7 +11,7 @@ import { SERVICES } from '@/lib/services'
  * degrada la confianza de Google en esa señal. Actualizar a mano al publicar
  * cambios reales de contenido.
  */
-const LAST_CONTENT_UPDATE = '2026-08-07'
+const LAST_CONTENT_UPDATE = '2026-08-20'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -62,6 +63,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
+  /**
+   * Páginas por ciudad, en orden de prioridad de negocio.
+   *
+   * Ciudad de México va con 0.95, por encima de las otras tres y de las
+   * páginas de servicio: es de donde entra hoy la mayoría de las consultas.
+   * El orden lo define el arreglo CIUDADES, no una lista aparte.
+   */
+  const cityRoutes: MetadataRoute.Sitemap = CIUDADES.map((ciudad, i) => ({
+    url: `${SITE.url}${rutaCiudad(ciudad.slug)}`,
+    lastModified: LAST_CONTENT_UPDATE,
+    changeFrequency: 'monthly',
+    priority: i === 0 ? 0.95 : 0.85,
+  }))
+
   // Páginas de servicio: son las que capturan la búsqueda con intención de compra.
   const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service) => ({
     url: `${SITE.url}/servicios/${service.slug}`,
@@ -77,5 +92,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...staticRoutes, ...serviceRoutes, ...blogRoutes]
+  return [...staticRoutes, ...cityRoutes, ...serviceRoutes, ...blogRoutes]
 }

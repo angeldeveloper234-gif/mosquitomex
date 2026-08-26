@@ -1,6 +1,7 @@
 import { SITE, absoluteUrl } from './site'
 import type { BlogPost } from './blog'
 import { SERVICES, type FaqItem, type Service } from './services'
+import { CIUDADES, rutaCiudad, type Ciudad } from './cities'
 
 /**
  * Negocio de control de plagas — para la home.
@@ -25,7 +26,33 @@ export function localBusinessSchema() {
     slogan: SITE.slogan,
     telephone: SITE.phoneE164,
     email: SITE.email,
-    areaServed: { '@type': 'Country', name: SITE.areaServed },
+    /**
+     * Las cuatro ciudades prioritarias PRIMERO, cada una con su entidad
+     * federativa en `containedInPlace`, y el país al final.
+     *
+     * El orden es el de CIUDADES, que sale del origen real de las consultas:
+     * Ciudad de México primero. El país se mantiene porque el servicio sí es
+     * nacional — quitarlo para "enfocar" sería declarar menos cobertura de la
+     * que hay.
+     *
+     * La Ciudad de México no lleva `containedInPlace`: es una entidad
+     * federativa por derecho propio y no está dentro de ningún estado.
+     */
+    areaServed: [
+      ...CIUDADES.map((c) => ({
+        '@type': 'City',
+        name: c.nombre,
+        ...(c.estadoOficial === c.nombre
+          ? {}
+          : {
+              containedInPlace: {
+                '@type': 'State',
+                name: c.estadoOficial,
+              },
+            }),
+      })),
+      { '@type': 'Country', name: SITE.areaServed },
+    ],
     priceRange: '$$',
     knowsLanguage: ['es-MX', 'en'],
     contactPoint: [
@@ -144,5 +171,39 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       name: item.name,
       item: absoluteUrl(item.path),
     })),
+  }
+}
+
+/**
+ * Servicio de control de plagas acotado a una ciudad.
+ *
+ * Es un `Service` con `areaServed` de una sola ciudad y su entidad federativa,
+ * ligado al negocio por `provider`. Eso le dice a Google que la página trata de
+ * esa ciudad, sin declarar una sucursal que no existe: el negocio no tiene
+ * direcciones publicas confirmadas.
+ */
+export function cityServiceSchema(ciudad: Ciudad) {
+  const url = absoluteUrl(rutaCiudad(ciudad.slug))
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${url}#service`,
+    serviceType: 'Control de plagas',
+    name: ciudad.es.h1,
+    description: ciudad.es.metaDescription,
+    url,
+    provider: { '@id': `${SITE.url}/#business` },
+    areaServed: {
+      '@type': 'City',
+      name: ciudad.nombre,
+      ...(ciudad.estadoOficial === ciudad.nombre
+        ? {}
+        : { containedInPlace: { '@type': 'State', name: ciudad.estadoOficial } }),
+    },
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      servicePhone: SITE.phoneE164,
+      serviceUrl: url,
+    },
   }
 }
