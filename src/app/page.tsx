@@ -11,6 +11,7 @@ import { Appointment }  from '@/components/sections/Appointment'
 import { ProcessVideo } from '@/components/sections/ProcessVideo'
 import { PestGrid }     from '@/components/sections/PestGrid'
 import { Locations }    from '@/components/sections/Locations'
+import { Presencia }    from '@/components/sections/Presencia'
 import { Franchise }    from '@/components/sections/Franchise'
 import { FAQ }          from '@/components/sections/FAQ'
 import { JsonLd }       from '@/components/seo/JsonLd'
@@ -58,6 +59,7 @@ export default function Home() {
       <About />
       <Logos />
       <Testimonials />
+      <Presencia />
       <Locations />
       <Franchise />
       <Appointment />
