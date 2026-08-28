@@ -309,6 +309,51 @@ export function Header() {
                 </button>
               </div>
 
+              {/*
+                SELECTOR DE MERCADO EN MÓVIL.
+
+                El de la barra superior es `hidden md:flex` porque en 375px no
+                entra junto al teléfono y al WhatsApp. Pero dejarlo solo en
+                escritorio significaba que en un teléfono NO habia ningun enlace
+                al segundo mercado desde la navegacion — habia que bajar hasta
+                la seccion "Una marca que crece" para encontrarlo. Acá tiene el
+                espacio que en la barra no hay.
+              */}
+              <nav
+                aria-label={language === 'es' ? 'Mercado' : 'Market'}
+                className="pb-4 border-b border-gray-100"
+              >
+                <p className="text-[0.65rem] font-black uppercase tracking-[0.18em] text-[#5A6070] mb-2">
+                  {language === 'es' ? 'Franquicia internacional' : 'International franchise'}
+                </p>
+                <div className="grid grid-cols-2 gap-2">
+                  <Link
+                    href="/"
+                    onClick={() => setMobileMenuOpen(false)}
+                    aria-current={esMercadoMexico ? 'page' : undefined}
+                    className={`rounded-lg px-3 py-2 text-center text-sm font-black uppercase transition-colors ${
+                      esMercadoMexico
+                        ? 'bg-[#111111] text-white'
+                        : 'bg-gray-100 text-[#5A6070] hover:text-[#111111]'
+                    }`}
+                  >
+                    México
+                  </Link>
+                  <Link
+                    href="/valle-de-texas"
+                    onClick={() => setMobileMenuOpen(false)}
+                    aria-current={!esMercadoMexico ? 'page' : undefined}
+                    className={`rounded-lg px-3 py-2 text-center text-sm font-black uppercase transition-colors ${
+                      !esMercadoMexico
+                        ? 'bg-[#111111] text-white'
+                        : 'bg-gray-100 text-[#5A6070] hover:text-[#111111]'
+                    }`}
+                  >
+                    {language === 'es' ? 'Valle de Texas' : 'Rio Grande Valley'}
+                  </Link>
+                </div>
+              </nav>
+
               <div className="flex flex-col gap-4 flex-1">
                 {/* ── PLAGAS accordion en mobile ── */}
                 <div className="border-b border-gray-100 pb-3">

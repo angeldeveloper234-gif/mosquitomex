@@ -96,6 +96,32 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+
+            {/*
+              El segundo mercado, enlazado desde el pie.
+
+              Sin esto, /valle-de-texas recibia solo dos enlaces internos en
+              todo el sitio, y uno era el selector de la barra superior, que no
+              se ve en telefono. Una pagina que se quiere posicionar necesita
+              que el resto del sitio la enlace: es asi como Google le reparte
+              autoridad.
+            */}
+            <h4 className="pt-[1.5rem] text-[0.75rem] font-black uppercase tracking-[0.2em] text-[#ce1126]">
+              {t('footer.internationalNetwork')}
+            </h4>
+            <ul className="space-y-[0.5rem] text-[0.875rem] font-bold uppercase">
+              <li>
+                <Link
+                  href="/valle-de-texas"
+                  className="text-slate-300 hover:text-white transition-colors"
+                >
+                  {t('footer.rioGrandeValley')}
+                  <span className="block font-normal normal-case text-slate-500">
+                    Rio Grande Valley, TX
+                  </span>
+                </Link>
+              </li>
+            </ul>
           </div>
           <div className="space-y-[1rem]">
             <h4 className="text-[0.75rem] font-black uppercase tracking-[0.2em] text-[#ce1126]">
