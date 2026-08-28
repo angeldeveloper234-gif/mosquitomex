@@ -5,7 +5,7 @@ import { ArrowRight, Check, Clock } from 'lucide-react'
 import { FadeUp } from '@/components/animations/FadeUp'
 import { useLanguage } from '@/context/LanguageContext'
 import { CIUDADES, rutaCiudad } from '@/lib/cities'
-import { ANIO_APERTURA, ESTADO, copy } from '@/lib/valle-texas'
+import { ESTADO, copy } from '@/lib/valle-texas'
 
 /**
  * Presencia internacional de la marca.
