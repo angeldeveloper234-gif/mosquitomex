@@ -5,6 +5,7 @@ import { ArrowRight, Check, Clock } from 'lucide-react'
 import { FadeUp } from '@/components/animations/FadeUp'
 import { useLanguage } from '@/context/LanguageContext'
 import { CIUDADES, rutaCiudad } from '@/lib/cities'
+import { ANIO_APERTURA, ESTADO, copy } from '@/lib/valle-texas'
 
 /**
  * Presencia internacional de la marca.
@@ -28,6 +29,11 @@ import { CIUDADES, rutaCiudad } from '@/lib/cities'
 export function Presencia() {
   const { language } = useLanguage()
   const isES = language === 'es'
+  // Mismo interruptor que la pagina del Valle: si cambia el estado, cambian
+  // los dos a la vez. Dos textos con estados distintos es como el sitio se
+  // contradice solo.
+  const presenteEnValle = ESTADO === 'presente'
+  const cValle = copy(isES ? 'es' : 'en')
 
   return (
     <section
@@ -97,31 +103,29 @@ export function Presencia() {
             no contratar el servicio.
           */}
           <FadeUp delay={0.1}>
-            <article className="h-full rounded-2xl border-2 border-dashed border-[#C8CDD6] bg-[#F8F9FA] p-7">
-              <p className="inline-flex items-center gap-2 rounded-full bg-[#5A6070] px-3 py-1 text-[0.6875rem] font-black uppercase tracking-[0.14em] text-white">
-                <Clock className="size-3.5" />
-                {isES ? 'Próximamente 2027' : 'Coming 2027'}
+            <article className={`h-full rounded-2xl border-2 p-7 ${presenteEnValle ? "border-[#ce1126] bg-white" : "border-dashed border-[#C8CDD6] bg-[#F8F9FA]"}`}>
+              <p className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-[0.6875rem] font-black uppercase tracking-[0.14em] text-white ${
+                presenteEnValle ? 'bg-[#ce1126]' : 'bg-[#5A6070]'
+              }`}>
+                {presenteEnValle ? <Check className="size-3.5" /> : <Clock className="size-3.5" />}
+                {cValle.etiqueta}
               </p>
               <h3 className="mt-4 text-2xl font-black uppercase tracking-tighter text-[#5A6070]">
-                {isES ? 'Estados Unidos · Texas' : 'United States · Texas'}
+                {isES ? 'Valle de Texas · EE.UU.' : 'Rio Grande Valley · USA'}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-[#5A6070]">
-                {isES
-                  ? 'Nuestra próxima apertura está prevista en Texas para 2027. Todavía no damos servicio en Estados Unidos: cuando abramos, lo anunciaremos acá.'
-                  : 'Our next opening is planned for Texas in 2027. We do not yet operate in the United States: when we do, we will announce it here.'}
+                {cValle.resumen}
               </p>
 
               <p className="mt-4 rounded-lg bg-white px-4 py-3 text-xs leading-relaxed text-[#5A6070]">
-                {isES
-                  ? 'Si necesita control de plagas hoy en Estados Unidos, todavía no somos su opción. Preferimos decírselo a hacerle perder el tiempo.'
-                  : 'If you need pest control in the United States today, we are not your option yet. We would rather tell you than waste your time.'}
+                {cValle.aviso}
               </p>
 
               <Link
-                href="/franquicias"
+                href="/valle-de-texas"
                 className="mt-6 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-[#5A6070] hover:text-[#111111] hover:underline"
               >
-                {isES ? 'Información para franquiciatarios' : 'Franchise information'}
+                {isES ? 'Ver el Valle de Texas' : 'See the Rio Grande Valley'}
                 <ArrowRight className="size-4" />
               </Link>
             </article>

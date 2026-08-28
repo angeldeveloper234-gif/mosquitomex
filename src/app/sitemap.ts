@@ -11,7 +11,7 @@ import { CIUDADES, rutaCiudad } from '@/lib/cities'
  * degrada la confianza de Google en esa señal. Actualizar a mano al publicar
  * cambios reales de contenido.
  */
-const LAST_CONTENT_UPDATE = '2026-08-20'
+const LAST_CONTENT_UPDATE = '2026-08-21'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -64,6 +64,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   /**
+   * Valle de Texas. Entra al sitemap porque SI se indexa: tiene contenido
+   * propio y util sobre la zona, independientemente de si el servicio ya esta
+   * activo. Lo que cambia con el estado es lo que la pagina afirma, no si
+   * merece existir. Ver src/lib/valle-texas.ts.
+   */
+  const valleTexas: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE.url}/valle-de-texas`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+  ]
+
+  /**
    * Páginas por ciudad, en orden de prioridad de negocio.
    *
    * Ciudad de México va con 0.95, por encima de las otras tres y de las
@@ -92,5 +107,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...staticRoutes, ...cityRoutes, ...serviceRoutes, ...blogRoutes]
+  return [...staticRoutes, ...valleTexas, ...cityRoutes, ...serviceRoutes, ...blogRoutes]
 }
