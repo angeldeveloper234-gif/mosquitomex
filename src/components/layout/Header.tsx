@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { ChevronDown, Globe, Menu, X, Phone } from 'lucide-react'
@@ -15,6 +16,11 @@ const PHONE_HREF = SITE.phoneHref
 const WA_HREF = SITE.whatsappHref
 
 export function Header() {
+  // Qué mercado está viendo el visitante. El sitio ES México, así que todo lo
+  // que no sea /valle-de-texas cuenta como mercado mexicano.
+  const rutaActual = usePathname()
+  const esMercadoMexico = !rutaActual?.startsWith('/valle-de-texas')
+
   const { language, setLanguage, t } = useLanguage()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null)
@@ -69,11 +75,52 @@ export function Header() {
       {/* ── TOP BAR ─────────────────────────────────────────── */}
       <div className="w-full bg-[#111111]">
         <div className="container flex items-center justify-between py-2 gap-4">
-          <span className="hidden md:block text-white/50 text-xs font-medium">
-            {language === 'es'
-              ? 'Expertos en control de plagas · Servicio en todo México'
-              : 'Pest control experts · Service across Mexico'}
-          </span>
+          {/*
+            SELECTOR DE MERCADO. Reemplaza la línea que decía "Servicio en todo
+            México", que contradecía el reposicionamiento: el hero anuncia una
+            franquicia internacional y arriba se leía que el servicio era solo
+            de un país.
+
+            NO duplica el sitio. El sitio ES México: por eso "México" apunta a
+            la raíz y no a una ruta paralela. El Valle de Texas es una página
+            dedicada, no una copia con los nombres cambiados — dos sitios con el
+            mismo contenido compiten entre sí y Google se queda con uno.
+
+            Cuál está activo se marca visualmente con `aria-current`, así el
+            estado también existe para un lector de pantalla y no solo en el
+            color.
+          */}
+          <nav
+            aria-label={language === 'es' ? 'Mercado' : 'Market'}
+            className="hidden md:flex items-center gap-1 text-xs font-bold"
+          >
+            <span className="text-white/40 mr-1">
+              {language === 'es' ? 'Franquicia internacional ·' : 'International franchise ·'}
+            </span>
+            <Link
+              href="/"
+              aria-current={esMercadoMexico ? 'page' : undefined}
+              className={`px-2 py-1 rounded transition-colors ${
+                esMercadoMexico
+                  ? 'bg-white/15 text-white'
+                  : 'text-white/60 hover:text-white'
+              }`}
+            >
+              México
+            </Link>
+            <span className="text-white/25">|</span>
+            <Link
+              href="/valle-de-texas"
+              aria-current={!esMercadoMexico ? 'page' : undefined}
+              className={`px-2 py-1 rounded transition-colors ${
+                !esMercadoMexico
+                  ? 'bg-white/15 text-white'
+                  : 'text-white/60 hover:text-white'
+              }`}
+            >
+              {language === 'es' ? 'Valle de Texas' : 'Rio Grande Valley'}
+            </Link>
+          </nav>
           <div className="flex items-center gap-2 ml-auto md:ml-0">
             <a
               href={PHONE_HREF}
