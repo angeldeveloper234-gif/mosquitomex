@@ -2,6 +2,7 @@ import { SITE, absoluteUrl } from './site'
 import type { BlogPost } from './blog'
 import { SERVICES, type FaqItem, type Service } from './services'
 import { CIUDADES, rutaCiudad, type Ciudad } from './cities'
+import { ANIO_APERTURA, CONDADOS, ESTADO } from './valle-texas'
 
 /**
  * Negocio de control de plagas — para la home.
@@ -204,6 +205,73 @@ export function cityServiceSchema(ciudad: Ciudad) {
       '@type': 'ServiceChannel',
       servicePhone: SITE.phoneE164,
       serviceUrl: url,
+    },
+  }
+}
+
+/**
+ * Valle de Texas / Rio Grande Valley.
+ *
+ * ── LO QUE SE DECLARA DEPENDE DE SI SE OPERA ─────────────────────────────
+ *
+ * Con ESTADO='presente' se emite un `Service` con `areaServed` en el Rio
+ * Grande Valley y sus cuatro condados, ligado al negocio por `provider`. Eso
+ * es lo que le dice a Google "damos este servicio en esta zona".
+ *
+ * Con ESTADO='proximamente' NO se emite ese Service. Se emite una `WebPage`
+ * informativa. El motivo: `areaServed` en schema.org significa "acá presto el
+ * servicio", en presente. Declararlo antes de operar es la version estructurada
+ * de la misma mentira que no decimos en el texto, y ademas es justo el tipo de
+ * dato que Google contrasta contra la realidad.
+ *
+ * La pagina se indexa igual: lo que la hace indexable es el contenido sobre las
+ * plagas del Valle, que es verdadero hoy.
+ *
+ * NO hay `address`, ni `telephone` local, ni `aggregateRating`. No existen.
+ */
+export function valleTexasSchema() {
+  const url = absoluteUrl('/valle-de-texas')
+
+  const zona = [
+    { '@type': 'Place', name: 'Rio Grande Valley' },
+    ...CONDADOS.map((c) => ({
+      '@type': 'AdministrativeArea',
+      name: c.nombre,
+      containedInPlace: { '@type': 'State', name: 'Texas' },
+    })),
+  ]
+
+  if (ESTADO !== 'presente') {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': `${url}#page`,
+      url,
+      name: 'Control de Plagas en el Valle de Texas | Pest Control Rio Grande Valley',
+      inLanguage: ['es-MX', 'en-US'],
+      isPartOf: { '@id': `${SITE.url}/#website` },
+      about: { '@id': `${SITE.url}/#business` },
+      description:
+        `Apertura prevista en el Rio Grande Valley para ${ANIO_APERTURA}. La pagina describe el problema de plagas de la zona; el servicio todavia no esta activo.`,
+    }
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${url}#service`,
+    serviceType: 'Pest control',
+    name: 'Pest control in the Rio Grande Valley',
+    description:
+      'Control de plagas en el Valle de Texas: mosquitos, hormiga de fuego y termitas. Atencion en espanol e ingles.',
+    url,
+    provider: { '@id': `${SITE.url}/#business` },
+    areaServed: zona,
+    availableLanguage: ['es', 'en'],
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      serviceUrl: url,
+      servicePhone: SITE.phoneE164,
     },
   }
 }
