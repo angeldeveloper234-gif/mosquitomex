@@ -22,8 +22,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
+  // Sin "en México": este es el titulo POR DEFECTO, el que hereda cualquier
+  // pagina que no defina el suyo. Hoy todas lo definen, asi que no se ve —
+  // pero dejarlo con el pais encasillado significaba que la proxima pagina
+  // nueva naceria contradiciendo el reposicionamiento de marca.
+  // El SEO local no se pierde: cada pagina lleva su geografia en su propio
+  // titulo, y el home nombra CDMX, Monterrey y Mexico.
   title: {
-    default: "Control de Plagas y Fumigación en México | MosquitoMEX",
+    default: "Control de Plagas y Fumigación | MosquitoMEX",
     template: "%s | MosquitoMEX",
   },
   description: SITE.description,
@@ -54,13 +60,13 @@ export const metadata: Metadata = {
     locale: SITE.locale,
     url: SITE.url,
     siteName: SITE.name,
-    title: "Control de Plagas y Fumigación en México | MosquitoMEX",
+    title: "Control de Plagas y Fumigación | MosquitoMEX",
     description: SITE.description,
     images: [{ url: SITE.ogImage, width: 1200, height: 630, alt: SITE.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Control de Plagas y Fumigación en México | MosquitoMEX",
+    title: "Control de Plagas y Fumigación | MosquitoMEX",
     description: SITE.description,
     images: [SITE.ogImage],
   },

@@ -31,6 +31,16 @@ const nextConfig: NextConfig = {
         destination: "/blog/senales-de-roedores-en-casa",
         permanent: true,
       },
+      // /texas fue una version anterior de la pagina del segundo mercado, en
+      // modo "proximamente" y con noindex. Se reemplazo por /valle-de-texas,
+      // que es mas precisa y si se indexa. Nunca estuvo indexada ni enlazada,
+      // asi que no hay SEO que preservar — pero la URL pudo compartirse
+      // internamente mientras se revisaba, y un 404 ahi no le sirve a nadie.
+      {
+        source: "/texas",
+        destination: "/valle-de-texas",
+        permanent: true,
+      },
     ];
   },
 };

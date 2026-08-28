@@ -34,8 +34,11 @@ export function Locations() {
         
         <FadeUp>
           <div className="text-center mb-10">
+            {/* "Cobertura en México" y no "Cobertura Nacional": esta sección
+                quedó justo después del bloque internacional, y "nacional" a
+                secas ya no dice de qué país. */}
             <h2 className="text-[#111111] text-4xl md:text-5xl font-black tracking-tighter uppercase mb-4 leading-tight">
-              {isES ? 'Cobertura Nacional' : 'Nationwide Coverage'}
+              {isES ? 'Cobertura en México' : 'Coverage in Mexico'}
             </h2>
             <div className="w-48 h-0.5 bg-[#ce1126] mx-auto mb-6" />
             <p className="text-[#ce1126] italic font-medium text-sm md:text-base max-w-[70ch] mx-auto leading-relaxed">
