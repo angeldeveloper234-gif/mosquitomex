@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Cucaracha">
+  <circle cx="60" cy="60" r="54" fill="#FCE9EB" stroke="#C1121F" stroke-width="2.5"/>
+  <g fill="none" stroke="#26323A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- legs left -->
+    <path d="M50 56 L34 50 L26 54"/>
+    <path d="M49 64 L32 64 L24 70"/>
+    <path d="M50 72 L34 80 L28 88"/>
+    <!-- legs right -->
+    <path d="M70 56 L86 50 L94 54"/>
+    <path d="M71 64 L88 64 L96 70"/>
+    <path d="M70 72 L86 80 L92 88"/>
+    <!-- antennae -->
+    <path d="M55 42 L44 28 L36 24"/>
+    <path d="M65 42 L76 28 L84 24"/>
+  </g>
+  <!-- body -->
+  <ellipse cx="60" cy="66" rx="16" ry="22" fill="#26323A"/>
+  <!-- pronotum/head shield -->
+  <ellipse cx="60" cy="48" rx="12" ry="10" fill="#26323A"/>
+  <!-- wing seam -->
+  <path d="M60 52 L60 84" stroke="#FCE9EB" stroke-width="2" stroke-linecap="round"/>
+</svg>

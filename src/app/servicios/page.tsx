@@ -78,13 +78,26 @@ export default function ServiciosPage() {
                   dice qué falta — nunca stock ni una imagen de IA haciéndose
                   pasar por su trabajo.
                 */}
-                <div className="-m-6 mb-4 overflow-hidden rounded-t-lg bg-[#F1F3F5]">
+                {/*
+                  La ilustración va centrada y con aire: no ocupa el ancho de
+                  la tarjeta como una foto, porque no es una foto. `size-24`
+                  son 96px, dentro del rango pedido, y al ser cuadrada de
+                  origen (viewBox 120×120) no se deforma.
+                */}
+                <div className="mb-5 flex justify-center pt-2">
                   <FotoServicio
                     slot={service.slug as SlotServicio}
-                    className="aspect-[3/2] w-full object-cover"
+                    className="size-24 shrink-0"
                   />
                 </div>
-                <h2 className="font-black uppercase tracking-tight text-[#111111] dark:text-white mb-2.5 leading-snug group-hover:text-[#ce1126] transition-colors">
+                {/*
+                  Título achicado a text-xl (20px). Antes heredaba el tamaño
+                  por defecto del h2 y competía con la ilustración: en una
+                  tarjeta el nombre del servicio es un subtítulo, no un
+                  titular. `text-balance` reparte las dos líneas parejo en vez
+                  de dejar una palabra suelta abajo.
+                */}
+                <h2 className="text-center text-xl font-bold uppercase tracking-tight text-balance text-[#111111] dark:text-white mb-2.5 leading-tight group-hover:text-[#ce1126] transition-colors">
                   {service.name}
                 </h2>
                 <p className="text-[#5A6070] dark:text-slate-400 text-[0.9375rem] leading-relaxed flex-grow">

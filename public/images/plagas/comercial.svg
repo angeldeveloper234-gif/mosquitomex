@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Fumigacion comercial">
+  <circle cx="60" cy="60" r="54" fill="#FCE9EB" stroke="#C1121F" stroke-width="2.5"/>
+  <!-- building -->
+  <rect x="34" y="46" width="34" height="46" rx="2" fill="#26323A"/>
+  <rect x="68" y="56" width="20" height="36" rx="2" fill="#26323A" opacity="0.75"/>
+  <!-- windows -->
+  <g fill="#FCE9EB">
+    <rect x="40" y="52" width="6" height="6" rx="1"/>
+    <rect x="50" y="52" width="6" height="6" rx="1"/>
+    <rect x="40" y="63" width="6" height="6" rx="1"/>
+    <rect x="50" y="63" width="6" height="6" rx="1"/>
+    <rect x="40" y="74" width="6" height="6" rx="1"/>
+    <rect x="50" y="74" width="6" height="6" rx="1"/>
+    <rect x="73" y="62" width="5" height="5" rx="1"/>
+    <rect x="80" y="62" width="5" height="5" rx="1"/>
+    <rect x="73" y="71" width="5" height="5" rx="1"/>
+    <rect x="80" y="71" width="5" height="5" rx="1"/>
+  </g>
+  <!-- shield with check -->
+  <path d="M74 30 L88 34 L88 45 C88 54 82 59 74 62 C66 59 60 54 60 45 L60 34 Z" fill="#C1121F" stroke="#FCE9EB" stroke-width="2.5"/>
+  <path d="M68 45 L73 50 L82 40" fill="none" stroke="#FCE9EB" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

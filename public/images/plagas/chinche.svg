@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Chinche de cama">
+  <circle cx="60" cy="60" r="54" fill="#FCE9EB" stroke="#C1121F" stroke-width="2.5"/>
+  <g fill="none" stroke="#26323A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- legs -->
+    <path d="M44 58 L30 52 L24 56"/>
+    <path d="M43 66 L28 68 L22 74"/>
+    <path d="M46 74 L34 84 L30 90"/>
+    <path d="M76 58 L90 52 L96 56"/>
+    <path d="M77 66 L92 68 L98 74"/>
+    <path d="M74 74 L86 84 L90 90"/>
+    <!-- antennae -->
+    <path d="M53 46 L46 36"/>
+    <path d="M67 46 L74 36"/>
+  </g>
+  <!-- round flat body -->
+  <ellipse cx="60" cy="66" rx="20" ry="18" fill="#26323A"/>
+  <!-- segments -->
+  <g stroke="#FCE9EB" stroke-width="1.8">
+    <path d="M60 52 L60 84"/>
+    <path d="M46 60 L74 60"/>
+    <path d="M44 70 L76 70"/>
+  </g>
+  <!-- head -->
+  <ellipse cx="60" cy="49" rx="8" ry="6" fill="#26323A"/>
+</svg>

@@ -2,16 +2,21 @@ import Image from 'next/image'
 import { fotoDe, type SlotServicio } from '@/config/media-servicios'
 
 /**
- * Foto de una tarjeta de servicio, o el cartel de lo que falta.
+ * Imagen de una tarjeta de servicio.
  *
- * El cartel NO es un rectángulo de color: escribe encima, legible, qué toma
- * hace falta para esa tarjeta. Un bloque liso es indistinguible de un error de
- * código, y así se publica sin que nadie lo note. Un cartel que dice "FALTA:
- * nebulización en exterior" se nota a la primera y además le dice al cliente
- * exactamente qué sacar.
+ * Tres estados, en este orden:
  *
- * Se dibuja como SVG inline: no pesa, no pide red y se ve igual en cualquier
- * pantalla.
+ *   1. Foto real de la operación, si existe. Es lo que se quiere.
+ *   2. Ilustración de la plaga, mientras la foto no llegue. Dice qué plaga es
+ *      sin afirmar nada sobre quién la trata: es la alternativa limpia, no un
+ *      stock disfrazado de trabajo propio.
+ *   3. Cartel que dice qué foto falta, si no hubiera ni foto ni ilustración.
+ *      Nunca un cuadro de color: un bloque liso es indistinguible de un error
+ *      de código y se publica sin que nadie lo note.
+ *
+ * El `alt` sigue al estado. Con ilustración dice "Ilustración de un mosquito",
+ * no "Nuestro técnico fumigando": un alt que afirme más de lo que la imagen
+ * muestra es la misma mentira, escrita donde nadie la revisa.
  */
 export function FotoServicio({
   slot,
@@ -22,6 +27,7 @@ export function FotoServicio({
 }) {
   const foto = fotoDe(slot)
 
+  // 1. Foto real.
   if (!foto.pendiente) {
     return (
       <picture>
@@ -38,7 +44,21 @@ export function FotoServicio({
     )
   }
 
-  // Se parte en líneas cortas para que quepan en el cartel sin desbordarse.
+  // 2. Ilustración. Cuadrada de origen (viewBox 120×120): se declara con el
+  //    mismo alto y ancho para que el navegador no la deforme.
+  if (foto.ilustracion) {
+    return (
+      <Image
+        src={foto.ilustracion}
+        alt={foto.alt}
+        width={120}
+        height={120}
+        className={className}
+      />
+    )
+  }
+
+  // 3. Cartel de lo que falta. Se parte en líneas cortas para que quepa.
   const lineas: string[] = []
   let actual = ''
   for (const palabra of foto.queFalta.split(' ')) {
@@ -94,16 +114,6 @@ export function FotoServicio({
           {linea}
         </text>
       ))}
-      <text
-        x="240"
-        y="290"
-        textAnchor="middle"
-        fontFamily="system-ui, sans-serif"
-        fontSize="13"
-        fill="#8A919E"
-      >
-        Solo fotos reales de la operación · nada de stock
-      </text>
     </svg>
   )
 }

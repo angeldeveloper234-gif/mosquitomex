@@ -70,3 +70,44 @@ test('los seis slots del encargo estan declarados', () => {
   const faltan = esperados.filter((s) => !FOTOS_SERVICIOS[s])
   assert.deepEqual(faltan, [], `Faltan slots: ${faltan.join(', ')}`)
 })
+
+// ─── Ilustraciones ──────────────────────────────────────────────────────────
+
+test('cada tarjeta tiene ilustracion y el archivo existe', () => {
+  const faltan = []
+  for (const f of entradas()) {
+    if (!f.ilustracion) { faltan.push(`${f.slot}: sin ilustracion`); continue }
+    if (!fs.existsSync(path.join(RAIZ, 'public', f.ilustracion))) {
+      faltan.push(`${f.slot} -> ${f.ilustracion}`)
+    }
+  }
+  assert.deepEqual(faltan, [], `Ilustraciones faltantes: ${faltan.join(' · ')}`)
+})
+
+test('ninguna ilustracion se repite en dos tarjetas', () => {
+  const usadas = entradas().map((f) => f.ilustracion).filter(Boolean)
+  const repetidas = usadas.filter((v, i) => usadas.indexOf(v) !== i)
+  assert.deepEqual([...new Set(repetidas)], [], 'Hay ilustraciones repetidas')
+})
+
+/**
+ * El alt de una ilustracion NO puede afirmar una operacion. "Ilustracion de un
+ * mosquito" esta bien; "Nuestro tecnico fumigando" seria mentira escrita donde
+ * nadie la revisa.
+ */
+test('el alt de la ilustracion no afirma una operacion', () => {
+  const PROHIBIDO = /t[eé]cnico|nuestro|fumigando|aplicando|trabajando|operaci[oó]n/i
+  const malos = entradas()
+    .filter((f) => f.pendiente && f.ilustracion)
+    .filter((f) => PROHIBIDO.test(f.alt))
+    .map((f) => `${f.slot}: "${f.alt}"`)
+  assert.deepEqual(malos, [], `Alt que afirma operacion: ${malos.join(' · ')}`)
+})
+
+/** Las ilustraciones no cancelan la foto real: sigue pendiente. */
+test('las seis siguen marcadas como pendientes de foto real', () => {
+  const conFoto = entradas().filter((f) => !f.pendiente).map((f) => f.slot)
+  assert.deepEqual(conFoto, [], `Ya no deberian tener foto real todavia: ${conFoto}`)
+  const sinDescripcion = entradas().filter((f) => !f.queFalta).map((f) => f.slot)
+  assert.deepEqual(sinDescripcion, [], 'Toda pendiente debe decir que foto falta')
+})

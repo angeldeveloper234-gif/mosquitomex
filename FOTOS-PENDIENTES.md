@@ -1,8 +1,13 @@
 # Fotos que faltan para la página de Servicios
 
-Las seis tarjetas de `/servicios` están mostrando un cartel que dice **"FALTA
-ESTA FOTO"** en vez de una imagen. No es un error: es a propósito, hasta que
-lleguen las fotos reales.
+Las seis tarjetas de `/servicios` muestran una **ilustración de la plaga**
+mientras no haya foto real. La ilustración dice qué plaga es; una foto dice
+que ustedes la tratan. **No es lo mismo, y las fotos siguen haciendo falta.**
+
+Antes de las ilustraciones había un cartel que decía "FALTA ESTA FOTO". Se
+quitó porque ya hay algo digno que mostrar, pero eso hizo que el recordatorio
+dejara de verse en pantalla: este documento es ahora el único lugar donde
+consta que las seis fotos están pendientes.
 
 ## Por qué no se puso una foto cualquiera
 

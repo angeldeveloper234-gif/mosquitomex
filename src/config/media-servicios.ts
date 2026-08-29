@@ -47,6 +47,16 @@ export type SlotServicio =
 
 export interface FotoServicio {
   slot: SlotServicio
+  /**
+   * Ilustración de la plaga. SIEMPRE existe: es lo que se muestra mientras no
+   * haya foto real, y es la alternativa limpia que el encargo pedía en vez de
+   * meter stock disfrazado de operación propia.
+   *
+   * Que exista NO cancela la foto: sigue haciendo falta la foto real de la
+   * operación para cada tarjeta (ver FOTOS-PENDIENTES.md). Una ilustración
+   * dice qué plaga es; una foto dice que ustedes la tratan. No es lo mismo.
+   */
+  ilustracion: string
   /** Ruta del JPG. Vacía mientras esté pendiente. */
   src: string
   /** Copia WebP. Se sirve primero por <picture>. */
@@ -59,13 +69,25 @@ export interface FotoServicio {
   queFalta: string
 }
 
-/** Entrada sin foto: el cartel dirá qué falta. */
-function faltante(slot: SlotServicio, queFalta: string): FotoServicio {
+/**
+ * Entrada sin foto real: muestra la ilustración de la plaga.
+ *
+ * El `alt` describe la ILUSTRACIÓN, no una operación: "Ilustración de un
+ * mosquito", nunca "Nuestro técnico fumigando". Un alt que afirme más de lo
+ * que la imagen muestra es la misma mentira, escrita donde nadie la revisa.
+ */
+function conIlustracion(
+  slot: SlotServicio,
+  ilustracion: string,
+  alt: string,
+  queFalta: string
+): FotoServicio {
   return {
     slot,
     src: '',
     webp: '',
-    alt: `Falta la foto de ${queFalta}`,
+    ilustracion: `/images/plagas/${ilustracion}.svg`,
+    alt,
     pendiente: true,
     queFalta,
   }
@@ -78,28 +100,40 @@ function faltante(slot: SlotServicio, queFalta: string): FotoServicio {
  * describe exactamente la toma que corresponde a esa tarjeta.
  */
 export const FOTOS_SERVICIOS: Record<SlotServicio, FotoServicio> = {
-  'control-de-mosquitos': faltante(
+  'control-de-mosquitos': conIlustracion(
     'control-de-mosquitos',
+    'mosquito',
+    'Ilustración de un mosquito',
     'nebulización en exterior: técnico con la nebulizadora en un jardín o patio'
   ),
-  'control-de-cucarachas': faltante(
+  'control-de-cucarachas': conIlustracion(
     'control-de-cucarachas',
+    'cucaracha',
+    'Ilustración de una cucaracha',
     'aplicación de gel en cocina: la mano del técnico aplicando en una juntura o alacena'
   ),
-  'control-de-roedores': faltante(
+  'control-de-roedores': conIlustracion(
     'control-de-roedores',
+    'roedor',
+    'Ilustración de un roedor',
     'estación de cebo instalada y rotulada, contra un muro o en un andén'
   ),
-  'control-de-termitas': faltante(
+  'control-de-termitas': conIlustracion(
     'control-de-termitas',
+    'termita',
+    'Ilustración de una termita',
     'inyección en madera o suelo: taladro, jeringa o barrera perimetral'
   ),
-  'control-de-chinches': faltante(
+  'control-de-chinches': conIlustracion(
     'control-de-chinches',
+    'chinche',
+    'Ilustración de una chinche de cama',
     'tratamiento en colchón o base de cama, con el equipo a la vista'
   ),
-  'fumigacion-comercial': faltante(
+  'fumigacion-comercial': conIlustracion(
     'fumigacion-comercial',
+    'comercial',
+    'Ilustración de un edificio comercial con un escudo de protección',
     'técnico uniformado trabajando en una cocina de restaurante o en una bodega'
   ),
 }
