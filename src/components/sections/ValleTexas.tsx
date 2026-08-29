@@ -6,6 +6,21 @@ import { FadeUp } from '@/components/animations/FadeUp'
 import { useLanguage } from '@/context/LanguageContext'
 import { SITE } from '@/lib/site'
 import { ANIO_APERTURA, CONDADOS, ESTADO, copy } from '@/lib/valle-texas'
+import { MapaTexas } from '@/components/ui/MapaTexas'
+import {
+  IconoMosquito, IconoHormiga, IconoTermita, IconoAgua, IconoTormenta,
+} from '@/components/ui/IconosPlagas'
+
+/**
+ * Un ícono por bloque de plaga, en el mismo orden que PLAGAS.
+ *
+ * REGLA DURA DE ESTA PÁGINA: acá NO va ninguna foto de operación. Ni de
+ * México ni de ningún lado. Una foto de un técnico trabajando, puesta en la
+ * página de Texas, sugiere que ahí ya se opera — y todavía no. Por eso todo
+ * el apoyo visual es mapa, íconos e ilustración: nada que pueda leerse como
+ * "esto pasó en el Valle".
+ */
+const ICONOS = [IconoMosquito, IconoAgua, IconoHormiga, IconoTermita, IconoTormenta]
 
 /**
  * Contenido de /valle-de-texas.
@@ -82,8 +97,18 @@ export function ValleTexas() {
   return (
     <>
       {/* ── Encabezado ────────────────────────────────────────────────── */}
-      <section className="section-padding bg-[#111111]">
-        <div className="container max-w-4xl">
+      <section className="relative isolate overflow-hidden bg-[#111111]">
+        {/*
+          El mapa como marca de agua del encabezado. Da profundidad sin usar
+          una foto — que en esta página no puede haber. `aria-hidden` porque el
+          mapa con su descripción real ya está más abajo; acá es decoración.
+        */}
+        <MapaTexas
+          idPrefijo="hero"
+          decorativo
+          className="pointer-events-none absolute -right-16 -top-10 -z-10 h-[130%] text-white opacity-[0.07]"
+        />
+        <div className="container max-w-4xl section-padding">
           <FadeUp>
             <p
               className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-white ${
@@ -163,14 +188,22 @@ export function ValleTexas() {
           </FadeUp>
 
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
-            {PLAGAS.map((p) => (
-              <FadeUp key={p.n}>
-                <article className="h-full rounded-2xl border border-[#E5E8EC] bg-[#F8F9FA] p-6">
-                  <h3 className="text-lg font-bold text-[#111111]">{p.n}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#5A6070]">{p.d}</p>
-                </article>
-              </FadeUp>
-            ))}
+            {PLAGAS.map((p, i) => {
+              const Icono = ICONOS[i] ?? IconoMosquito
+              return (
+                <FadeUp key={p.n}>
+                  <article className="flex h-full gap-4 rounded-2xl border border-[#E5E8EC] bg-[#F8F9FA] p-6">
+                    <span className="mt-0.5 shrink-0 text-[#ce1126]">
+                      <Icono className="size-9" />
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-bold text-[#111111]">{p.n}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-[#5A6070]">{p.d}</p>
+                    </div>
+                  </article>
+                </FadeUp>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -191,17 +224,28 @@ export function ValleTexas() {
             </p>
           </FadeUp>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {CONDADOS.map((cond) => (
-              <FadeUp key={cond.nombre}>
-                <div className="rounded-2xl border border-[#E5E8EC] bg-white p-5">
-                  <h3 className="text-sm font-black uppercase tracking-wide text-[#ce1126]">
-                    {cond.nombre}
-                  </h3>
-                  <p className="mt-2 text-sm text-[#5A6070]">{cond.ciudades.join(' · ')}</p>
-                </div>
-              </FadeUp>
-            ))}
+          {/*
+            El mapa a la izquierda y los condados a la derecha: se ve DÓNDE
+            queda el Valle antes de leer los nombres. Una lista de cuatro
+            condados no le dice nada a quien no conoce Texas.
+          */}
+          <div className="mt-10 grid items-center gap-10 lg:grid-cols-[0.9fr_1fr]">
+            <FadeUp>
+              <MapaTexas className="mx-auto w-full max-w-sm text-[#111111]" />
+            </FadeUp>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {CONDADOS.map((cond) => (
+                <FadeUp key={cond.nombre}>
+                  <div className="h-full rounded-2xl border border-[#E5E8EC] bg-white p-5">
+                    <h3 className="text-sm font-black uppercase tracking-wide text-[#ce1126]">
+                      {cond.nombre}
+                    </h3>
+                    <p className="mt-2 text-sm text-[#5A6070]">{cond.ciudades.join(' · ')}</p>
+                  </div>
+                </FadeUp>
+              ))}
+            </div>
           </div>
 
           {!presente && (
