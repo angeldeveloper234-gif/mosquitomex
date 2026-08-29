@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { SERVICES } from "@/lib/services";
+import { FotoServicio } from "@/components/ui/FotoServicio";
+import type { SlotServicio } from "@/config/media-servicios";
 import { generatePageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/structured-data";
@@ -70,7 +72,18 @@ export default function ServiciosPage() {
                 href={`/servicios/${service.slug}`}
                 className="group flex flex-col bg-[#F8F9FA] dark:bg-slate-900 border border-[#E5E8EC] dark:border-slate-800 rounded-lg p-6 hover:border-[#ce1126] hover:shadow-md transition-all"
               >
-                <span className="text-4xl mb-4" aria-hidden="true">{service.emoji}</span>
+                {/*
+                  La foto va arriba de la tarjeta, no un emoji. Mientras no
+                  exista la foto real de esa operación se dibuja el cartel que
+                  dice qué falta — nunca stock ni una imagen de IA haciéndose
+                  pasar por su trabajo.
+                */}
+                <div className="-m-6 mb-4 overflow-hidden rounded-t-lg bg-[#F1F3F5]">
+                  <FotoServicio
+                    slot={service.slug as SlotServicio}
+                    className="aspect-[3/2] w-full object-cover"
+                  />
+                </div>
                 <h2 className="font-black uppercase tracking-tight text-[#111111] dark:text-white mb-2.5 leading-snug group-hover:text-[#ce1126] transition-colors">
                   {service.name}
                 </h2>
