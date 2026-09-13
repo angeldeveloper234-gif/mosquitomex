@@ -14,8 +14,6 @@ import { Locations }    from '@/components/sections/Locations'
 import { Presencia }    from '@/components/sections/Presencia'
 import { Franchise }    from '@/components/sections/Franchise'
 import { FAQ }          from '@/components/sections/FAQ'
-import { JsonLd }       from '@/components/seo/JsonLd'
-import { faqSchema }    from '@/lib/structured-data'
 import { HOME_FAQ }     from '@/lib/faq-home'
 import { generatePageMetadata } from '@/lib/seo'
 
@@ -48,7 +46,12 @@ export const metadata = generatePageMetadata({
 export default function Home() {
   return (
     <>
-      <JsonLd data={faqSchema(HOME_FAQ)} />
+      {/*
+        El schema FAQPage ya NO se emite acá: vive en /faq, que tiene el
+        conjunto completo. Dos paginas con el mismo FAQPage y las mismas
+        preguntas compiten entre si y Google se queda con una. El bloque
+        visible del home se mantiene igual.
+      */}
       <Hero />
       <ProcessVideo />
       <PestGrid />

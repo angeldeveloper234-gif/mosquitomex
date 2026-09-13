@@ -70,6 +70,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${SITE.url}/faq`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       // Precios. Sin numeros todavia, pero la intencion de busqueda existe y
       // hoy no la atiende nadie en el sitio: "cuanto cuesta una fumigacion",
       // "costo de fumigacion por metro cuadrado".

@@ -46,6 +46,8 @@ export function Footer() {
               <li><Link href="/servicios" className="text-slate-300 hover:text-white transition-colors">{t('common.services')}</Link></li>
               <li><Link href="/nosotros" className="text-slate-300 hover:text-white transition-colors">{t('common.about')}</Link></li>
               <li><Link href="/contacto" className="text-slate-300 hover:text-white transition-colors">{t('common.contact')}</Link></li>
+              <li><Link href="/precios" className="text-slate-300 hover:text-white transition-colors">Precios</Link></li>
+              <li><Link href="/faq" className="text-slate-300 hover:text-white transition-colors">Preguntas frecuentes</Link></li>
               <li><Link href="/franquicias" className="text-slate-300 hover:text-white transition-colors">Franquicias</Link></li>
               <li><Link href="/blog" className="text-slate-300 hover:text-white transition-colors">Blog</Link></li>
             </ul>
