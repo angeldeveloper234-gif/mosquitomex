@@ -69,6 +69,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    {
+      // Nosotros va con 0.9 y no con el 0.5 habitual de una institucional.
+      // Es la única página de toda la red que dice "PCP", que es la consulta
+      // que más apariciones trae y la que hoy no convierte en ningún clic.
+      url: `${SITE.url}/nosotros`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
   ]
 
   /**

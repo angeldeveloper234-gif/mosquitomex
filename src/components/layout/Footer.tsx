@@ -44,7 +44,7 @@ export function Footer() {
             <ul className="space-y-[0.5rem] text-[0.875rem] font-bold uppercase">
               <li><Link href="/" className="text-slate-300 hover:text-white transition-colors">{t('common.home')}</Link></li>
               <li><Link href="/servicios" className="text-slate-300 hover:text-white transition-colors">{t('common.services')}</Link></li>
-              <li><Link href="/#about" className="text-slate-300 hover:text-white transition-colors">{t('common.about')}</Link></li>
+              <li><Link href="/nosotros" className="text-slate-300 hover:text-white transition-colors">{t('common.about')}</Link></li>
               <li><Link href="/contacto" className="text-slate-300 hover:text-white transition-colors">{t('common.contact')}</Link></li>
               <li><Link href="/franquicias" className="text-slate-300 hover:text-white transition-colors">Franquicias</Link></li>
               <li><Link href="/blog" className="text-slate-300 hover:text-white transition-colors">Blog</Link></li>

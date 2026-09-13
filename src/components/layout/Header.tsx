@@ -67,6 +67,7 @@ export function Header() {
         { labelKey: 'header.nav.hotels',      descKey: 'header.nav.hotelsDesc',      href: '/#espacios' },
       ],
     },
+    { labelKey: 'header.nav.about',     href: '/nosotros' },
     { labelKey: 'header.nav.blog',      href: '/blog' },
     { labelKey: 'header.nav.franchise', href: '/franquicias' },
     // Apuntaba a '/#appointment', un ancla del home. Ahora existe /contacto:
