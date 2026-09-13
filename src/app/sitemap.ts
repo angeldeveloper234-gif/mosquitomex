@@ -61,6 +61,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+    {
+      // Contacto va alto: es la página que convierte, y hasta ahora el sitio
+      // no tenía ninguna URL propia para "contacto mosquitomex".
+      url: `${SITE.url}/contacto`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
   ]
 
   /**

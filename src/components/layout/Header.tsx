@@ -66,7 +66,9 @@ export function Header() {
     },
     { labelKey: 'header.nav.blog',      href: '/blog' },
     { labelKey: 'header.nav.franchise', href: '/franquicias' },
-    { labelKey: 'header.nav.contactUs', href: '/#appointment' },
+    // Apuntaba a '/#appointment', un ancla del home. Ahora existe /contacto:
+    // una página real, enlazable y compartible, que además lleva el formulario.
+    { labelKey: 'header.nav.contactUs', href: '/contacto' },
   ]
 
 
