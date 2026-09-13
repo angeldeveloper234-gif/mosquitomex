@@ -79,6 +79,15 @@ export function Footer() {
               {t('footer.coverage')}
             </h4>
             <ul className="space-y-[0.5rem] text-[0.875rem] font-bold uppercase">
+              {/* La madre de la sección, antes que las ciudades sueltas. */}
+              <li>
+                <Link
+                  href="/control-de-plagas"
+                  className="text-slate-300 hover:text-white transition-colors"
+                >
+                  Todas las ciudades
+                </Link>
+              </li>
               {CIUDADES.map((c) => (
                 <li key={c.slug}>
                   <Link

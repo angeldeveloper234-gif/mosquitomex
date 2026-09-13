@@ -93,12 +93,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
    * páginas de servicio: es de donde entra hoy la mayoría de las consultas.
    * El orden lo define el arreglo CIUDADES, no una lista aparte.
    */
-  const cityRoutes: MetadataRoute.Sitemap = CIUDADES.map((ciudad, i) => ({
-    url: `${SITE.url}${rutaCiudad(ciudad.slug)}`,
-    lastModified: LAST_CONTENT_UPDATE,
-    changeFrequency: 'monthly',
-    priority: i === 0 ? 0.95 : 0.85,
-  }))
+  const cityRoutes: MetadataRoute.Sitemap = [
+    {
+      // La madre de la sección. Va con 0.9, por encima de tres de las cuatro
+      // ciudades y por debajo de la Ciudad de México, que sigue siendo la que
+      // más consultas trae.
+      url: `${SITE.url}/control-de-plagas`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    ...CIUDADES.map((ciudad, i) => ({
+      url: `${SITE.url}${rutaCiudad(ciudad.slug)}`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly' as const,
+      priority: i === 0 ? 0.95 : 0.85,
+    })),
+  ]
 
   // Páginas de servicio: son las que capturan la búsqueda con intención de compra.
   const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service) => ({

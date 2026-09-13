@@ -58,6 +58,10 @@ export default async function CiudadPage({ params }: { params: Promise<Params> }
       <JsonLd
         data={breadcrumbSchema([
           { name: 'Inicio', path: '/' },
+          // El nivel intermedio ahora existe como página real. Declararlo le
+          // dice a Google que estas cuatro páginas son una sección, no cuatro
+          // hojas sueltas colgando del home.
+          { name: 'Control de plagas', path: '/control-de-plagas' },
           { name: `Control de plagas en ${ciudad.nombre}`, path: rutaCiudad(ciudad.slug) },
         ])}
       />

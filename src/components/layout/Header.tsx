@@ -55,6 +55,9 @@ export function Header() {
     // Antes apuntaba a '/#tecnologia', pero la sección <Technology /> no se
     // renderiza. Ahora lleva al hub de servicios, que sí existe y posiciona.
     { labelKey: 'header.nav.services', href: '/servicios' },
+    // La sección de ciudades vivía sin cabeza: las cuatro páginas solo se
+    // alcanzaban desde el pie. Acá entra la madre, /control-de-plagas.
+    { labelKey: 'header.nav.cities', href: '/control-de-plagas' },
     {
       labelKey: 'header.nav.forYourSpace',
       children: [
