@@ -81,7 +81,16 @@ export function Footer() {
               {t('footer.coverage')}
             </h4>
             <ul className="space-y-[0.5rem] text-[0.875rem] font-bold uppercase">
-              {/* La madre de la sección, antes que las ciudades sueltas. */}
+              {/* La madre de la sección y la página de cobertura, antes que
+                  las ciudades sueltas. */}
+              <li>
+                <Link
+                  href="/cobertura"
+                  className="text-slate-300 hover:text-white transition-colors"
+                >
+                  Cobertura
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/control-de-plagas"
