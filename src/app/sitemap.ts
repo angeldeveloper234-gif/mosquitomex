@@ -70,6 +70,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      // Precios. Sin numeros todavia, pero la intencion de busqueda existe y
+      // hoy no la atiende nadie en el sitio: "cuanto cuesta una fumigacion",
+      // "costo de fumigacion por metro cuadrado".
+      url: `${SITE.url}/precios`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       // Nosotros va con 0.9 y no con el 0.5 habitual de una institucional.
       // Es la única página de toda la red que dice "PCP", que es la consulta
       // que más apariciones trae y la que hoy no convierte en ningún clic.

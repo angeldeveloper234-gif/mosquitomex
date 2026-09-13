@@ -67,6 +67,9 @@ export function Header() {
         { labelKey: 'header.nav.hotels',      descKey: 'header.nav.hotelsDesc',      href: '/#espacios' },
       ],
     },
+    // Precios no lleva cifras todavia, pero la intencion de busqueda existe y
+    // es de las mas fuertes sin atender en todo el sitio.
+    { labelKey: 'header.nav.prices',    href: '/precios' },
     { labelKey: 'header.nav.about',     href: '/nosotros' },
     { labelKey: 'header.nav.blog',      href: '/blog' },
     { labelKey: 'header.nav.franchise', href: '/franquicias' },
