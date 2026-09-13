@@ -5,7 +5,6 @@ import { Spaces }       from '@/components/sections/Spaces'
 import { HowItWorks }   from '@/components/sections/HowItWorks'
 import { About }        from '@/components/sections/About'
 import { Logos }        from '@/components/sections/Logos'
-import { Testimonials } from '@/components/sections/Testimonials'
 import { Blog }         from '@/components/sections/Blog'
 import { Appointment }  from '@/components/sections/Appointment'
 import { ProcessVideo } from '@/components/sections/ProcessVideo'
@@ -61,7 +60,20 @@ export default function Home() {
       <HowItWorks />
       <About />
       <Logos />
-      <Testimonials />
+      {/*
+        SIN SECCIÓN DE TESTIMONIOS.
+
+        Los tres que había ("Bo Spencer", "Baron Von Anderson", "Lisa Harris")
+        entraron en el commit fundacional del sitio, sin fuente, y hablaban de
+        un "sistema de enfriamiento" — copy de la plantilla original, no de un
+        cliente de MosquitoMEX. Tres nombres estadounidenses en un sitio
+        mexicano cuyo perfil de Google no tiene ninguna reseña.
+
+        PARA VOLVER A PONERLA hacen falta reseñas reales y rastreables: las del
+        perfil de Google del negocio, con el nombre tal como la persona lo
+        firmó. Reseñas inventadas visibles son un riesgo real, no un detalle
+        de copy.
+      */}
       <Presencia />
       <Locations />
       <Franchise />
