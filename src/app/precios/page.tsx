@@ -3,7 +3,6 @@ import { ArrowRight, Phone, Ruler, Bug, Building2, Repeat, ClipboardCheck } from
 import { generatePageMetadata } from '@/lib/seo'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { breadcrumbSchema } from '@/lib/structured-data'
-import { PorConfirmar } from '@/components/ui/PorConfirmar'
 import { PCP } from '@/lib/pcp'
 import { SITE } from '@/lib/site'
 
@@ -21,8 +20,8 @@ import { SITE } from '@/lib/site'
  * qué mueve el presupuesto, qué incluye la visita y cómo pedir la cotización.
  * Eso responde la búsqueda de verdad.
  *
- * Cuando lleguen los precios: reemplazar el bloque <PorConfirmar> del rango
- * por la cifra y borrar este párrafo.
+ * Cuando lleguen los precios: la cifra entra en la sección "Cómo le
+ * entregamos el precio" y se borra este párrafo.
  */
 export const metadata = generatePageMetadata({
   title: 'Precios | Cuánto Cuesta una Fumigación y Cómo se Cotiza',
@@ -126,20 +125,27 @@ export default function PreciosPage() {
         </div>
       </section>
 
-      {/* ── EL RANGO, PENDIENTE ────────────────────────────── */}
+      {/*
+        ── CÓMO SE ENTREGA EL PRECIO ─────────────────────────
+
+        ACÁ FALTA EL RANGO ("desde $X"). No está porque el cliente todavía no
+        lo pasó, y un precio inventado en una página de precios es la peor
+        clase de dato falso: la persona llama con esa cifra en la cabeza y hay
+        que corregírsela.
+
+        Lo que sí se puede decir con la verdad es CÓMO se entrega el precio, y
+        eso es lo que dice esta sección. Cuando llegue el rango, entra acá
+        arriba como cifra destacada.
+      */}
       <section className="section-padding bg-[#F8F9FA] dark:bg-slate-900 border-t border-[#E5E8EC] dark:border-slate-800">
         <div className="container max-w-3xl text-center">
           <h2 className="text-3xl md:text-4xl font-black tracking-tighter uppercase text-[#111111] dark:text-white mb-5 leading-tight">
-            Nuestro rango de precios
+            Cómo le entregamos el precio
           </h2>
-          <p className="text-[#5A6070] dark:text-slate-400 leading-relaxed mb-6 max-w-[58ch] mx-auto">
-            <PorConfirmar>
-              precio desde — rango por tipo de servicio y si aplica costo de visita
-            </PorConfirmar>
-          </p>
-          <p className="text-[#5A6070] dark:text-slate-400 leading-relaxed text-[0.9375rem] max-w-[58ch] mx-auto">
-            Mientras tanto, la cotización se entrega por escrito después de la inspección y
-            antes de empezar cualquier trabajo. No hay cargos que aparezcan después.
+          <p className="text-[#5A6070] dark:text-slate-400 leading-relaxed text-[1.0625rem] max-w-[58ch] mx-auto">
+            La inspección y la cotización no tienen costo. El precio se entrega por escrito
+            después de ver el inmueble y antes de empezar cualquier trabajo, así que usted
+            sabe exactamente qué va a pagar. No hay cargos que aparezcan después.
           </p>
         </div>
       </section>
@@ -174,11 +180,9 @@ export default function PreciosPage() {
               La red declara además una <strong className="text-[#111111] dark:text-white">Cobertura
               por Garantía</strong>, que permite recibir tantos servicios como sean
               necesarios, sin costo adicional y con respuesta dentro de las primeras 24
-              horas, hasta que el cliente quede satisfecho.{' '}
-              <PorConfirmar>
-                si esta cobertura aplica igual al servicio residencial de MosquitoMEX y en
-                qué condiciones
-              </PorConfirmar>
+              horas, hasta que el cliente quede satisfecho. Al cotizar le confirmamos por
+              escrito qué cobertura aplica a su caso, porque las condiciones cambian según
+              el tipo de plaga y de inmueble.
             </p>
           </div>
         </div>

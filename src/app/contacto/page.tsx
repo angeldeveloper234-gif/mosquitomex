@@ -1,10 +1,9 @@
 import Link from 'next/link'
-import { Phone, Mail, MapPin, Clock, Globe2 } from 'lucide-react'
+import { Phone, Mail, Clock, Globe2 } from 'lucide-react'
 import { generatePageMetadata } from '@/lib/seo'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { breadcrumbSchema } from '@/lib/structured-data'
 import { Appointment } from '@/components/sections/Appointment'
-import { PorConfirmar } from '@/components/ui/PorConfirmar'
 import { SITE } from '@/lib/site'
 
 /**
@@ -137,30 +136,19 @@ export default function ContactoPage() {
           {/*
             DATOS OPERATIVOS.
 
-            Horario y domicilio NO se inventan. El perfil de Google del negocio
-            declara hoy un horario incorrecto; poner acá un horario "razonable"
-            empeoraría el problema en vez de arreglarlo, porque serían dos
-            fuentes distintas diciendo cosas distintas.
+            ACÁ FALTAN DOS TARJETAS: horario de atención y domicilio.
+
+            No están porque el cliente todavía no confirmó ninguno de los dos,
+            y no se inventan. El horario menos que nada: el perfil de Google
+            del negocio declara hoy uno incorrecto, así que poner acá un
+            horario "razonable" no arreglaría el problema, lo duplicaría en dos
+            fuentes que se contradicen.
+
+            No decir algo no es mentir; decir algo inventado sí. Cuando Jorge
+            los pase, vuelven como tarjetas al lado de esta, con los iconos
+            Clock y MapPin de lucide-react.
           */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="bg-white dark:bg-slate-900 border border-[#E5E8EC] dark:border-slate-800 rounded-lg p-6">
-              <Clock className="size-6 text-[#006847] mb-3" />
-              <h2 className="text-base font-bold uppercase tracking-tight text-[#111111] dark:text-white mb-2">
-                Horario de atención
-              </h2>
-              <p className="text-[#5A6070] dark:text-slate-400 text-[0.9375rem] leading-relaxed">
-                <PorConfirmar>horario de atención y si hay guardia en fin de semana</PorConfirmar>
-              </p>
-            </div>
-            <div className="bg-white dark:bg-slate-900 border border-[#E5E8EC] dark:border-slate-800 rounded-lg p-6">
-              <MapPin className="size-6 text-[#006847] mb-3" />
-              <h2 className="text-base font-bold uppercase tracking-tight text-[#111111] dark:text-white mb-2">
-                Domicilio
-              </h2>
-              <p className="text-[#5A6070] dark:text-slate-400 text-[0.9375rem] leading-relaxed">
-                <PorConfirmar>domicilio de oficina para atención al público</PorConfirmar>
-              </p>
-            </div>
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="bg-white dark:bg-slate-900 border border-[#E5E8EC] dark:border-slate-800 rounded-lg p-6">
               <Globe2 className="size-6 text-[#006847] mb-3" />
               <h2 className="text-base font-bold uppercase tracking-tight text-[#111111] dark:text-white mb-2">
@@ -172,6 +160,16 @@ export default function ContactoPage() {
                   Ver la cobertura completa
                 </Link>
                 .
+              </p>
+            </div>
+            <div className="bg-white dark:bg-slate-900 border border-[#E5E8EC] dark:border-slate-800 rounded-lg p-6">
+              <Clock className="size-6 text-[#006847] mb-3" />
+              <h2 className="text-base font-bold uppercase tracking-tight text-[#111111] dark:text-white mb-2">
+                Cuándo le respondemos
+              </h2>
+              <p className="text-[#5A6070] dark:text-slate-400 text-[0.9375rem] leading-relaxed">
+                Llámenos o escríbanos por WhatsApp y le contestamos. Si nos deja sus datos
+                en el formulario, nos comunicamos con usted para coordinar la visita.
               </p>
             </div>
           </div>
