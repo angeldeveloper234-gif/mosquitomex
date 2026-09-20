@@ -42,7 +42,13 @@ export function Header() {
     { emoji: '🐝', label: language === 'es' ? 'Abejas y Avispas'   : 'Bees & Wasps',   href: '/#plagas' },
   ]
 
-  const navItems = [
+  type NavItem = {
+    labelKey: string
+    href?: string
+    children?: { labelKey: string; descKey?: string; href: string }[]
+  }
+
+  const navItems: NavItem[] = [
     {
       labelKey: 'header.nav.solutions',
       children: [
@@ -55,6 +61,9 @@ export function Header() {
     // Antes apuntaba a '/#tecnologia', pero la sección <Technology /> no se
     // renderiza. Ahora lleva al hub de servicios, que sí existe y posiciona.
     { labelKey: 'header.nav.services', href: '/servicios' },
+    // La sección de ciudades vivía sin cabeza: las cuatro páginas solo se
+    // alcanzaban desde el pie. Acá entra la madre, /control-de-plagas.
+    { labelKey: 'header.nav.cities', href: '/control-de-plagas' },
     {
       labelKey: 'header.nav.forYourSpace',
       children: [
@@ -66,7 +75,25 @@ export function Header() {
     },
     { labelKey: 'header.nav.blog',      href: '/blog' },
     { labelKey: 'header.nav.franchise', href: '/franquicias' },
-    { labelKey: 'header.nav.contactUs', href: '/#appointment' },
+    // Apuntaba a '/#appointment', un ancla del home. Ahora existe /contacto:
+    // una página real, enlazable y compartible, que además lleva el formulario.
+    { labelKey: 'header.nav.contactUs', href: '/contacto' },
+  ]
+
+  /*
+    ÍTEMS QUE SOLO VAN EN EL CAJÓN MÓVIL.
+
+    En escritorio la barra no tiene ancho para más: con estos dos adentro, a
+    1280px el botón de "Agenda tu consulta" se sale de la pantalla y la página
+    empieza a desplazarse en horizontal. Medido, no supuesto.
+
+    No quedan huérfanas: las dos están enlazadas desde el pie, que aparece en
+    todas las páginas del sitio, y acá abajo en el menú del teléfono, donde el
+    espacio sí alcanza porque la lista es vertical.
+  */
+  const navItemsSoloMovil: NavItem[] = [
+    { labelKey: 'header.nav.about',  href: '/nosotros' },
+    { labelKey: 'header.nav.prices', href: '/precios' },
   ]
 
 
@@ -161,7 +188,21 @@ export function Header() {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6 text-[0.8125rem] font-bold uppercase tracking-wider text-[#111111]">
+          {/*
+            LA BARRA COMPLETA APARECE A PARTIR DE xl (1280px), NO DE lg (1024px).
+
+            Entre 1024 y 1279 la barra no entraba: el logo (120px), los ítems y
+            el bloque de acciones (284px) suman más que el contenedor, así que
+            el botón de "Agendar consulta" se salía de la pantalla y la página
+            se desplazaba en horizontal. Medido en el navegador: a 1024px el
+            documento pedía 1143px de ancho ANTES de agregar "Ciudades", y
+            1239px después.
+
+            En esa franja ahora se usa el cajón lateral, que tiene todos los
+            enlaces y no depende del ancho. Un encabezado que se desplaza en
+            horizontal no es una decisión de diseño, es un defecto.
+          */}
+          <nav className="hidden xl:flex items-center gap-6 text-[0.8125rem] font-bold uppercase tracking-wider text-[#111111]">
             {/* ── PLAGAS DROPDOWN ── */}
             <div
               className="relative py-2"
@@ -271,7 +312,7 @@ export function Header() {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden flex items-center justify-center w-11 h-11 text-[#111111] hover:text-[#ce1126] transition-colors focus:outline-none"
+              className="xl:hidden flex items-center justify-center w-11 h-11 text-[#111111] hover:text-[#ce1126] transition-colors focus:outline-none"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
@@ -289,7 +330,7 @@ export function Header() {
               animate={{ opacity: 0.5 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black z-40 lg:hidden"
+              className="fixed inset-0 bg-black z-40 xl:hidden"
             />
 
             <motion.div
@@ -297,7 +338,7 @@ export function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 bottom-0 w-full max-w-[20rem] bg-white z-50 p-6 flex flex-col gap-6 shadow-2xl lg:hidden overflow-y-auto"
+              className="fixed right-0 top-0 bottom-0 w-full max-w-[20rem] bg-white z-50 p-6 flex flex-col gap-6 shadow-2xl xl:hidden overflow-y-auto"
             >
               <div className="flex items-center justify-between pb-4 border-b border-gray-100">
                 <span className="text-xl font-black uppercase text-[#111111] tracking-tight">Menu</span>
@@ -389,7 +430,7 @@ export function Header() {
                   </AnimatePresence>
                 </div>
 
-                {navItems.map((item, index) => (
+                {[...navItems, ...navItemsSoloMovil].map((item, index) => (
                   <div key={index} className="border-b border-gray-100 pb-3">
                     {item.children ? (
                       <div className="flex flex-col">

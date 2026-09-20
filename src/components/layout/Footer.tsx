@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import { SITE } from '@/lib/site'
 import { useLanguage } from '@/context/LanguageContext'
@@ -44,8 +45,10 @@ export function Footer() {
             <ul className="space-y-[0.5rem] text-[0.875rem] font-bold uppercase">
               <li><Link href="/" className="text-slate-300 hover:text-white transition-colors">{t('common.home')}</Link></li>
               <li><Link href="/servicios" className="text-slate-300 hover:text-white transition-colors">{t('common.services')}</Link></li>
-              <li><Link href="/#about" className="text-slate-300 hover:text-white transition-colors">{t('common.about')}</Link></li>
-              <li><Link href="/#appointment" className="text-slate-300 hover:text-white transition-colors">{t('common.contact')}</Link></li>
+              <li><Link href="/nosotros" className="text-slate-300 hover:text-white transition-colors">{t('common.about')}</Link></li>
+              <li><Link href="/contacto" className="text-slate-300 hover:text-white transition-colors">{t('common.contact')}</Link></li>
+              <li><Link href="/precios" className="text-slate-300 hover:text-white transition-colors">Precios</Link></li>
+              <li><Link href="/faq" className="text-slate-300 hover:text-white transition-colors">Preguntas frecuentes</Link></li>
               <li><Link href="/franquicias" className="text-slate-300 hover:text-white transition-colors">Franquicias</Link></li>
               <li><Link href="/blog" className="text-slate-300 hover:text-white transition-colors">Blog</Link></li>
             </ul>
@@ -79,6 +82,24 @@ export function Footer() {
               {t('footer.coverage')}
             </h4>
             <ul className="space-y-[0.5rem] text-[0.875rem] font-bold uppercase">
+              {/* La madre de la sección y la página de cobertura, antes que
+                  las ciudades sueltas. */}
+              <li>
+                <Link
+                  href="/cobertura"
+                  className="text-slate-300 hover:text-white transition-colors"
+                >
+                  Cobertura
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/control-de-plagas"
+                  className="text-slate-300 hover:text-white transition-colors"
+                >
+                  Todas las ciudades
+                </Link>
+              </li>
               {CIUDADES.map((c) => (
                 <li key={c.slug}>
                   <Link
@@ -147,7 +168,58 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-[3rem] border-t border-white/10 pt-[2rem] flex flex-col md:flex-row justify-between items-center gap-[1rem]">
+
+        {/*
+          EMPRESA ASOCIADA A PCP INTERNACIONAL.
+
+          Va en el pie y no en una sola página a propósito: así la relación
+          queda declarada en TODAS las páginas del sitio, que es lo que hace
+          que Google entienda que las tres marcas son una red y no tres sitios
+          del mismo dueño fingiendo no conocerse.
+
+          Hasta ahora el enlace iba en una sola dirección: pcpinternacional.com
+          enlazaba a MosquitoMEX y a Big Cat, y ninguno de los dos le devolvía
+          el enlace.
+
+          El logo va sobre una placa blanca porque el PNG es transparente y su
+          texto es negro: sobre este pie oscuro sería invisible. De paso lee
+          como sello, que es exactamente la palabra que usa PCP para describir
+          su modelo de empresas asociadas.
+        */}
+        <div className="mt-[3rem] border-t border-white/10 pt-[2.5rem] flex flex-col sm:flex-row items-center gap-[1.75rem]">
+          <a
+            href="https://pcpinternacional.com"
+            target="_blank"
+            rel="noopener"
+            className="shrink-0 rounded-xl bg-white p-4 shadow-lg transition-transform hover:scale-[1.03]"
+            aria-label="PCP Internacional — empresa madre de la red"
+          >
+            <Image
+              src="/logos/pcp-internacional.png"
+              alt="PCP Internacional — Control de Plagas"
+              width={315}
+              height={192}
+              className="h-16 w-auto sm:h-20"
+            />
+          </a>
+          <p className="text-[0.875rem] leading-relaxed text-slate-300 text-center sm:text-left max-w-[60ch]">
+            <span className="block text-[0.7rem] font-black uppercase tracking-[0.2em] text-[#ce1126] mb-1">
+              Empresa asociada
+            </span>
+            MosquitoMEX es una empresa asociada a{' '}
+            <a
+              href="https://pcpinternacional.com"
+              target="_blank"
+              rel="noopener"
+              className="font-bold text-white underline underline-offset-4 hover:text-[#ce1126] transition-colors"
+            >
+              PCP Internacional
+            </a>
+            , la red que capacita, certifica y respalda a sus empresas asociadas.
+          </p>
+        </div>
+
+        <div className="mt-[2rem] border-t border-white/10 pt-[2rem] flex flex-col md:flex-row justify-between items-center gap-[1rem]">
           <p className="text-[0.75rem] uppercase font-bold tracking-widest text-slate-400">
             &copy; {new Date().getFullYear()} Mosquitomex. {t('footer.copyright')}
           </p>

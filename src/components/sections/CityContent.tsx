@@ -32,6 +32,30 @@ export function CityContent({ ciudad }: { ciudad: Ciudad }) {
       <section className="section-padding bg-[#111111]">
         <div className="container max-w-4xl">
           <FadeUp>
+            {/*
+              MIGAS DE PAN.
+
+              Las cuatro páginas de ciudad colgaban de /control-de-plagas, una
+              ruta que no existía: eran huérfanas, sin una sola ruta de vuelta
+              ni un enlace entrante desde su propia sección. Ahora la madre
+              existe y estas migas son el enlace de retorno, en el lugar donde
+              el visitante lo busca.
+            */}
+            <nav
+              aria-label={isES ? 'Ruta de navegación' : 'Breadcrumb'}
+              className="mb-5 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-400"
+            >
+              <Link href="/" className="transition-colors hover:text-white">
+                {isES ? 'Inicio' : 'Home'}
+              </Link>
+              <span aria-hidden="true">/</span>
+              <Link href="/control-de-plagas" className="transition-colors hover:text-white">
+                {isES ? 'Control de plagas' : 'Pest control'}
+              </Link>
+              <span aria-hidden="true">/</span>
+              <span className="text-white">{ciudad.nombre}</span>
+            </nav>
+
             <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white">
               <MapPin className="size-3.5" />
               {ciudad.nombre}

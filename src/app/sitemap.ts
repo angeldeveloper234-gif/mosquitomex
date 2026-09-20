@@ -61,6 +61,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+    {
+      // Contacto va alto: es la página que convierte, y hasta ahora el sitio
+      // no tenía ninguna URL propia para "contacto mosquitomex".
+      url: `${SITE.url}/contacto`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${SITE.url}/cobertura`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${SITE.url}/faq`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      // Precios. Sin numeros todavia, pero la intencion de busqueda existe y
+      // hoy no la atiende nadie en el sitio: "cuanto cuesta una fumigacion",
+      // "costo de fumigacion por metro cuadrado".
+      url: `${SITE.url}/precios`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      // Nosotros va con 0.9 y no con el 0.5 habitual de una institucional.
+      // Es la única página de toda la red que dice "PCP", que es la consulta
+      // que más apariciones trae y la que hoy no convierte en ningún clic.
+      url: `${SITE.url}/nosotros`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
   ]
 
   /**
@@ -85,12 +123,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
    * páginas de servicio: es de donde entra hoy la mayoría de las consultas.
    * El orden lo define el arreglo CIUDADES, no una lista aparte.
    */
-  const cityRoutes: MetadataRoute.Sitemap = CIUDADES.map((ciudad, i) => ({
-    url: `${SITE.url}${rutaCiudad(ciudad.slug)}`,
-    lastModified: LAST_CONTENT_UPDATE,
-    changeFrequency: 'monthly',
-    priority: i === 0 ? 0.95 : 0.85,
-  }))
+  const cityRoutes: MetadataRoute.Sitemap = [
+    {
+      // La madre de la sección. Va con 0.9, por encima de tres de las cuatro
+      // ciudades y por debajo de la Ciudad de México, que sigue siendo la que
+      // más consultas trae.
+      url: `${SITE.url}/control-de-plagas`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    ...CIUDADES.map((ciudad, i) => ({
+      url: `${SITE.url}${rutaCiudad(ciudad.slug)}`,
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency: 'monthly' as const,
+      priority: i === 0 ? 0.95 : 0.85,
+    })),
+  ]
 
   // Páginas de servicio: son las que capturan la búsqueda con intención de compra.
   const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service) => ({

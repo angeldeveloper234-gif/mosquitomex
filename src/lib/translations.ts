@@ -39,6 +39,8 @@ export const translations = {
         restaurantsDesc: "Terrazas y comedores exteriores.",
         hotels: "Hoteles",
         hotelsDesc: "Áreas comunes, albercas y jardines.",
+        cities: "Ciudades",
+        prices: "Precios",
         blog: "Blog",
         franchise: "Franquicias",
         contactUs: "Contacto",
@@ -108,27 +110,18 @@ export const translations = {
         "Atención personalizada 24/7",
       ]
     },
-    testimonials: {
-      titlePre: "Por qué amamos ",
-      titleHighlight: "Mosquitomex",
-      reviews: [
-        {
-          name: "Bo Spencer",
-          role: "Cliente por 5+ años",
-          text: "He tenido este sistema por más de 5 años y lo amo. Mosquitomex hace un gran trabajo con el servicio periódico y el mantenimiento."
-        },
-        {
-          name: "Baron Von Anderson",
-          role: "Residente",
-          text: "Agregamos repelente de mosquitos y sistema de enfriamiento. Lo mejor que pudimos haber hecho. No más ser comido vivo en mi propio patio."
-        },
-        {
-          name: "Lisa Harris",
-          role: "Cliente por 20+ años",
-          text: "He sido cliente por más de veinte años. Mi patio era inhabitable por los mosquitos y ahora es perfecto. Los recomiendo ampliamente por su profesionalismo."
-        }
-      ]
-    },
+    /*
+     * BLOQUE `testimonials` ELIMINADO (no borrar esta nota).
+     *
+     * Tenia tres resenas -"Bo Spencer", "Baron Von Anderson", "Lisa Harris"-
+     * heredadas de la plantilla original: sin fuente, con nombres
+     * estadounidenses y mencionando un "sistema de enfriamiento" que este
+     * negocio no vende. El perfil de Google de MosquitoMEX no tiene ninguna
+     * resena, asi que no habia de donde hubieran salido.
+     *
+     * Si algun dia hay resenas reales, entran aca con el nombre tal como la
+     * persona lo firmo en Google, no reescrito.
+     */
     appointment: {
       title: "Agenda una Cita",
       subtitle: "Déjanos tus datos y un especialista se pondrá en contacto contigo hoy mismo para una evaluación gratuita.",
@@ -260,6 +253,8 @@ export const translations = {
         restaurantsDesc: "Outdoor terraces and dining areas.",
         hotels: "Hotels",
         hotelsDesc: "Common areas, pools, and gardens.",
+        cities: "Cities",
+        prices: "Pricing",
         blog: "Blog",
         franchise: "Franchises",
         contactUs: "Contact Us",
@@ -329,27 +324,18 @@ export const translations = {
         "24/7 Personalized customer support",
       ]
     },
-    testimonials: {
-      titlePre: "Why we love ",
-      titleHighlight: "Mosquitomex",
-      reviews: [
-        {
-          name: "Bo Spencer",
-          role: "Customer for 5+ years",
-          text: "I have had this system for over 5 years and I love it. Mosquitomex does a great job with periodic service and maintenance."
-        },
-        {
-          name: "Baron Von Anderson",
-          role: "Resident",
-          text: "We added mosquito repellent and mist cooling system. The best thing we could have done. No more being eaten alive in my own backyard."
-        },
-        {
-          name: "Lisa Harris",
-          role: "Customer for 20+ years",
-          text: "I've been a customer for over twenty years. My yard was uninhabitable due to mosquitoes and now it's perfect. I highly recommend them for their professionalism."
-        }
-      ]
-    },
+    /*
+     * BLOQUE `testimonials` ELIMINADO (no borrar esta nota).
+     *
+     * Tenia tres resenas -"Bo Spencer", "Baron Von Anderson", "Lisa Harris"-
+     * heredadas de la plantilla original: sin fuente, con nombres
+     * estadounidenses y mencionando un "sistema de enfriamiento" que este
+     * negocio no vende. El perfil de Google de MosquitoMEX no tiene ninguna
+     * resena, asi que no habia de donde hubieran salido.
+     *
+     * Si algun dia hay resenas reales, entran aca con el nombre tal como la
+     * persona lo firmo en Google, no reescrito.
+     */
     appointment: {
       title: "Schedule An Appointment",
       subtitle: "Leave us your details and a specialist will contact you today for a free assessment.",
