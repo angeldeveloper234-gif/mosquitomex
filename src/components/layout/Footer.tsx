@@ -186,12 +186,12 @@ export function Footer() {
           como sello, que es exactamente la palabra que usa PCP para describir
           su modelo de empresas asociadas.
         */}
-        <div className="mt-[3rem] border-t border-white/10 pt-[2rem] flex flex-col sm:flex-row items-center gap-[1.25rem]">
+        <div className="mt-[3rem] border-t border-white/10 pt-[2.5rem] flex flex-col sm:flex-row items-center gap-[1.75rem]">
           <a
             href="https://pcpinternacional.com"
             target="_blank"
             rel="noopener"
-            className="shrink-0 rounded-lg bg-white p-3 transition-transform hover:scale-[1.03]"
+            className="shrink-0 rounded-xl bg-white p-4 shadow-lg transition-transform hover:scale-[1.03]"
             aria-label="PCP Internacional — empresa madre de la red"
           >
             <Image
@@ -199,7 +199,7 @@ export function Footer() {
               alt="PCP Internacional — Control de Plagas"
               width={315}
               height={192}
-              className="h-12 w-auto"
+              className="h-16 w-auto sm:h-20"
             />
           </a>
           <p className="text-[0.875rem] leading-relaxed text-slate-300 text-center sm:text-left max-w-[60ch]">
